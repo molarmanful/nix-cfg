@@ -1,7 +1,8 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
   imports = [
     ./git
+    # ./neovim
   ];
 
   home.username = "ben";
@@ -10,6 +11,7 @@
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
+    # FIXME: remove
     neovim
     zip
     xz
