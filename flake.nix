@@ -13,9 +13,10 @@
       url = "github:molarmanful/nvim-cfg";
       flake = false;
     };
-    nvchad4nix = {
+    nvchad = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nvim-cfg.follows = "nvim-cfg";
     };
 
   };
