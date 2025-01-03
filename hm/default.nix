@@ -51,6 +51,7 @@
     pciutils
     usbutils
     just
+    nil
   ];
 
   programs.home-manager.enable = true;

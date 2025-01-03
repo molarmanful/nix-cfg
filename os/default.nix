@@ -35,4 +35,6 @@
     autoPrune.enable = true;
   };
 
+  environment.variables.EDITOR = "nvim";
+
 }
