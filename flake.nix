@@ -1,11 +1,11 @@
 {
   inputs = {
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,7 +26,7 @@
       inherit (self) outputs;
 
       addendum = {
-        system.stateVersion = "24.05";
+        system.stateVersion = "24.11";
       };
 
       sys = modules: nixpkgs.lib.nixosSystem {

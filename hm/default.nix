@@ -17,7 +17,7 @@
   home.username = "ben";
   home.homeDirectory = "/home/ben";
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
     nvchad
