@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, inputs, outputs, ... }: {
 
   networking.hostName = lib.mkDefault "jimbo";
 
@@ -14,19 +14,11 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = lib.mkDefault true;
-
   boot.loader.systemd-boot.configurationLimit = 10;
 
   programs.fish.enable = true;
   environment.pathsToLink = ["/share/fish"];
   environment.shells = [pkgs.fish];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.ben = import ../hm/default.nix;
-  };
 
   users.users.ben = {
     isNormalUser = true;

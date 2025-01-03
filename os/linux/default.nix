@@ -1,0 +1,9 @@
+{...}: {
+
+  imports = [
+    ../.
+  ];
+
+  networking.hostName = "linux";
+
+}

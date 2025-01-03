@@ -9,49 +9,64 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvim-cfg = {
+    nvchad-starter = {
       url = "github:molarmanful/nvim-cfg";
       flake = false;
     };
-    nvchad = {
+    nvchad4nix = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nvim-cfg.follows = "nvim-cfg";
+      inputs.nvchad-starter.follows = "nvchad-starter";
     };
 
   };
 
   outputs = { self, nixpkgs, nixos-wsl, home-manager, ... }@inputs: 
     let
-      inherit (self) output;
+      inherit (self) outputs;
+
+      addendum = {
+        system.stateVersion = "24.05";
+      };
+
+      sys = modules: nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+	specialArgs = { inherit inputs outputs; };
+        modules = modules ++ [
+          home-manager.nixosModules.home-manager
+	  {
+            home-manager = {
+	      extraSpecialArgs = { inherit inputs outputs; };
+              # useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ben = import ./hm/default.nix;
+            };
+	  }
+	  addendum
+        ];
+      };
+
     in {
       nixosConfigurations = {
 
-        jimbo = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            nixos-wsl.nixosModules.default
-            ./os
-            home-manager.nixosModules.home-manager
-            {
-              system.stateVersion = "24.05";
-            }
-          ];
-        };
+        linux = sys [ ./os/linux ];
 
-        jimbo-wsl = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            nixos-wsl.nixosModules.default
-            ./os/wsl
-            home-manager.nixosModules.home-manager
-            {
-              system.stateVersion = "24.05";
-            }
+        wsl = sys [ 
+          nixos-wsl.nixosModules.default
+	  ./os/wsl
+	];
+
+      };
+      homeConfigurations = {
+
+        home = {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	  extraSpecialArgs = { inherit inputs outputs; };
+	  modules = [
+            ./hm
+	    addendum
           ];
-        };
+	};
 
       };
     };

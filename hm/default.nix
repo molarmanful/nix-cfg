@@ -1,9 +1,18 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: rec {
 
   imports = [
     ./git
-    # ./neovim
+    ./neovim
   ];
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        nvchad = inputs.nvchad4nix.packages."${pkgs.system}".nvchad;
+      })
+    ];
+  };
 
   home.username = "ben";
   home.homeDirectory = "/home/ben";
@@ -11,14 +20,14 @@
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
-    # FIXME: remove
-    neovim
+    nvchad
     zip
     xz
     unzip
     p7zip
+    bat
     ripgrep
-    jq
+    repgrep
     fzf
     file
     which
@@ -26,6 +35,7 @@
     gnused
     gnutar
     gawk
+    jq
     zstd
     gnupg
     nix-output-monitor
@@ -40,6 +50,7 @@
     ethtool
     pciutils
     usbutils
+    just
   ];
 
   programs.home-manager.enable = true;

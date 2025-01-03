@@ -4,7 +4,7 @@
     ../.
   ];
 
-  networking.hostName = "jimbo-wsl";
+  networking.hostName = "wsl";
   
   wsl = {
     enable = true;

@@ -111,44 +111,6 @@
     "nvchad-starter": {
       "flake": false,
       "locked": {
-        "lastModified": 1728129783,
-        "narHash": "sha256-SVpep7lVX0isYsUtscvgA7Ga3YXt/2jwQQCYkYadjiM=",
-        "owner": "NvChad",
-        "repo": "starter",
-        "rev": "d0c602f5f155d4d1261609219e9b8a61e936d681",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NvChad",
-        "ref": "main",
-        "repo": "starter",
-        "type": "github"
-      }
-    },
-    "nvchad4nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nvchad-starter": "nvchad-starter"
-      },
-      "locked": {
-        "lastModified": 1735792394,
-        "narHash": "sha256-1Kx3Ec6Q/nEex7TUkNoiik9d8z+5r5qbu59T1bv/H8o=",
-        "owner": "nix-community",
-        "repo": "nix4nvchad",
-        "rev": "f8cd97fae412b7cddbe64cc719402b04f7700fb9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nix4nvchad",
-        "type": "github"
-      }
-    },
-    "nvim-cfg": {
-      "flake": false,
-      "locked": {
         "lastModified": 1735857388,
         "narHash": "sha256-vcycGNXCjaLzCYiNXHCeBJcoITJw/8SwFM8O8bpsZVI=",
         "owner": "molarmanful",
@@ -162,13 +124,36 @@
         "type": "github"
       }
     },
+    "nvchad4nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nvchad-starter": [
+          "nvchad-starter"
+        ]
+      },
+      "locked": {
+        "lastModified": 1735878528,
+        "narHash": "sha256-xHBzGEcch6fnTQd8F9BDq2RN3k0XfSq0Mh9WhS3bYjU=",
+        "owner": "nix-community",
+        "repo": "nix4nvchad",
+        "rev": "249a9faa69f7f44048f7926c6f37808158bfb326",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix4nvchad",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
-        "nvchad4nix": "nvchad4nix",
-        "nvim-cfg": "nvim-cfg"
+        "nvchad-starter": "nvchad-starter",
+        "nvchad4nix": "nvchad4nix"
       }
     },
     "systems": {
