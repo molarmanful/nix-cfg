@@ -5,7 +5,7 @@
   ];
 
   networking.hostName = "wsl";
-  
+
   wsl = {
     enable = true;
     wslConf.automount.root = "/mnt";
