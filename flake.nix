@@ -31,18 +31,18 @@
 
       sys = modules: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	specialArgs = { inherit inputs outputs; };
+	      specialArgs = { inherit inputs outputs; };
         modules = modules ++ [
           home-manager.nixosModules.home-manager
-	  {
+	        {
             home-manager = {
-	      extraSpecialArgs = { inherit inputs outputs; };
+	            extraSpecialArgs = { inherit inputs outputs; };
               # useGlobalPkgs = true;
               useUserPackages = true;
               users.ben = import ./hm/default.nix;
             };
-	  }
-	  addendum
+          }
+          addendum
         ];
       };
 
@@ -53,20 +53,20 @@
 
         wsl = sys [ 
           nixos-wsl.nixosModules.default
-	  ./os/wsl
-	];
+          ./os/wsl
+        ];
 
       };
       homeConfigurations = {
 
         home = {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	  extraSpecialArgs = { inherit inputs outputs; };
-	  modules = [
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
             ./hm
-	    addendum
+            addendum
           ];
-	};
+        };
 
       };
     };
