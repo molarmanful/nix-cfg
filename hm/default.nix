@@ -3,6 +3,7 @@
 
   imports = [
     ./git.nix
+    ./direnv.nix
     ./fish.nix
     ./nixcats.nix
   ];

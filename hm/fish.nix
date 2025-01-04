@@ -58,4 +58,6 @@
 
     };
   };
+
+  programs.fzf.enableFishIntegration = false;
 }
