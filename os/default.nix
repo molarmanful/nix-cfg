@@ -1,10 +1,14 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
 
   networking.hostName = lib.mkDefault "jimbo";
 
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
     };
     gc = {
@@ -18,8 +22,8 @@
 
   programs.fish.enable = true;
   environment = {
-    pathsToLink = ["/share/fish"];
-    shells = [pkgs.fish];
+    pathsToLink = [ "/share/fish" ];
+    shells = [ pkgs.fish ];
   };
 
   users.users.ben = {

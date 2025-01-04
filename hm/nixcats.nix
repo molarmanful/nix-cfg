@@ -1,9 +1,10 @@
-{pkgs, inputs, ...}: {
-  # programs.neovim.enable = true;
+{ pkgs, inputs, ... }:
+{
   home =
     let
       nvim = inputs.nvim-cfg.packages."${pkgs.system}".default;
-    in {
+    in
+    {
       packages = [
         nvim
       ];

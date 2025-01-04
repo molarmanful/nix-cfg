@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }:
+{
 
   imports = [
     ./git.nix
