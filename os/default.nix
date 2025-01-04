@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, outputs, ... }: {
+{ lib, pkgs, ... }: {
 
   networking.hostName = lib.mkDefault "jimbo";
 
@@ -17,8 +17,16 @@
   boot.loader.systemd-boot.configurationLimit = 10;
 
   programs.fish.enable = true;
-  environment.pathsToLink = ["/share/fish"];
-  environment.shells = [pkgs.fish];
+  environment = {
+    pathsToLink = ["/share/fish"];
+    shells = [pkgs.fish];
+    variables.EDITOR = "nvim";
+    shellAliases = {
+      v = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+    };
+  };
 
   users.users.ben = {
     isNormalUser = true;
@@ -34,7 +42,5 @@
     enableOnBoot = true;
     autoPrune.enable = true;
   };
-
-  environment.variables.EDITOR = "nvim";
 
 }
