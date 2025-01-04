@@ -5,25 +5,13 @@
     ./nixcats.nix
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-
-      (final: prev: {
-        nvim = inputs.nvim-cfg.packages."${pkgs.system}".default;
-      })
-
-    ];
-  };
-
   home.username = "ben";
   home.homeDirectory = "/home/ben";
 
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    # nvchad
-    nvim
+    inputs.nvim-cfg.packages."${system}".default
     zip
     xz
     unzip
