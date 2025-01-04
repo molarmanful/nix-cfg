@@ -16,6 +16,12 @@
       set -g hydro_color_pwd yellow
       set -g hydro_color_git green
       set -g hydro_color_duration blue
+
+      set -g _color_shlvl (set_color magenta)
+      set -g _shlvl ""
+      if test $SHLVL -gt 1
+          set -g _shlvl "$SHLVL"
+      end
     '';
 
     interactiveShellInit = ''
@@ -47,7 +53,7 @@
       '';
 
       fish_right_prompt = ''
-        echo -e "$_my_status_e$_hydro_color_duration$_hydro_cmd_duration$hydro_color_normal$_hydro_color_pwd$_hydro_pwd$hydro_color_normal $_hydro_color_git$$_hydro_git$hydro_color_normal"
+        echo -e "$_my_status_e$_hydro_color_duration$_hydro_cmd_duration$hydro_color_normal$_hydro_color_pwd$_hydro_pwd$hydro_color_normal $_hydro_color_git$$_hydro_git$hydro_color_normal$_color_shlvl$_shlvl$_hydro_color_normal"
       '';
 
     };
