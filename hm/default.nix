@@ -1,8 +1,8 @@
 { pkgs, inputs, ... }: {
 
   imports = [
-    ./git
-    ./neovim
+    ./git.nix
+    ./nvchad.nix
   ];
 
   nixpkgs = {

@@ -1,7 +1,7 @@
 {
 
   imports = [
-    ../.
+    ./.
   ];
 
   networking.hostName = "wsl";
