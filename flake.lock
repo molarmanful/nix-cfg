@@ -141,34 +141,13 @@
         "type": "github"
       }
     },
-    "nvim-cfg": {
-      "inputs": {
-        "nixCats": "nixCats",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1735981530,
-        "narHash": "sha256-KMxy4NLcI11/p9mEkhGeqbSlMtpcnrfHjvwz8l1+Yy4=",
-        "owner": "molarmanful",
-        "repo": "nvim-cfg",
-        "rev": "8a708f21daa9f129fb934e37eea490e20316d8b1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "molarmanful",
-        "repo": "nvim-cfg",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "nixCats": "nixCats",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs_2",
-        "nvim-cfg": "nvim-cfg"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {

@@ -2,19 +2,15 @@
   inputs = {
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     flake-utils.url = "github:numtide/flake-utils";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvim-cfg = {
-      url = "github:molarmanful/nvim-cfg";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
   outputs =
