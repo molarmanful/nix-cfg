@@ -76,6 +76,7 @@ let
           fzf
 
           nil
+          nixd
           lua-language-server
 
           nixfmt-rfc-style
@@ -220,18 +221,7 @@ forEachSystem (
     devShells = {
       default = pkgs.mkShell {
         name = defaultPackageName;
-        packages = with pkgs; [
-          defaultPackage
-
-          nil
-          nixfmt-rfc-style
-          statix
-          deadnix
-
-          lua-language-server
-          stylua
-          selene
-        ];
+        packages = [ defaultPackage ];
         inputsFrom = [ ];
         shellHook = '''';
       };

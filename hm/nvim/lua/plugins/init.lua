@@ -21,6 +21,7 @@ local lsps = {
   'vtsls',
   'emmet_language_server',
   'nil_ls',
+  'nixd',
 }
 
 local syns = {
