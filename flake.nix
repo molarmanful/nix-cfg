@@ -78,6 +78,7 @@
 
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
+          just
           nil
           nixfmt-rfc-style
           statix
