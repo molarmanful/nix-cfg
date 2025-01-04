@@ -3,6 +3,7 @@
 
   imports = [
     ./git.nix
+    ./fish.nix
     ./nixcats.nix
   ];
 
@@ -21,6 +22,7 @@
     repgrep
     fzf
     file
+    fd
     which
     tree
     gnused
