@@ -1,6 +1,3 @@
-{ inputs, ... }: {
-
-  imports = [
-    inputs.nvim-cfg.homeModule
-  ];
+{
+  programs.neovim.enable = true;
 }
