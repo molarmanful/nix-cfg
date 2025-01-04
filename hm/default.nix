@@ -2,17 +2,12 @@
 
   imports = [
     ./git.nix
-    # ./nvchad.nix
     ./nixcats.nix
   ];
 
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-
-      (final: prev: {
-        nvchad = inputs.nvchad4nix.packages."${pkgs.system}".nvchad;
-      })
 
       (final: prev: {
         nvim = inputs.nvim-cfg.packages."${pkgs.system}".default;

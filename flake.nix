@@ -9,16 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nvchad-starter = {
-    #   url = "github:molarmanful/nvim-cfg";
-    #   flake = false;
-    # };
-    # nvchad4nix = {
-    #   url = "github:nix-community/nix4nvchad";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.nvchad-starter.follows = "nvchad-starter";
-    # };
-
     nvim-cfg = {
       url = "github:molarmanful/nvim-cfg";
       inputs.nixpkgs.follows = "nixpkgs";
