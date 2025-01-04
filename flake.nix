@@ -3,6 +3,7 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -76,15 +77,23 @@
         };
       };
 
-      devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          just
-          nil
-          nixfmt-rfc-style
-          statix
-          deadnix
-        ];
-      };
+      devShells = flake-utils.lib.eachDefaultSystemPassThrough (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          ${system}.default = pkgs.mkShell {
+            packages = with pkgs; [
+              just
+              nil
+              nixfmt-rfc-style
+              statix
+              deadnix
+            ];
+          };
+        }
+      );
 
     };
 }
