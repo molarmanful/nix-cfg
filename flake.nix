@@ -13,6 +13,7 @@
       url = "github:molarmanful/nvim-cfg";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs =
@@ -20,16 +21,20 @@
       self,
       nixpkgs,
       nixos-wsl,
+      flake-utils,
       home-manager,
       ...
     }@inputs:
     let
+
       inherit (self) outputs;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
 
       sys =
         modules:
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = { inherit inputs outputs; };
           modules = modules ++ [
             home-manager.nixosModules.home-manager
@@ -49,20 +54,18 @@
 
     in
     {
+
       nixosConfigurations = {
-
         linux = sys [ ./os/linux.nix ];
-
         wsl = sys [
           nixos-wsl.nixosModules.default
           ./os/wsl.nix
         ];
-
       };
-      homeConfigurations = {
 
+      homeConfigurations = {
         home = {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./hm
@@ -71,7 +74,16 @@
             }
           ];
         };
-
       };
+
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+          nil
+          nixfmt-rfc-style
+          statix
+          deadnix
+        ];
+      };
+
     };
 }
