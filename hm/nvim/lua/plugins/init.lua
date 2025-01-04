@@ -65,15 +65,14 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = {
+    config = function()
+      require 'configs.treesitter' {
       auto_install = true,
       ensure_installed = syns,
       indent = {
         disable = { 'markdown' },
       },
-    },
-    config = function(_, opts)
-      require 'configs.treesitter'(opts)
+    }
     end,
   },
 
