@@ -11,7 +11,6 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    inputs.nvim-cfg.packages."${system}".default
     zip
     xz
     unzip

@@ -20,12 +20,6 @@
   environment = {
     pathsToLink = ["/share/fish"];
     shells = [pkgs.fish];
-    variables.EDITOR = "nvim";
-    shellAliases = {
-      v = "nvim";
-      vi = "nvim";
-      vim = "nvim";
-    };
   };
 
   users.users.ben = {
