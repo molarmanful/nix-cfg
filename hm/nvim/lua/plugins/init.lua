@@ -22,6 +22,7 @@ local lsps = {
   'emmet_language_server',
   'nil_ls',
   'nixd',
+  'nushell',
 }
 
 local syns = {

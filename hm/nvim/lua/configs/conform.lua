@@ -21,6 +21,7 @@ return {
     c = { 'clang-format' },
     cpp = { 'clang-format' },
     nix = { 'nixfmt' },
+    nu = { 'nufmt' },
   },
 
   formatters = {
