@@ -5,11 +5,11 @@ return {
 
   formatters_by_ft = {
     lua = { 'stylua' },
-    css = { 'prettierd' },
-    html = { 'prettierd' },
-    svelte = { 'prettierd' },
-    javascript = { 'prettierd' },
-    typescript = { 'prettierd' },
+    css = { 'prettier' },
+    html = { 'prettier' },
+    svelte = { 'prettier' },
+    javascript = { 'prettier' },
+    typescript = { 'prettier' },
     python = { 'black' },
     go = { 'golines' },
     sh = { 'shfmt' },
