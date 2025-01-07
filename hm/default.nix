@@ -33,6 +33,7 @@
     zstd
     gnupg
     nix-output-monitor
+    nix-du
     btop
     iotop
     iftop
