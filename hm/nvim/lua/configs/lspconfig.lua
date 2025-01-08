@@ -1,6 +1,4 @@
-local nix = require('nixCatsUtils').isNixCats
 local lspconfig = require 'lspconfig'
-local set = vim.keymap.set
 
 local configs = require 'nvchad.configs.lspconfig'
 local on_init = configs.on_init
