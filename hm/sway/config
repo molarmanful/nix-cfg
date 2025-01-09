@@ -6,4 +6,9 @@ input "type:touchpad" {
   dwtp enabled
 }
 
-workspace 1
+gaps inner 16
+
+bindsym $mod+d exec tofi
+
+exec swaymsg "workspace 1; exec floorp;"
+exec swaymsg "workspace 2; exec wezterm;"
