@@ -44,7 +44,7 @@
       ethtool
       pciutils
       usbutils
-      nmcli
+      nmtui
       just
     ];
   };

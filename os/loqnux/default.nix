@@ -8,7 +8,6 @@
 
   networking = {
     hostName = "loqnux";
-    wireless.enable = true;
     networkmanager.enable = true;
   };
 
