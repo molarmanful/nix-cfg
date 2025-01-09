@@ -46,6 +46,7 @@
       pciutils
       usbutils
       nmcli
+      just
     ];
   };
 
