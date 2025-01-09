@@ -1,6 +1,6 @@
 gaps inner 16
-default_border pixel 1
-default_floating_border pixel 1
+default_border normal 1
+default_floating_border normal 1
 
 input "type:touchpad" {
   natural_scroll enabled
@@ -11,6 +11,11 @@ input "type:touchpad" {
 }
 
 focus_follows_mouse no
+
+for_window [app_id="floorp"] default_border pixel 1
+for_window [app_id="floorp"] default_floating_border pixel 1
+for_window [app_id="org.wezfurlong.wezterm"] default_border pixel 1
+for_window [app_id="org.wezfurlong.wezterm"] default_floating_border pixel 1
 
 exec swaymsg "workspace 1; exec floorp;"
 exec swaymsg "workspace 2; exec wezterm;"
