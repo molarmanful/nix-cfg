@@ -2,8 +2,8 @@
 {
   imports = [
     ../.
-    ../sway.nix
-    ./wezterm
+    ../sway
+    ../wezterm
   ];
 
   home.packages = with pkgs; [

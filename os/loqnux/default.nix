@@ -14,6 +14,15 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+
+    pam.loginLimits = [
+      {
+        domain = "@users";
+        item = "rtprio";
+        type = "-";
+        value = 1;
+      }
+    ];
   };
 
   boot.loader.systemd-boot.enable = true;

@@ -1,21 +1,18 @@
 {
   wayland.windowManager.sway = {
+
     enable = true;
     wrapperFeatures.gtk = true;
+
     config = {
       modifier = "Mod4";
       terminal = "wezterm";
-      startup = [ ];
+      startup = [
+      ];
     };
-    extraConfig = ''
-      input "type:touchpad" {
-        natural_scroll enabled
-        scroll_factor 0.5
-        click_method clickfinger
-        dwt enabled
-        dwtp enabled
-      }
-    '';
+
+    extraConfig = builtins.readFile ./config;
+
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
@@ -23,5 +20,6 @@
       export _JAVA_AWT_WM_NONREPARENTING=1
       export MOZ_ENABLE_WAYLAND=1
     '';
+
   };
 }

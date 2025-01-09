@@ -1,0 +1,9 @@
+input "type:touchpad" {
+  natural_scroll enabled
+  scroll_factor 0.5
+  click_method clickfinger
+  dwt enabled
+  dwtp enabled
+}
+
+workspace 1
