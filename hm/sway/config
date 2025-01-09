@@ -1,3 +1,5 @@
+set $menu tofi
+
 input "type:touchpad" {
   natural_scroll enabled
   scroll_factor 0.5
@@ -8,7 +10,7 @@ input "type:touchpad" {
 
 gaps inner 16
 
-bindsym $mod+d exec tofi
+bindsym $mod+d exec $menu
 
 exec swaymsg "workspace 1; exec floorp;"
 exec swaymsg "workspace 2; exec wezterm;"
