@@ -12,7 +12,5 @@ input "type:touchpad" {
 
 focus_follows_mouse no
 
-bindsym $mod+d exec $menu
-
 exec swaymsg "workspace 1; exec floorp;"
 exec swaymsg "workspace 2; exec wezterm;"

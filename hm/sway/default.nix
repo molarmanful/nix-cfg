@@ -15,6 +15,7 @@
     config = {
       modifier = "Mod4";
       terminal = "wezterm";
+      menu = "tofi-run";
       defaultWorkspace = "1";
     };
 
