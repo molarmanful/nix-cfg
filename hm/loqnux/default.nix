@@ -8,8 +8,8 @@
   home.packages = with pkgs; [
     wezterm
     floorp
+    libsForQt5.qt5ct
   ];
 
   programs.waybar.enable = true;
-  programs.qt5ct.enable = true;
 }
