@@ -3,10 +3,10 @@
   imports = [
     ../.
     ../sway.nix
+    ./wezterm
   ];
 
   home.packages = with pkgs; [
-    wezterm
     floorp
     libsForQt5.qt5ct
   ];
