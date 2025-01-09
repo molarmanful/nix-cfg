@@ -31,7 +31,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs outputs; };
-          modules = [
+          modules = modules ++ [
             home-manager.nixosModules.home-manager
             {
               home-manager.users.ben.home.stateVersion = "24.11";
@@ -47,7 +47,7 @@
             {
               system.stateVersion = "24.11";
             }
-          ] ++ modules;
+          ];
         };
 
     in
