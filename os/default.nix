@@ -32,6 +32,7 @@
     extraGroups = [
       "wheel"
       "docker"
+      "networkmanager"
     ];
   };
 
@@ -40,7 +41,5 @@
     enableOnBoot = true;
     autoPrune.enable = true;
   };
-
-  security.polkit.enable = true;
 
 }

@@ -45,7 +45,7 @@
     ethtool
     pciutils
     usbutils
-    just
+    nmcli
   ];
 
   programs.home-manager.enable = true;
