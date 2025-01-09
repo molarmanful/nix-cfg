@@ -100,7 +100,7 @@
     '';
   };
 
-  time.timeZone = "America/New York";
+  time.timeZone = "America/NewYork";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
