@@ -35,16 +35,14 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs outputs; };
                 # useGlobalPkgs = true;
                 useUserPackages = true;
                 users.ben.home.stateVersion = "24.11";
               };
             }
             {
-              home-manager = {
-                users.ben = hm;
-              };
+              extraSpecialArgs = { inherit inputs outputs; };
+              home-manager.users.ben = hm;
             }
             {
               system.stateVersion = "24.11";
