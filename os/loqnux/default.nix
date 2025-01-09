@@ -55,6 +55,8 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    printing.enable = true;
   };
 
   powerManagement.powertop.enable = true;
@@ -74,5 +76,17 @@
   time.timeZone = "America/New York";
 
   i18n.defaultLocale = "en_US.UTF-8";
+
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    environment = {
+      WAYLAND_DISPLAY = "wayland-1";
+      DISPLAY = ":0";
+    };
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+    };
+  };
 
 }
