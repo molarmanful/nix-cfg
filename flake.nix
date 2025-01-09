@@ -38,6 +38,11 @@
                 extraSpecialArgs = { inherit inputs outputs; };
                 # useGlobalPkgs = true;
                 useUserPackages = true;
+                users.ben.home.stateVersion = "24.11";
+              };
+            }
+            {
+              home-manager = {
                 users.ben = hm;
               };
             }
