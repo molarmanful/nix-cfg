@@ -27,7 +27,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
 
       sys =
-        modules:
+        { modules, hm }:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs outputs; };
@@ -38,7 +38,7 @@
                 extraSpecialArgs = { inherit inputs outputs; };
                 # useGlobalPkgs = true;
                 useUserPackages = true;
-                users.ben = import ./hm;
+                users.ben = hm;
               };
             }
             {
@@ -51,11 +51,17 @@
     {
 
       nixosConfigurations = {
-        linux = sys [ ./os/linux.nix ];
-        wsl = sys [
-          nixos-wsl.nixosModules.default
-          ./os/wsl.nix
-        ];
+        loqnux = sys {
+          modules = [ ./os/loqnux.nix ];
+          hm = import ./hm/loqnux;
+        };
+        wsl = sys {
+          modules = [
+            nixos-wsl.nixosModules.default
+            ./os/wsl.nix
+          ];
+          hm = import ./hm/wsl;
+        };
       };
 
       homeConfigurations = {
