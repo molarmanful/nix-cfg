@@ -52,13 +52,13 @@
 
       nixosConfigurations = {
         loqnux = sys {
-          modules = [ ./os/loqnux.nix ];
+          modules = [ ./os/loqnux ];
           hm = import ./hm/loqnux;
         };
         wsl = sys {
           modules = [
             nixos-wsl.nixosModules.default
-            ./os/wsl.nix
+            ./os/wsl
           ];
           hm = import ./hm/wsl;
         };
