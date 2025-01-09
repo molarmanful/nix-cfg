@@ -32,9 +32,8 @@
       package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       prime = {
-        # FIXME
-        # nvidiaBusId = "PCI:14:0:0";
-        # amdgpuBusId = "PCI:54:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+        amdgpuBusId = "PCI:5:0:0";
         offload = {
           enable = true;
           enableOffloadCmd = true;
@@ -56,22 +55,35 @@
       pulse.enable = true;
     };
 
+    keyd = {
+      enable = true;
+    };
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+          user = "greeter";
+        };
+      };
+    };
+
     printing.enable = true;
   };
 
   powerManagement.powertop.enable = true;
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "greeter";
-      };
-    };
-  };
+  environment = {
+    sessionVariables.NIXOS_OZONE_WL = "1";
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    etc."libinput/local-overrides.quirks".text = ''
+      [Serial Keyboards]
+      MatchUdevType=keyboard
+      MatchName=keyd virtual keyboard
+      AttrKeyboardIntegration=internal
+    '';
+  };
 
   time.timeZone = "America/New York";
 
