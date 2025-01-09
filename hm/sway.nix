@@ -7,6 +7,15 @@
       terminal = "wezterm";
       startup = [ ];
     };
+    extraConfig = ''
+      input "type:touchpad" {
+        natural_scroll enabled
+        scroll_factor 0.5
+        click_method clickfinger
+        dwt enabled
+        dwtp enabled
+      }
+    '';
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
