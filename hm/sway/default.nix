@@ -12,6 +12,12 @@
     enable = true;
     wrapperFeatures.gtk = true;
 
+    config = {
+      modifier = "Mod4";
+      terminal = "wezterm";
+      defaultWorkspace = "1";
+    };
+
     extraConfig = builtins.readFile ./config;
 
     extraSessionCommands = ''

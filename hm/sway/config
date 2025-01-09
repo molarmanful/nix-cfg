@@ -1,9 +1,6 @@
-set $mod Mod4
-set $menu tofi
-set $term wezterm
-
 gaps inner 16
 default_border pixel 1
+default_floating_border pixel 1
 
 input "type:touchpad" {
   natural_scroll enabled
@@ -12,6 +9,8 @@ input "type:touchpad" {
   dwt enabled
   dwtp enabled
 }
+
+focus_follows_mouse no
 
 bindsym $mod+d exec $menu
 
