@@ -22,12 +22,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a5a7f4dd-82f4-4838-be3b-238fabde1805";
+    device = "/dev/disk/by-label/NixOS";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2CB1-BA94";
+    device = "/dev/disk/by-uuid/EFI";
     fsType = "vfat";
     options = [
       "fmask=0077"
