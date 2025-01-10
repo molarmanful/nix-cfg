@@ -102,10 +102,6 @@ label {
   }
 }
 
-#cpu, #memory {
-  color: @fg-good;
-}
-
 #cpu.warning, #memory.warning {
   color: @fg-degraded;
 }
@@ -115,7 +111,7 @@ label {
 }
 
 #temperature {
-  color: @fg-active;
+  color: @fg-degraded;
 }
 
 #temperature.critical {
@@ -124,6 +120,10 @@ label {
 
 #wireplumber.muted {
   color: @fg-bad;
+}
+
+#backlight {
+  color: @fg-degraded;
 }
 
 #battery.charging {
@@ -141,4 +141,8 @@ label {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#clock {
+  color: @fg-active;
 }

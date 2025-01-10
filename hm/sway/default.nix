@@ -133,6 +133,7 @@
         };
 
         backlight = {
+          reverse-scrolling = true;
           format = "{icon} {percent}";
           format-icons = [
             "🌑"
