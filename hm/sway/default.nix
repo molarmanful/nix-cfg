@@ -84,8 +84,12 @@
           "clock"
         ];
 
+        "sway/window" = {
+          max-length = 65;
+        };
+
         network = {
-          format-wifi = " {signalStrength}% @ {essid}";
+          format-wifi = " ({signalStrength}%) {essid}";
           format-ethernet = "{ipaddr}/{cidr} ";
           tooltip-format = "{ifname} via {gwaddr} 󰀂";
           format-linked = "{ifname} (No IP) ";
@@ -144,7 +148,7 @@
 
         clock = {
           interval = 30;
-          format = "{:%a, %b %d %Y @ %H:%M %p}";
+          format = "{:%a, %b %d %Y | %H:%M %p}";
         };
 
       }

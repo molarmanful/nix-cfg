@@ -40,8 +40,12 @@ window#waybar {
 #workspaces button {
   background-color: @bg-inactive;
   color: @fg-inactive;
-  padding: 0 6px;
+  padding: 0 4px;
   transition-duration: .2s;
+}
+
+#workspaces button label {
+  color: inherit;
 }
 
 #workspaces button.focused {
@@ -49,7 +53,7 @@ window#waybar {
   color: @fg-focused;
 }
 
-#workspaces button:hover, button.active {
+#workspaces button:hover {
   background-color: @bg-active;
   color: @fg-active;
 }
@@ -72,7 +76,7 @@ window#waybar {
 #battery,
 #clock {
   background-color: @sep;
-  padding: 0 4px;
+  padding: 0 8px;
 }
 
 @keyframes blink {
