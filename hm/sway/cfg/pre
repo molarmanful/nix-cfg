@@ -6,4 +6,4 @@ set $down j
 set $up k
 set $right l
 set $term wezterm
-set $menu tofi-run
+set $menu tofi-run | xargs swaymsg exec --

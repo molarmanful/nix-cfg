@@ -4,8 +4,7 @@
   home.packages = with pkgs; [
     pw-volume
     tofi
-    grim
-    slurp
+    sway-contrib.grimshot
     helvum
   ];
 
