@@ -32,6 +32,7 @@ cfg.colors = {
 	},
 }
 cfg.use_fancy_tab_bar = false
+cfg.hide_tab_bar_if_only_one_tab = true
 
 local font = function(fam, size, scale, nobold)
 	local f = fam

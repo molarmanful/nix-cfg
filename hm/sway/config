@@ -1,14 +1,17 @@
-client.focused          #86ABDC #000000 #86ABDC #86ABDC   #86ABDC
-client.focused_inactive #2B3B51 #000000 #E4E4E5 #393B44   #2B3B51
-client.unfocused        #192330 #000000 #CDCECF #2B3B51   #192330
-client.urgent           #BAA1E2 #000000 #BAA1E2 #9d79d6   #BAA1E2
-client.placeholder      #000000 #000000 #CDCECF #192330   #000000
+client.focused          #2B3B51 #2B3B51 #86ABDC #2B3B51 #2B3B51
+client.focused_inactive #2B3B51 #2B3B51 #E4E4E5 #2B3B51 #2B3B51
+client.unfocused        #192330 #192330 #575860 #192330 #192330
+client.urgent           #2B3B51 #2B3B51 #BAA1E2 #2B3B51 #2B3B51
+client.placeholder      #000000 #000000 #575860 #000000 #000000
 
 client.background       #000000
 
 gaps inner 13
+title_align center
 default_border pixel 1
 default_floating_border pixel 1
+
+focus_follows_mouse no
 
 input "type:keyboard" {
   repeat_delay 200
@@ -22,8 +25,6 @@ input "type:touchpad" {
   dwt disabled
   dwtp enabled
 }
-
-focus_follows_mouse no
 
 exec swaymsg "workspace 1; exec floorp;"
 exec swaymsg "workspace 2; exec wezterm;"
