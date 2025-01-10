@@ -12,7 +12,7 @@
     enable = true;
     wrapperFeatures.gtk = true;
 
-    config = rec {
+    config = {
       modifier = "Mod4";
       terminal = "wezterm";
       menu = "tofi-drun";
@@ -43,7 +43,9 @@
       padding-top = "35%";
       result-spacing = 25;
       font = "monospace";
-      background-color = "#000a";
+      background-color = "#000A";
+      foreground-color = "#CDCECF";
+      selection-color = "#86ABDC";
       hint-font = false;
       ascii-input = true;
     };
@@ -51,13 +53,32 @@
 
   programs.waybar = {
     enable = true;
-    settings = [
-      {
+    settings = {
+
+      mainBar = {
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+          "sway/window"
+        ];
+
+        modules-right = [
+          "network"
+          "cpu"
+          "temperature"
+          "memory"
+          "wireplumber"
+          "battery"
+          "clock"
+        ];
+
         margin-right = 8;
         margin-left = 8;
         margin-bottom = 8;
-      }
-    ];
+        spacing = 5;
+      };
+
+    };
     style = ./waybar.css;
   };
 

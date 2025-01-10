@@ -8,6 +8,8 @@
     ./nixcats.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     username = "ben";
     homeDirectory = "/home/ben";

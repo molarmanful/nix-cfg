@@ -1,3 +1,38 @@
-#waybar {
-  border: 1px solid #fff;
+@define_color bg  #000000
+@define_color fg  #CDCECF
+@define_color sep #192330
+
+@define_color bg_focused  #86ABDC
+@define_color fg_focused  #000000
+@define_color bg_active   #2B3B51
+@define_color fg_active   #E4E4E5
+@define_color bg_inactive #192330
+@define_color fg_inactive #CDCECF
+@define_color bg_urgent   #BAA1E2
+@define_color fg_urgent   #000000
+@define_color bg_binding  #BAA1E2
+@define_color fg_binding  #000000
+
+@define_color fg_good     #8EBAA4
+@define_color fg_degraded #E0C989
+@define_color fg_bad      #D16983
+
+window#waybar {
+  background-color: @bg;
+}
+
+#workspaces button {
+  background-color: @bg-inactive;
+  color: @fg-inactive;
+  border: none;
+}
+
+#workspaces button.focused {
+  background-color: @bg-focused;
+  color: @fg-focused;
+}
+
+#mode {
+  background-color: @bg-binding;
+  color: @bg_binding;
 }
