@@ -148,4 +148,5 @@
     cozette
   ];
 
+  programs.light.enable = true;
 }

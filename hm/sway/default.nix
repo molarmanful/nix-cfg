@@ -2,6 +2,7 @@
 {
 
   home.packages = with pkgs; [
+    pw-volume
     tofi
     grim
     slurp
@@ -12,16 +13,15 @@
 
     enable = true;
     wrapperFeatures.gtk = true;
-
     config = {
-      modifier = "Mod4";
-      terminal = "wezterm";
-      menu = "tofi-run";
-      defaultWorkspace = "1";
-      bars = [ { command = "swaybar_command waybar"; } ];
+      bars = [ ];
+      keybindings = { };
     };
-
-    extraConfig = builtins.readFile ./config;
+    extraConfig = ''
+      ${builtins.readFile ./cfg/pre}
+      ${builtins.readFile ./cfg/keys}
+      ${builtins.readFile ./cfg/config}
+    '';
 
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
@@ -46,7 +46,7 @@
       result-spacing = 25;
       font = "monospace";
       background-color = "#000A";
-      foreground-color = "#CDCECF";
+      text-color = "#CDCECF";
       selection-color = "#86ABDC";
       hint-font = false;
       ascii-input = true;
@@ -80,6 +80,7 @@
           "memory"
           "temperature"
           "wireplumber"
+          "backlight"
           "battery"
           "clock"
         ];
@@ -97,6 +98,10 @@
         };
 
         cpu = {
+          states = {
+            warning = 60;
+            critical = 80;
+          };
           interval = 1;
           format = "CPU {usage}%";
         };
@@ -108,6 +113,10 @@
         };
 
         memory = {
+          states = {
+            warning = 70;
+            critical = 90;
+          };
           interval = 1;
           format = "MEM {}%";
         };
@@ -120,6 +129,17 @@
             ""
             ""
             ""
+          ];
+        };
+
+        backlight = {
+          format = "{icon} {percent}";
+          format-icons = [
+            "🌑"
+            "🌒"
+            "🌓"
+            "🌔"
+            "🌕"
           ];
         };
 
@@ -155,5 +175,4 @@
     ];
 
   };
-
 }

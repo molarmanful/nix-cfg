@@ -73,6 +73,7 @@ window#waybar {
 #memory,
 #temperature,
 #wireplumber,
+#backlight,
 #battery,
 #clock {
   background-color: @sep;
@@ -101,7 +102,27 @@ label {
   }
 }
 
+#cpu, #memory {
+  color: @fg-good;
+}
+
+#cpu.warning, #memory.warning {
+  color: @fg-degraded;
+}
+
+#cpu.critical, #memory.critical {
+  color: @fg-bad;
+}
+
+#temperature {
+  color: @fg-active;
+}
+
 #temperature.critical {
+  color: @fg-bad;
+}
+
+#wireplumber.muted {
   color: @fg-bad;
 }
 

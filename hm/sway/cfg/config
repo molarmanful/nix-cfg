@@ -1,3 +1,5 @@
+# vim: filetype=swayconfig
+
 client.focused          #131A24 #000000 #E4E4E5 #131A24 #131A24
 client.focused_inactive #131A24 #000000 #86ABDC #131A24 #131A24
 client.unfocused        #131A24 #131A24 #AEAFB0 #131A24 #131A24
@@ -11,7 +13,9 @@ title_align center
 default_border pixel 1
 default_floating_border pixel 1
 
-focus_follows_mouse no
+bar {
+  swaybar_command waybar
+}
 
 input "type:keyboard" {
   repeat_delay 200
@@ -26,5 +30,7 @@ input "type:touchpad" {
   dwtp enabled
 }
 
-exec swaymsg "workspace 1; exec floorp;"
+focus_follows_mouse no
+
+exec swaymsg "workspace 1; layout tabbed; exec floorp; exec discord; focus left;"
 exec swaymsg "workspace 2; exec wezterm;"
