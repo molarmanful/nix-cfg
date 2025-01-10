@@ -13,5 +13,6 @@
     discord
     obsidian
     zoom-us
+    godot_4
   ];
 }
