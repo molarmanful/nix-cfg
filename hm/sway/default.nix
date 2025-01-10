@@ -53,9 +53,9 @@
 
   programs.waybar = {
     enable = true;
-    settings = {
+    settings = [
 
-      mainBar = {
+      {
         modules-left = [
           "sway/workspaces"
           "sway/mode"
@@ -76,9 +76,9 @@
         margin-left = 8;
         margin-bottom = 8;
         spacing = 5;
-      };
+      }
 
-    };
+    ];
     style = ./waybar.css;
   };
 
