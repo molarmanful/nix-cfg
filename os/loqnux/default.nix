@@ -136,6 +136,11 @@
   };
 
   fonts.packages = with pkgs; [
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "NerdFontsSymbolsOnly"
+      ];
+    })
     fira-code-nerdfont
     dejavu_fonts
     julia-mono

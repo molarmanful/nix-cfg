@@ -2,9 +2,10 @@
 {
 
   home.packages = with pkgs; [
+    tofi
     grim
     slurp
-    tofi
+    helvum
   ];
 
   wayland.windowManager.sway = {
@@ -17,6 +18,7 @@
       terminal = "wezterm";
       menu = "tofi-drun";
       defaultWorkspace = "1";
+      bars = [ { command = "swaybar_command waybar"; } ];
     };
 
     extraConfig = builtins.readFile ./config;
@@ -53,9 +55,16 @@
 
   programs.waybar = {
     enable = true;
+    style = ./waybar.css;
     settings = [
-
       {
+
+        position = "bottom";
+        margin-right = 13;
+        margin-left = 13;
+        margin-bottom = 13;
+        spacing = 1;
+
         modules-left = [
           "sway/workspaces"
           "sway/mode"
@@ -72,14 +81,72 @@
           "clock"
         ];
 
-        margin-right = 8;
-        margin-left = 8;
-        margin-bottom = 8;
-        spacing = 5;
-      }
+        network = {
+          format-wifi = " {signalStrength}% @ {essid}";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{ifname} via {gwaddr} 󰀂";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "disconnected ⚠";
+        };
 
+        cpu = {
+          interval = 1;
+          format = "CPU {usage}%";
+        };
+
+        temperature = {
+          critical-threshold = 80;
+          format-critical = " {temperatureC}°C";
+          format = " {temperatureC}°C";
+        };
+
+        memory = {
+          interval = 1;
+          format = "MEM {}%";
+        };
+
+        wireplumber = {
+          format = "{volume}% {icon}";
+          format-muted = "婢";
+          on-click = "helvum";
+          format-icons = [
+            ""
+            ""
+            ""
+          ];
+        };
+
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          interval = 1;
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
+        };
+
+        clock = {
+          interval = 30;
+          format = "{:%a, %b %d %Y @ %H:%M %p}";
+        };
+
+      }
     ];
-    style = ./waybar.css;
+
   };
 
 }

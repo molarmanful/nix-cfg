@@ -57,17 +57,17 @@ local font = function(fam, size, scale, nobold)
 end
 
 -- font({ "kirsch" }, 12, 0.6, true)
+font({ "Cozette" }, 9.75, 0.7)
 -- font("JuliaMono Nerd Font Mono", 10, 1)
 -- cfg.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- font({ "eldur" }, 9.75, 0.7)
 -- font({ "Kirsch Nerd Font Mono" }, 12, 0, true)
 -- font({ "jokull" }, 13.5, 0.7)
 -- font({ "TamzenForPowerline" }, 9, 0.8)
--- font({ "CozetteVector" }, 9.75, 0.7)
 -- font({ "creep2" }, 8, 0.7)
 -- font("Greybeard 11px", 8, 0.8)
 -- font({ "scientifica" }, 8, 0.7)
--- cfg.custom_block_glyphs = false
+cfg.custom_block_glyphs = false
 -- cfg.use_cap_height_to_scale_fallback_fonts = true
 -- cfg.treat_east_asian_ambiguous_width_as_wide = true
 -- cfg.cell_width = 0.5

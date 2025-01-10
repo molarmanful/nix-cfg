@@ -2,29 +2,46 @@
 @define-color fg  #CDCECF;
 @define-color sep #192330;
 
-@define-color bg_focused  #86ABDC;
-@define-color fg_focused  #000000;
-@define-color bg_active   #2B3B51;
-@define-color fg_active   #E4E4E5;
-@define-color bg_inactive #192330;
-@define-color fg_inactive #CDCECF;
-@define-color bg_urgent   #BAA1E2;
-@define-color fg_urgent   #000000;
-@define-color bg_binding  #BAA1E2;
-@define-color fg_binding  #000000;
+@define-color bg-focused  #86ABDC;
+@define-color fg-focused  #000000;
+@define-color bg-active   #2B3B51;
+@define-color fg-active   #E4E4E5;
+@define-color bg-inactive #192330;
+@define-color fg-inactive #CDCECF;
+@define-color bg-urgent   #BAA1E2;
+@define-color fg-urgent   #000000;
+@define-color bg-binding  #BAA1E2;
+@define-color fg-binding  #000000;
 
-@define-color fg_good     #8EBAA4;
-@define-color fg_degraded #E0C989;
-@define-color fg_bad      #D16983;
+@define-color fg-good     #8EBAA4;
+@define-color fg-degraded #E0C989;
+@define-color fg-bad      #D16983;
+
+* {
+  border: none;
+  border-radius: 0;
+  color: @fg;
+  font-family: Cozette;
+  font-size: 13px;
+  padding: 0;
+  box-shadow: none;
+  margin: 1px;
+}
 
 window#waybar {
   background-color: @bg;
+  border: 1px solid @sep;
+}
+
+.module-left, .module-center, .module-right {
+  padding: 1px;
 }
 
 #workspaces button {
   background-color: @bg-inactive;
   color: @fg-inactive;
-  border: none;
+  padding: 0 4px;
+  transition-duration: .2s;
 }
 
 #workspaces button.focused {
@@ -32,7 +49,55 @@ window#waybar {
   color: @fg-focused;
 }
 
+#workspaces button:hover, button.active {
+  background-color: @bg-active;
+  color: @fg-active;
+}
+
+#workspaces button.urgent {
+  background-color: @bg-urgent;
+  color: @fg-urgent;
+}
+
 #mode {
   background-color: @bg-binding;
-  color: @bg_binding;
+  color: @fg_binding;
+}
+
+#network,
+#cpu,
+#memory,
+#temperature,
+#wireplumber,
+#battery,
+#clock {
+  background-color: @sep;
+  padding: 0 4px;
+}
+
+@keyframes blink {
+  to {
+    color: @sep;
+  }
+}
+
+#temperature.critical {
+  color: @fg-bad;
+}
+
+#battery.charging {
+  color: @fg-good;
+}
+
+#battery.warning:not(charging), #battery.critical.charging {
+  color: @fg-degraded;
+}
+
+#battery.critical:not(.charging) {
+  color: @fg-bad;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
