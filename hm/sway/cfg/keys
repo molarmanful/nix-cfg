@@ -3,6 +3,7 @@
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
+bindsym $mod+Shift+d exec $dmenu
 
 floating_modifier $mod normal
 
