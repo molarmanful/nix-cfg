@@ -65,8 +65,8 @@
         modules-right = [
           "network"
           "cpu"
-          "temperature"
           "memory"
+          "temperature"
           "wireplumber"
           "battery"
           "clock"
