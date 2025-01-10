@@ -63,11 +63,14 @@
         margin-right = 13;
         margin-left = 13;
         margin-bottom = 13;
-        spacing = 1;
+        spacing = 0;
 
         modules-left = [
           "sway/workspaces"
           "sway/mode"
+        ];
+
+        modules-center = [
           "sway/window"
         ];
 

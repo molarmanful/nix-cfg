@@ -40,7 +40,7 @@ window#waybar {
 #workspaces button {
   background-color: @bg-inactive;
   color: @fg-inactive;
-  padding: 0 4px;
+  padding: 0 6px;
   transition-duration: .2s;
 }
 
