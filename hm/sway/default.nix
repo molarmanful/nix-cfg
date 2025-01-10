@@ -16,7 +16,7 @@
     config = {
       modifier = "Mod4";
       terminal = "wezterm";
-      menu = "tofi-drun";
+      menu = "tofi-run";
       defaultWorkspace = "1";
       bars = [ { command = "swaybar_command waybar"; } ];
     };

@@ -10,5 +10,6 @@
     floorp
     libsForQt5.qt5ct
     discord
+    obsidian
   ];
 }
