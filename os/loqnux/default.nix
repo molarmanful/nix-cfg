@@ -65,16 +65,14 @@
 
     keyd = {
       enable = true;
-      keyboards = {
-        default = {
-          ids = [ "*" ];
-          settings = {
-            main = {
-              capslock = "leftmeta";
-              leftmeta = "leftalt";
-              "leftalt" = "rightcontrol";
-              "leftshift+leftmeta" = "rightcontrol";
-            };
+      keyboards.default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            capslock = "leftmeta";
+            leftmeta = "leftalt";
+            "leftalt" = "rightcontrol";
+            "leftshift+leftmeta" = "rightcontrol";
           };
         };
       };
