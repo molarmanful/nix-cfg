@@ -1,21 +1,21 @@
-@define-color bg  #000000
-@define-color fg  #CDCECF
-@define-color sep #192330
+@define-color bg  #000000;
+@define-color fg  #CDCECF;
+@define-color sep #192330;
 
-@define-color bg_focused  #86ABDC
-@define-color fg_focused  #000000
-@define-color bg_active   #2B3B51
-@define-color fg_active   #E4E4E5
-@define-color bg_inactive #192330
-@define-color fg_inactive #CDCECF
-@define-color bg_urgent   #BAA1E2
-@define-color fg_urgent   #000000
-@define-color bg_binding  #BAA1E2
-@define-color fg_binding  #000000
+@define-color bg_focused  #86ABDC;
+@define-color fg_focused  #000000;
+@define-color bg_active   #2B3B51;
+@define-color fg_active   #E4E4E5;
+@define-color bg_inactive #192330;
+@define-color fg_inactive #CDCECF;
+@define-color bg_urgent   #BAA1E2;
+@define-color fg_urgent   #000000;
+@define-color bg_binding  #BAA1E2;
+@define-color fg_binding  #000000;
 
-@define-color fg_good     #8EBAA4
-@define-color fg_degraded #E0C989
-@define-color fg_bad      #D16983
+@define-color fg_good     #8EBAA4;
+@define-color fg_degraded #E0C989;
+@define-color fg_bad      #D16983;
 
 window#waybar {
   background-color: @bg;
