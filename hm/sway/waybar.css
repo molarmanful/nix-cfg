@@ -1,17 +1,17 @@
 @define-color bg  #000000;
-@define-color fg  #CDCECF;
-@define-color sep #192330;
+@define-color fg  #AEAFB0;
+@define-color sep #151826;
 
-@define-color bg-focused  #86ABDC;
-@define-color fg-focused  #000000;
-@define-color bg-active   #2B3B51;
-@define-color fg-active   #E4E4E5;
-@define-color bg-inactive #192330;
-@define-color fg-inactive #CDCECF;
-@define-color bg-urgent   #BAA1E2;
-@define-color fg-urgent   #000000;
-@define-color bg-binding  #BAA1E2;
-@define-color fg-binding  #000000;
+@define-color bg-focused  #000000;
+@define-color fg-focused  #E4E4E5;
+@define-color bg-active   #131A24;
+@define-color fg-active   #86ABDC;
+@define-color bg-inactive #131A24;
+@define-color fg-inactive #AEAFB0;
+@define-color bg-urgent   #000000;
+@define-color fg-urgent   #F4A261;
+@define-color bg-binding  #000000;
+@define-color fg-binding  #BAA1E2;
 
 @define-color fg-good     #8EBAA4;
 @define-color fg-degraded #E0C989;
@@ -77,6 +77,22 @@ window#waybar {
 #clock {
   background-color: @sep;
   padding: 0 8px;
+}
+
+label {
+  color: inherit;
+}
+
+#window {
+  color: @fg-inactive;
+}
+
+#network {
+  color: @fg-good;
+}
+
+#network.disabled, #network.disconnected {
+    color: @fg-bad;
 }
 
 @keyframes blink {
