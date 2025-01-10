@@ -12,10 +12,10 @@
     enable = true;
     wrapperFeatures.gtk = true;
 
-    config = {
+    config = rec {
       modifier = "Mod4";
       terminal = "wezterm";
-      menu = "tofi-run";
+      menu = "tofi-drun";
       defaultWorkspace = "1";
     };
 
