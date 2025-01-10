@@ -10,6 +10,4 @@
     floorp
     libsForQt5.qt5ct
   ];
-
-  programs.waybar.enable = true;
 }

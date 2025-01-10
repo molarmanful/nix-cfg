@@ -111,16 +111,38 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  systemd.user.services.kanshi = {
-    description = "kanshi daemon";
-    environment = {
-      WAYLAND_DISPLAY = "wayland-1";
-      DISPLAY = ":0";
+  systemd = {
+    services.tune-usb-autosuspend = {
+      description = "Disable USB autosuspend";
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+      };
+      unitConfig.RequiresMountsFor = "/sys";
+      script = ''
+        echo -1 > /sys/module/usbcore/parameters/autosuspend
+      '';
     };
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+
+    user.services.kanshi = {
+      description = "kanshi daemon";
+      environment = {
+        WAYLAND_DISPLAY = "wayland-1";
+        DISPLAY = ":0";
+      };
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+      };
     };
   };
+
+  fonts.packages = with pkgs; [
+    fira-code-nerdfont
+    dejavu_fonts
+    julia-mono
+    proggyfonts
+    cozette
+  ];
 
 }

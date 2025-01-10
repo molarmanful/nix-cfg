@@ -120,7 +120,7 @@ end
 wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
 	local gui_window = window:gui_window()
-	gui_window:toggle_fullscreen()
+	-- gui_window:toggle_fullscreen()
 	fnt_dpi(gui_window)
 end)
 

@@ -12,11 +12,15 @@
     enable = true;
     wrapperFeatures.gtk = true;
 
-    config = {
+    config = rec {
       modifier = "Mod4";
       terminal = "wezterm";
       menu = "tofi-run";
       defaultWorkspace = "1";
+
+      keybindings = {
+        ${modifier} = "exec ${menu}";
+      };
     };
 
     extraConfig = builtins.readFile ./config;
@@ -34,6 +38,7 @@
   programs.tofi = {
     enable = true;
     settings = {
+      prompt-text = ">";
       width = "100%";
       height = "100%";
       border-width = 0;
@@ -47,4 +52,10 @@
       ascii-input = true;
     };
   };
+
+  programs.waybar = {
+    enable = true;
+    margin = 8;
+  };
+
 }
