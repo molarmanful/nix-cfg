@@ -16,4 +16,12 @@
     godot_4
     distrobox
   ];
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host *
+          IdentityAgent ~/.1password/agent.sock
+    '';
+  };
 }
