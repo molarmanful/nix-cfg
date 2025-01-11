@@ -170,7 +170,9 @@
 
         clock = {
           interval = 30;
-          format = "{:%a, %b %d %Y | %H:%M %p}";
+          format = "{:%a, %b %d %Y | %I:%M %p}";
+          locale = "en_GB.UTF-8";
+          tooltip-format = "{calendar}";
         };
 
       }

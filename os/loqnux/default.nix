@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
 
   imports = [
@@ -33,7 +38,7 @@
 
     nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = false;
+      powerManagement.enable = true;
       powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
@@ -42,10 +47,7 @@
       prime = {
         nvidiaBusId = "PCI:1:0:0";
         amdgpuBusId = "PCI:5:0:0";
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
+        sync.enable = lib.mkDefault true;
       };
     };
 
@@ -99,6 +101,10 @@
 
     gvfs.enable = true;
     tumbler.enable = true;
+
+    thermald.enable = true;
+
+    fstrim.enable = true;
   };
 
   powerManagement.powertop.enable = true;
@@ -187,5 +193,20 @@
       thunar-archive-plugin
       thunar-volman
     ];
+  };
+
+  specialisation = {
+    unplugged.configuration = {
+      system.nixos.tags = [ "unplugged" ];
+      hardware.nvidia = {
+        prime = {
+          offload = {
+            enable = lib.mkForce true;
+            enableOffloadCmd = lib.mkForce true;
+          };
+          sync.enable = lib.mkForce false;
+        };
+      };
+    };
   };
 }

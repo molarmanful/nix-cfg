@@ -13,7 +13,6 @@
     discord-canary
     obsidian
     zoom-us
-    godot_4
     distrobox
     azure-cli
     sops
