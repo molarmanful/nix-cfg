@@ -4,7 +4,7 @@
     ../.
     ../sway
     ../wezterm
-    ../thunnar.nix
+    ../thunar.nix
   ];
 
   home.packages = with pkgs; [
