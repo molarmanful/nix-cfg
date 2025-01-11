@@ -36,5 +36,7 @@ assign [app_id="discord"] workspace 10
 assign [app_id="floorp"] workspace 1
 assign [app_id="obsidian"] scratchpad
 
-exec swaymsg "exec floorp; exec discord; exec obsidian;"
-exec swaymsg "workspace 2; exec wezterm;"
+exec swaymsg "exec floorp"
+exec swaymsg "exec discord"
+exec swaymsg "exec obsidian"
+exec swaymsg "workspace 2; exec wezterm"

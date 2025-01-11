@@ -115,6 +115,8 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
+  time.hardwareClockInLocalTime = true;
+
   systemd = {
     services.tune-usb-autosuspend = {
       description = "Disable USB autosuspend";
