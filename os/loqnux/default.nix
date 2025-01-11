@@ -93,6 +93,7 @@
 
     automatic-timezoned.enable = true;
     avahi.enable = true;
+    geoclue2.geoProviderUrl = "https://api.beacondb.net/v1/geolocate";
 
     tailscale.enable = true;
 
