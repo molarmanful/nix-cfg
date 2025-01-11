@@ -10,11 +10,13 @@
     floorp
     chromium
     libsForQt5.qt5ct
-    discord
+    discord-canary
     obsidian
     zoom-us
     godot_4
     distrobox
+    azure-cli
+    sops
   ];
 
   programs.ssh = {

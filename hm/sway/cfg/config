@@ -32,9 +32,9 @@ input "type:touchpad" {
 
 focus_follows_mouse no
 
-assign [class=discord] workspace 10
-assign [class=floorp] workspace 1
-assign [class=obsidian] scratchpad
+assign [app_id="discord"] workspace 10
+assign [app_id="floorp"] workspace 1
+assign [app_id="obsidian"] scratchpad
 
 exec swaymsg "exec floorp; exec discord; exec obsidian;"
 exec swaymsg "workspace 2; exec wezterm;"

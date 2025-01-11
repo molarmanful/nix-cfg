@@ -92,6 +92,7 @@
     printing.enable = true;
 
     automatic-timezoned.enable = true;
+    avahi.enable = true;
 
     tailscale.enable = true;
 
@@ -167,9 +168,13 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    config.common.default = "*";
+    config = {
+      common.default = [ "wlr" ];
+      sway.default = [ "wlr" ];
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-kde
     ];
   };
 
