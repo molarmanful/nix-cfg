@@ -47,6 +47,8 @@
       pciutils
       usbutils
       just
+      bottom
+      neofetch
     ];
   };
 

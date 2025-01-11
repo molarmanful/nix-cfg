@@ -2,6 +2,7 @@
 {
 
   home.packages = with pkgs; [
+    swaybg
     pw-volume
     tofi
     sway-contrib.grimshot
@@ -17,6 +18,7 @@
       keybindings = { };
     };
     extraConfig = ''
+      output "*" bg ${./wp/adrift.png} fill
       ${builtins.readFile ./cfg/pre}
       ${builtins.readFile ./cfg/keys}
       ${builtins.readFile ./cfg/config}
