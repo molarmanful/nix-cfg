@@ -65,7 +65,8 @@ window#waybar {
 
 #mode {
   background-color: @bg-binding;
-  color: @fg_binding;
+  color: @fg-binding;
+  padding: 0 8px;
 }
 
 #network,

@@ -92,6 +92,11 @@
     printing.enable = true;
 
     automatic-timezoned.enable = true;
+
+    tailscale.enable = true;
+
+    gvfs.enable = true;
+    tumbler.enable = true;
   };
 
   powerManagement.powertop.enable = true;
@@ -168,5 +173,11 @@
     ];
   };
 
-  services.tailscale.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
 }
