@@ -14,5 +14,6 @@
     obsidian
     zoom-us
     godot_4
+    distrobox
   ];
 }

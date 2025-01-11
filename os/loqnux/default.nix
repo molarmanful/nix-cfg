@@ -167,4 +167,6 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
+
+  services.tailscale.enable = true;
 }
