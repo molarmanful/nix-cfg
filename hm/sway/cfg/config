@@ -32,5 +32,9 @@ input "type:touchpad" {
 
 focus_follows_mouse no
 
-exec swaymsg "workspace 1; layout tabbed; exec floorp; exec discord; focus left;"
+assign [class=discord] workspace 10
+assign [class=floorp] workspace 1
+assign [class=obsidian] scratchpad
+
+exec swaymsg "exec floorp; exec discord; exec obsidian;"
 exec swaymsg "workspace 2; exec wezterm;"
