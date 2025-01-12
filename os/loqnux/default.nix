@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
@@ -154,7 +155,7 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
-    (pkgs.nerdfonts.override {
+    (nerdfonts.override {
       fonts = [
         "NerdFontsSymbolsOnly"
       ];
@@ -164,6 +165,7 @@
     julia-mono
     proggyfonts
     cozette
+    inputs.kirsch.packages.${system}.kirsch
   ];
 
   programs.light.enable = true;

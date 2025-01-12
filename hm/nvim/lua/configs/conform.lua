@@ -25,11 +25,8 @@ return {
   },
 
   formatters = {
-    golines = {
-      args = { '--base-formatter', 'gci', '--', '$FILENAME' },
-    },
     gdformat = {
-      args = { '--line-length', '80' },
+      prepend_args = { '--line-length', '80' },
     },
   },
 }

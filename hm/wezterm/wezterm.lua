@@ -57,8 +57,8 @@ local font = function(fam, size, scale, nobold)
 	end
 end
 
--- font({ "kirsch" }, 12, 0.6, true)
-font({ "Cozette" }, 9.75, 0.7)
+font("kirsch", 12, 0.6, true)
+-- font({ "Cozette" }, 9.75, 0.7)
 -- font("JuliaMono Nerd Font Mono", 10, 1)
 -- cfg.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- font({ "eldur" }, 9.75, 0.7)

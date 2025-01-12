@@ -10,6 +10,7 @@
     };
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    kirsch.url = "github:molarmanful/kirsch";
   };
 
   outputs =
