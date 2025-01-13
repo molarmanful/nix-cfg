@@ -2,7 +2,7 @@
   lib,
   pkgs,
   config,
-  inputs,
+  kirsch,
   ...
 }:
 {
@@ -91,6 +91,7 @@
       };
     };
 
+    getty.autologinUser = "ben";
     greetd = {
       enable = true;
       vt = 1;
@@ -136,16 +137,27 @@
   time.hardwareClockInLocalTime = true;
 
   systemd = {
-    services.tune-usb-autosuspend = {
-      description = "Disable USB autosuspend";
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        Type = "oneshot";
+    services = {
+      tune-usb-autosuspend = {
+        description = "Disable USB autosuspend";
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+        };
+        unitConfig.RequiresMountsFor = "/sys";
+        script = ''
+          echo -1 > /sys/module/usbcore/parameters/autosuspend
+        '';
       };
-      unitConfig.RequiresMountsFor = "/sys";
-      script = ''
-        echo -1 > /sys/module/usbcore/parameters/autosuspend
-      '';
+      greetd.serviceConfig = {
+        Type = "idle";
+        StandardInput = "tty";
+        StandardOutput = "tty";
+        StandardError = "journal";
+        TTYReset = true;
+        TTYVHangup = true;
+        TTYVTDisallocate = true;
+      };
     };
 
     user.services.kanshi = {
@@ -177,7 +189,7 @@
       julia-mono
       proggyfonts
       cozette
-      inputs.kirsch.packages.${system}.kirsch
+      kirsch
     ];
     fontconfig.defaultFonts = {
       serif = [ "Fira Serif" ];

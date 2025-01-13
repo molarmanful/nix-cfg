@@ -63,11 +63,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1736724679,
-        "narHash": "sha256-1fNPMMFVfPa6QodRwAQbzAP+X5lrUzu4y7becoptEjQ=",
+        "lastModified": 1736744235,
+        "narHash": "sha256-qoeMM1b9LyLjpcW90HrKa9th+N4xGOiu++JJ07UXeFY=",
         "owner": "molarmanful",
         "repo": "kirsch",
-        "rev": "96f12015f45212daf97bd961c4b17b4761b87cc7",
+        "rev": "e89dc0a3fefbca9c38d7b66056a6c71902132e8e",
         "type": "github"
       },
       "original": {

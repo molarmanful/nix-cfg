@@ -19,6 +19,7 @@
       nixpkgs,
       nixos-wsl,
       home-manager,
+      kirsch,
       ...
     }@inputs:
     let
@@ -26,12 +27,16 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      sargs = {
+        inherit inputs outputs;
+        inherit (kirsch.packages.${system}) kirsch;
+      };
 
       sys =
         { modules, hm }:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = sargs;
           modules = modules ++ [
             home-manager.nixosModules.home-manager
             {
@@ -39,7 +44,7 @@
             }
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs outputs; };
+                extraSpecialArgs = sargs;
                 # useGlobalPkgs = true;
                 useUserPackages = true;
                 users.ben = hm;
@@ -71,7 +76,7 @@
       homeConfigurations = {
         home = {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = sargs;
           modules = [
             ./hm
             {

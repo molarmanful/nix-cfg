@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, kirsch, ... }:
 {
 
   home.packages = with pkgs; [
@@ -39,15 +39,16 @@
   programs.tofi = {
     enable = true;
     settings = {
-      prompt-text = "> ";
+      prompt-text = ">";
+      prompt-padding = 6;
       width = "100%";
       height = "100%";
       border-width = 0;
       outline-width = 0;
       padding-left = "35%";
       padding-top = "35%";
-      result-spacing = 25;
-      font = "monospace";
+      font = "${kirsch}/share/fonts/kirsch.ttf";
+      font-size = 24;
       background-color = "#000A";
       text-color = "#CDCECF";
       selection-color = "#86ABDC";
