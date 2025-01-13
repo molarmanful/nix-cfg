@@ -31,8 +31,18 @@
     ];
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.luks.devices = {
+      root = {
+        device = "/dev/disk/by-partlabel/NixOS";
+        preLVM = true;
+      };
+    };
+  };
 
   hardware = {
     graphics.enable = true;
