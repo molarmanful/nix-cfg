@@ -161,22 +161,29 @@
     };
   };
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    (nerdfonts.override {
-      fonts = [
-        "NerdFontsSymbolsOnly"
-      ];
-    })
-    fira-code-nerdfont
-    dejavu_fonts
-    julia-mono
-    proggyfonts
-    cozette
-    inputs.kirsch.packages.${system}.kirsch
-  ];
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      (nerdfonts.override {
+        fonts = [
+          "NerdFontsSymbolsOnly"
+        ];
+      })
+      fira-code-nerdfont
+      fira
+      dejavu_fonts
+      julia-mono
+      proggyfonts
+      cozette
+      inputs.kirsch.packages.${system}.kirsch
+    ];
+    fontconfig.defaultFonts = {
+      serif = [ "Fira Serif" ];
+      sansSerif = [ "Fira Sans" ];
+    };
+  };
 
   programs.light.enable = true;
 
