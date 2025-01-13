@@ -38,23 +38,36 @@
 
   programs.tofi = {
     enable = true;
-    settings = {
-      prompt-text = ">";
-      prompt-padding = 6;
-      width = "100%";
-      height = "100%";
-      border-width = 0;
-      outline-width = 0;
-      padding-left = "35%";
-      padding-top = "35%";
-      font = "${kirsch}/share/fonts/kirsch.ttf";
-      font-size = 24;
-      background-color = "#000A";
-      text-color = "#CDCECF";
-      selection-color = "#86ABDC";
-      hint-font = false;
-      ascii-input = true;
-    };
+    settings =
+      let
+        dims = {
+          w = 12;
+          h = 32;
+        };
+        off = {
+          x = (1920 - dims.w * 20) * 50 / 1920;
+          y = n: (1080 - dims.h * n) * 50 / 1080;
+        };
+      in
+      rec {
+        num-results = 10;
+        width = "100%";
+        height = "100%";
+        border-width = 0;
+        outline-width = 0;
+        padding-left = "${builtins.toString off.x}%";
+        padding-top = "${builtins.toString (off.y num-results)}%";
+        font = "${kirsch}/share/fonts/kirsch.ttf";
+        font-size = dims.h * 3 / 4;
+        prompt-padding = 12;
+        prompt-text = ">";
+        background-color = "#000A";
+        text-color = "#CDCECF";
+        prompt-color = "#BAA1E2";
+        selection-color = "#86ABDC";
+        hint-font = false;
+        ascii-input = true;
+      };
   };
 
   programs.waybar = {
