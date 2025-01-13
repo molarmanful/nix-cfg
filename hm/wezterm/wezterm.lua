@@ -73,7 +73,7 @@ cfg.custom_block_glyphs = false
 -- cfg.treat_east_asian_ambiguous_width_as_wide = true
 -- cfg.cell_width = 0.5
 -- cfg.line_height = 1.2
--- cfg.freetype_load_flags = "NO_HINTING"
+cfg.freetype_load_flags = "NO_HINTING"
 -- cfg.freetype_load_target = "Mono"
 
 cfg.disable_default_key_bindings = true

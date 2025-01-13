@@ -22,6 +22,7 @@ return {
     cpp = { 'clang-format' },
     nix = { 'nixfmt' },
     nu = { 'nufmt' },
+    toml = { 'taplo' },
   },
 
   formatters = {
