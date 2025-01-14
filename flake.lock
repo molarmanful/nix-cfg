@@ -9,11 +9,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1736837794,
-        "narHash": "sha256-j7QUnfhtGoIiYrl2+mxKKSb51/gdMBd6+UhDotFyiKY=",
+        "lastModified": 1736839688,
+        "narHash": "sha256-pCWIOVTxespik6I7PnIiLZuEbhxgQOJnxIp1nqEcpYI=",
         "owner": "molarmanful",
         "repo": "bited-utils",
-        "rev": "6af25c24d06d7dc8ddc4b186a2cf17bc2663d2e7",
+        "rev": "3c16505d89b052a9686595da2c2f16650e0184e3",
         "type": "github"
       },
       "original": {
@@ -66,11 +66,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1736837858,
-        "narHash": "sha256-inW144ywx7rXSHbKz7WsO/+yh8FOfP17+HMIVy1xoZE=",
+        "lastModified": 1736840156,
+        "narHash": "sha256-d8sRKYwQ26bh+aFKpKGk3UglcMe9EhR5AVMzkoU1SBg=",
         "owner": "molarmanful",
         "repo": "kirsch",
-        "rev": "d9967b9f8666693ef7322a6d78367a80073e9658",
+        "rev": "2e89ec91d0f0232da4a869f98af09473dbd5b880",
         "type": "github"
       },
       "original": {
@@ -131,11 +131,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1735563628,
-        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
+        "lastModified": 1733384649,
+        "narHash": "sha256-K5DJ2LpPqht7K76bsxetI+YHhGGRyVteTPRQaIIKJpw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "rev": "190c31a89e5eec80dd6604d7f9e5af3802a58a13",
         "type": "github"
       },
       "original": {
