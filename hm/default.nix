@@ -15,6 +15,7 @@
     homeDirectory = "/home/ben";
 
     packages = with pkgs; [
+      bashInteractive
       zip
       xz
       unzip

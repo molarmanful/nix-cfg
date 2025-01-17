@@ -133,4 +133,9 @@ wezterm.on("dbl-font", function(window, pane)
 	end
 end)
 
+local auth = string.format("%s/.1password/agent.sock", wezterm.home_dir)
+if #wezterm.glob(auth) == 1 then
+	cfg.default_ssh_auth_sock = auth
+end
+
 return cfg

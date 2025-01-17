@@ -19,6 +19,7 @@
       sops
       obs-studio
       obs-studio-plugins.wlrobs
+      spotify-player
     ];
 
     pointerCursor = {
