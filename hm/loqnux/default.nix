@@ -22,6 +22,7 @@
       spotify-player
       feh
       beekeeper-studio
+      sqlite
       godot_4
     ];
 
