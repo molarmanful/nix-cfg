@@ -2,7 +2,16 @@ vim.g.base46_cache = vim.fn.stdpath 'data' .. '/nvchad/base46/'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
+local function getlockfilepath()
+  if require('nixCatsUtils').isNixCats and type(nixCats.settings.unwrappedCfgPath) == 'string' then
+    return nixCats.settings.unwrappedCfgPath .. '/lazy-lock.json'
+  else
+    return vim.fn.stdpath 'config' .. '/lazy-lock.json'
+  end
+end
+
 local lazy_config = require 'configs.lazy'
+lazy_config.lockfile = getlockfilepath()
 
 -- load plugins
 require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 'lazy.nvim' }, {
