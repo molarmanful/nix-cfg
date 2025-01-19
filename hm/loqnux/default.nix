@@ -22,6 +22,7 @@
       spotify-player
       feh
       beekeeper-studio
+      godot_4
     ];
 
     pointerCursor = {
