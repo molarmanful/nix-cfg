@@ -20,6 +20,8 @@
       obs-studio
       obs-studio-plugins.wlrobs
       spotify-player
+      feh
+      beekeeper-studio
     ];
 
     pointerCursor = {

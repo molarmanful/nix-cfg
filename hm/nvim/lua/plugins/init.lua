@@ -23,6 +23,7 @@ local lsps = {
   'nil_ls',
   'nixd',
   'nushell',
+  'gdscript',
 }
 
 local syns = {
