@@ -209,12 +209,13 @@
     enable = true;
     wlr.enable = true;
     config = {
-      common.default = [ "wlr" ];
-      sway.default = [ "wlr" ];
+      sway = {
+        default = [ "wlr" ];
+        "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+      };
     };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-kde
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
     ];
   };
 
