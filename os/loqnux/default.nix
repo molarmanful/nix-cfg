@@ -3,6 +3,7 @@
   pkgs,
   config,
   kirsch,
+  anakron,
   ...
 }:
 {
