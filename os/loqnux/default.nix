@@ -190,6 +190,7 @@
       proggyfonts
       cozette
       kirsch
+      anakron
     ];
     fontconfig.defaultFonts = {
       serif = [ "Fira Serif" ];

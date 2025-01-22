@@ -11,6 +11,7 @@
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     kirsch.url = "github:molarmanful/kirsch";
+    anakron.url = "github:molarmanful/ANAKRON";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       nixos-wsl,
       home-manager,
       kirsch,
+      anakron,
       ...
     }@inputs:
     let
@@ -30,6 +32,7 @@
       sargs = {
         inherit inputs outputs;
         inherit (kirsch.packages.${system}) kirsch;
+        inherit (anakron.packages.${system}) anakron;
       };
 
       sys =
