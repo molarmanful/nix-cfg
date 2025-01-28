@@ -1,8 +1,11 @@
-{ pkgs, kirsch, ... }:
+{
+  pkgs,
+  ...
+}:
 {
 
   home.packages = with pkgs; [
-    swaybg
+    swaynotificationcenter
     pw-volume
     tofi
     sway-contrib.grimshot
@@ -20,7 +23,6 @@
       keybindings = { };
     };
     extraConfig = ''
-      output "*" bg ${./wp/adrift.png} fill
       ${builtins.readFile ./cfg/pre}
       ${builtins.readFile ./cfg/keys}
       ${builtins.readFile ./cfg/config}
@@ -33,165 +35,6 @@
       export _JAVA_AWT_WM_NONREPARENTING=1
       export MOZ_ENABLE_WAYLAND=1
     '';
-
-  };
-
-  programs.tofi = {
-    enable = true;
-    settings =
-      let
-        dims = {
-          w = 12;
-          h = 32;
-        };
-        off = {
-          x = (1920 - dims.w * 20) * 50 / 1920;
-          y = n: (1080 - dims.h * n) * 50 / 1080;
-        };
-      in
-      rec {
-        num-results = 10;
-        width = "100%";
-        height = "100%";
-        border-width = 0;
-        outline-width = 0;
-        padding-left = "${builtins.toString off.x}%";
-        padding-top = "${builtins.toString (off.y num-results)}%";
-        font = "${kirsch}/share/fonts/kirsch.ttf";
-        font-size = dims.h * 3 / 4;
-        prompt-padding = 12;
-        prompt-text = ">";
-        background-color = "#000A";
-        text-color = "#CDCECF";
-        prompt-color = "#BAA1E2";
-        selection-color = "#86ABDC";
-        hint-font = false;
-        ascii-input = true;
-      };
-  };
-
-  programs.waybar = {
-    enable = true;
-    style = ./waybar.css;
-    settings = [
-      {
-
-        position = "bottom";
-        margin-right = 13;
-        margin-left = 13;
-        margin-bottom = 13;
-        spacing = 0;
-
-        modules-left = [
-          "sway/workspaces"
-          "sway/mode"
-        ];
-
-        modules-center = [
-          "sway/window"
-        ];
-
-        modules-right = [
-          "network"
-          "cpu"
-          "memory"
-          "temperature"
-          "wireplumber"
-          "backlight"
-          "battery"
-          "clock"
-        ];
-
-        "sway/window" = {
-          max-length = 65;
-        };
-
-        network = {
-          format-wifi = " ({signalStrength}%) {essid}";
-          format-ethernet = "{ipaddr}/{cidr} ";
-          tooltip-format = "{ifname} via {gwaddr} 󰀂";
-          format-linked = "{ifname} (No IP) ";
-          format-disconnected = "disconnected ⚠";
-        };
-
-        cpu = {
-          states = {
-            warning = 60;
-            critical = 80;
-          };
-          interval = 1;
-          format = "CPU {usage}%";
-        };
-
-        temperature = {
-          critical-threshold = 80;
-          format-critical = " {temperatureC}°C";
-          format = " {temperatureC}°C";
-        };
-
-        memory = {
-          states = {
-            warning = 70;
-            critical = 90;
-          };
-          interval = 1;
-          format = "MEM {}%";
-        };
-
-        wireplumber = {
-          format = "{volume}% {icon}";
-          format-muted = "婢";
-          on-click = "helvum";
-          format-icons = [
-            ""
-            ""
-            ""
-          ];
-        };
-
-        backlight = {
-          reverse-scrolling = true;
-          format = "{icon} {percent}";
-          format-icons = [
-            "🌑"
-            "🌒"
-            "🌓"
-            "🌔"
-            "🌕"
-          ];
-        };
-
-        battery = {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          interval = 1;
-          format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
-        };
-
-        clock = {
-          interval = 30;
-          format = "{:%a, %b %d %Y | %I:%M %p}";
-          tooltip-format = "{calendar}";
-        };
-
-      }
-    ];
 
   };
 }

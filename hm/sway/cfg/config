@@ -25,7 +25,7 @@ input "type:keyboard" {
 
 input "type:touchpad" {
   natural_scroll enabled
-  scroll_factor 0.07
+  scroll_factor 0.5
   click_method clickfinger
   middle_emulation enabled
   dwt disabled
@@ -37,6 +37,8 @@ focus_follows_mouse no
 assign [app_id="floorp"] workspace 1
 assign [app_id="obsidian"] workspace 9
 assign [app_id="discord"] workspace 10
+
+exec swaync
 
 exec swaymsg "exec floorp"
 exec swaymsg "exec discordcanary"

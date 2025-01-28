@@ -2,6 +2,8 @@
   lib,
   pkgs,
   config,
+  sf-pro,
+  ny,
   kirsch,
   anakron,
   ...
@@ -174,8 +176,57 @@
     };
   };
 
-  fonts = {
-    packages = with pkgs; [
+  programs = {
+    light.enable = true;
+
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = [ "ben" ];
+    };
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+    file-roller.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config = {
+      sway = {
+        default = [ "wlr" ];
+        "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+      };
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
+  specialisation = {
+    unplugged.configuration = {
+      system.nixos.tags = [ "unplugged" ];
+      hardware.nvidia = {
+        prime = {
+          offload = {
+            enable = lib.mkForce true;
+            enableOffloadCmd = lib.mkForce true;
+          };
+          sync.enable = lib.mkForce false;
+        };
+      };
+    };
+  };
+
+  fonts.packages =
+    with pkgs;
+    lib.mkForce [
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
@@ -193,54 +244,51 @@
       kirsch
       anakron
     ];
-    fontconfig.defaultFonts = {
-      serif = [ "Fira Serif" ];
-      sansSerif = [ "Fira Sans" ];
+
+  stylix = {
+    enable = true;
+
+    image = ../../wp/adrift.png;
+    polarity = "dark";
+
+    base16Scheme = {
+      base00 = "#000000";
+      base01 = "#212e3f";
+      base02 = "#29394f";
+      base03 = "#575860";
+      base04 = "#71839b";
+      base05 = "#cdcecf";
+      base06 = "#aeafb0";
+      base07 = "#e4e4e5";
+      base08 = "#c94f6d";
+      base09 = "#f4a261";
+      base0A = "#dbc074";
+      base0B = "#81b29a";
+      base0C = "#63cdcf";
+      base0D = "#719cd6";
+      base0E = "#9d79d6";
+      base0F = "#d67ad2";
     };
-  };
 
-  programs.light.enable = true;
-
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "ben" ];
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    config = {
-      sway = {
-        default = [ "wlr" ];
-        "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+    fonts = {
+      sansSerif = {
+        package = sf-pro;
+        name = "SF Pro Display";
+      };
+      serif = {
+        package = ny;
+        name = "New York";
+      };
+      monospace = {
+        package = pkgs.fira-code-nerdfont;
+        name = "FiraCode Nerd Font";
       };
     };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
 
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
-
-  specialisation = {
-    unplugged.configuration = {
-      system.nixos.tags = [ "unplugged" ];
-      hardware.nvidia = {
-        prime = {
-          offload = {
-            enable = lib.mkForce true;
-            enableOffloadCmd = lib.mkForce true;
-          };
-          sync.enable = lib.mkForce false;
-        };
-      };
+    cursor = {
+      package = pkgs.simp1e-cursors;
+      name = "Simp1e-Dark";
+      size = 24;
     };
   };
 }

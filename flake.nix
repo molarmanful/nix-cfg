@@ -9,7 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix.url = "github:danth/stylix/release-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     kirsch.url = "github:molarmanful/kirsch";
     anakron.url = "github:molarmanful/ANAKRON";
   };
@@ -20,6 +22,8 @@
       nixpkgs,
       nixos-wsl,
       home-manager,
+      stylix,
+      apple-fonts,
       kirsch,
       anakron,
       ...
@@ -33,6 +37,7 @@
         inherit inputs outputs;
         inherit (kirsch.packages.${system}) kirsch;
         inherit (anakron.packages.${system}) anakron;
+        inherit (apple-fonts.packages.${system}) sf-pro ny;
       };
 
       sys =
@@ -64,7 +69,10 @@
 
       nixosConfigurations = {
         loqnux = sys {
-          modules = [ ./os/loqnux ];
+          modules = [
+            stylix.nixosModules.stylix
+            ./os/loqnux
+          ];
           hm = import ./hm/loqnux;
         };
         wsl = sys {

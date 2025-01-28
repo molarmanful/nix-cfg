@@ -6,37 +6,24 @@
     ../wezterm
   ];
 
-  home = {
-    packages = with pkgs; [
-      floorp
-      chromium
-      libsForQt5.qt5ct
-      discord-canary
-      obsidian
-      zoom-us
-      distrobox
-      azure-cli
-      sops
-      obs-studio
-      obs-studio-plugins.wlrobs
-      spotify-player
-      feh
-      beekeeper-studio
-      sqlite
-      godot_4
-    ];
-
-    pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.simp1e-cursors;
-      name = "Simp1e-Dark";
-      size = 24;
-      x11 = {
-        enable = true;
-        defaultCursor = "Simp1e-Dark";
-      };
-    };
-  };
+  home.packages = with pkgs; [
+    floorp
+    chromium
+    libsForQt5.qt5ct
+    discord-canary
+    obsidian
+    zoom-us
+    distrobox
+    azure-cli
+    sops
+    obs-studio
+    obs-studio-plugins.wlrobs
+    spotify-player
+    feh
+    beekeeper-studio
+    sqlite
+    godot_4
+  ];
 
   programs.ssh = {
     enable = true;
