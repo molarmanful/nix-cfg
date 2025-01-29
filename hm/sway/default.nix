@@ -4,6 +4,11 @@
 }:
 {
 
+  imports = [
+    ./tofi.nix
+    ./waybar.nix
+  ];
+
   home.packages = with pkgs; [
     swaynotificationcenter
     pw-volume

@@ -290,5 +290,7 @@
       name = "Simp1e-Dark";
       size = 24;
     };
+
+    targets.fish.enable = false;
   };
 }
