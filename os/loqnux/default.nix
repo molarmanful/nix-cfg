@@ -195,20 +195,6 @@
     file-roller.enable = true;
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    config = {
-      sway = {
-        default = [ "wlr" ];
-        "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-      };
-    };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
-
   specialisation = {
     unplugged.configuration = {
       system.nixos.tags = [ "unplugged" ];
