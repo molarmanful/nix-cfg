@@ -235,6 +235,8 @@
           "NerdFontsSymbolsOnly"
         ];
       })
+      sf-pro
+      ny
       fira-code-nerdfont
       fira
       dejavu_fonts
@@ -272,22 +274,22 @@
 
     fonts = {
       sansSerif = {
-        package = sf-pro;
         name = "SF Pro Display";
+        package = sf-pro;
       };
       serif = {
+        name = "New York Small";
         package = ny;
-        name = "New York";
       };
       monospace = {
-        package = pkgs.fira-code-nerdfont;
         name = "FiraCode Nerd Font";
+        package = pkgs.fira-code-nerdfont;
       };
     };
 
     cursor = {
-      package = pkgs.simp1e-cursors;
       name = "Simp1e-Dark";
+      package = pkgs.simp1e-cursors;
       size = 24;
     };
 
