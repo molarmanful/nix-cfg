@@ -67,10 +67,7 @@
 
     pulseaudio.enable = false;
 
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
+    bluetooth.enable = true;
   };
 
   services = {
@@ -82,28 +79,8 @@
     pipewire = {
       enable = true;
       pulse.enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      wireplumber.enable = true;
-      extraConfig = {
-        pipewire = {
-          "switch-on-connect" = {
-            "pulse.cmd" = [
-              {
-                cmd = "load-module";
-                args = "module-always-sink";
-                flags = [ ];
-              }
-              {
-                cmd = "load-module";
-                args = "module-switch-on-connect";
-              }
-            ];
-          };
-        };
-      };
+      alsa.enable = true;
+      jack.enable = true;
     };
 
     keyd = {
