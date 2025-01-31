@@ -48,6 +48,8 @@
   };
 
   hardware = {
+    enableAllFirmware = true;
+
     graphics.enable = true;
 
     nvidia = {
@@ -67,7 +69,14 @@
 
     pulseaudio.enable = false;
 
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
   };
 
   services = {
