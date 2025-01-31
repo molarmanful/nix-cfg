@@ -66,11 +66,18 @@
     };
 
     pulseaudio.enable = false;
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   services = {
     xserver.videoDrivers = [ "nvidia" ];
     power-profiles-daemon.enable = true;
+
+    blueman.enable = true;
 
     pipewire = {
       enable = true;
@@ -268,8 +275,8 @@
         package = ny;
       };
       monospace = {
-        name = "FiraCode Nerd Font";
-        package = pkgs.fira-code-nerdfont;
+        name = "Julia Mono";
+        package = pkgs.julia-mono;
       };
     };
 
