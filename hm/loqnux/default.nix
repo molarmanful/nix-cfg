@@ -37,6 +37,7 @@ in
     beekeeper-studio
     sqlite
     godot_4
+    bluetuith
   ];
 
   programs.ssh = {
