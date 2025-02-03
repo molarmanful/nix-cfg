@@ -17,7 +17,6 @@ local lsps = {
   'clangd',
   'clojure_lsp',
   'perlnavigator',
-  'markdown_oxide',
   'vtsls',
   'emmet_language_server',
   'nil_ls',
