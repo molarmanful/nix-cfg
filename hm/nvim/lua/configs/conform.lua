@@ -30,5 +30,8 @@ return {
     gdformat = {
       prepend_args = { '--line-length', '80' },
     },
+    mdformat = {
+      prepend_args = { '--wrap', '80' },
+    },
   },
 }
