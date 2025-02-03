@@ -38,6 +38,7 @@ in
     sqlite
     godot_4
     bluetuith
+    pavucontrol
   ];
 
   programs.ssh = {

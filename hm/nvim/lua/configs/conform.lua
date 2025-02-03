@@ -23,6 +23,7 @@ return {
     nix = { 'nixfmt' },
     nu = { 'nufmt' },
     toml = { 'taplo' },
+    markdown = { 'mdformat' },
   },
 
   formatters = {

@@ -18,6 +18,7 @@ null_ls.setup {
     lint.actionlint,
     lint.perlimports,
     lint.deadnix,
+    lint.staticcheck,
 
     act.gitsigns,
     act.statix,
