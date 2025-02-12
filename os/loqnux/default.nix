@@ -265,7 +265,8 @@
   stylix = {
     enable = true;
 
-    image = ../../wp/adrift.png;
+    image = ../../wp/skull.png;
+    imageScalingMode = "fit";
     polarity = "dark";
 
     base16Scheme = {
