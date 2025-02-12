@@ -48,27 +48,4 @@ in
           IdentityAgent ~/.1password/agent.sock
     '';
   };
-
-  xdg = {
-    portal = {
-      enable = true;
-      config.sway = {
-        default = [
-          "wlr"
-        ];
-        "org.freedesktop.impl.portal.Inhibit" = "none";
-        "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-        "org.freedesktop.impl.portal.Screenshot" = "wlr";
-      };
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-      ];
-    };
-
-    configFile."xdg-desktop-portal-wlr/sway".text = ''
-      [screencast]
-      output_name=eDP-1
-      chooser_style=none
-    '';
-  };
 }

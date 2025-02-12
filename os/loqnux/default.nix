@@ -102,7 +102,7 @@
             capslock = "leftmeta";
             leftmeta = "leftalt";
             "leftalt" = "rightcontrol";
-            "leftshift+leftmeta" = "rightcontrol";
+            "f23+leftshift+leftmeta" = "leftmouse";
           };
         };
       };
@@ -190,6 +190,15 @@
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = "wlr";
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
   programs = {
     light.enable = true;
 
@@ -246,6 +255,11 @@
       kirsch
       anakron
     ];
+
+  console = {
+    packages = [ anakron ];
+    font = "${anakron}/share/fonts/ANAKRON.psfu.gz";
+  };
 
   stylix = {
     enable = true;
