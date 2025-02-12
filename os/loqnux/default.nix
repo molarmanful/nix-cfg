@@ -257,6 +257,7 @@
     ];
 
   console = {
+    earlySetup = true;
     packages = [ anakron ];
     font = "${anakron}/share/fonts/ANAKRON.psfu.gz";
   };
