@@ -39,6 +39,11 @@ in
     godot_4
     bluetuith
     pavucontrol
+    pw-volume
+    helvum
+    wl-clipboard-rs
+    wl-clip-persist
+    playerctl
   ];
 
   programs.ssh = {

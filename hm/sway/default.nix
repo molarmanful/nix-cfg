@@ -11,12 +11,7 @@
 
   home.packages = with pkgs; [
     swaynotificationcenter
-    pw-volume
-    tofi
     sway-contrib.grimshot
-    helvum
-    wl-clipboard-rs
-    wl-clip-persist
   ];
 
   wayland.windowManager.sway = {
