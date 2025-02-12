@@ -7,11 +7,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1739320237,
-        "narHash": "sha256-MRpWvxSf62JQ4DqtspQtqkLWDG+R0xiu/US7WzLXGKk=",
+        "lastModified": 1739377823,
+        "narHash": "sha256-ORj2r8JeKV2kch6S3+yoWYQO9oW0a3NPZPumJHgRQ34=",
         "owner": "molarmanful",
         "repo": "ANAKRON",
-        "rev": "c340687834728a4419c9fe938d2416496cc2893e",
+        "rev": "eea55996f3f8a3f647d8f9fb0711cd55c87e3df5",
         "type": "github"
       },
       "original": {
@@ -121,11 +121,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739319749,
-        "narHash": "sha256-aeIpwDi8aqpmGafWABBR8SIkhUe2ZMG+QwjFB7kC0SY=",
+        "lastModified": 1739334714,
+        "narHash": "sha256-5U97ckb/EOJUP4u/r5lJyPhZ697XBs4iRf5Bednusnc=",
         "owner": "molarmanful",
         "repo": "bited-utils",
-        "rev": "bfce6473bccd0fcb2b5115ba5a82b30984e9247c",
+        "rev": "5e009cd46b153a712f672bd20097ae512565b019",
         "type": "github"
       },
       "original": {

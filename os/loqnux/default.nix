@@ -259,7 +259,7 @@
   console = {
     earlySetup = true;
     packages = [ anakron ];
-    font = "${anakron}/share/fonts/ANAKRON.psfu.gz";
+    font = "${anakron}/share/consolefonts/ANAKRON.psfu";
   };
 
   stylix = {
