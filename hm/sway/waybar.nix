@@ -1,8 +1,30 @@
+{ scheme, ... }:
 {
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
-    style = ./waybar.css;
+    style =
+      ''
+        @define-color bg  ${scheme.base00};
+        @define-color fg  ${scheme.base05};
+        @define-color sep ${scheme.base01};
+
+        @define-color bg-focused  ${scheme.base00};
+        @define-color fg-focused  ${scheme.base07};
+        @define-color bg-active   ${scheme.base01};
+        @define-color fg-active   ${scheme.base0D};
+        @define-color bg-inactive ${scheme.base01};
+        @define-color fg-inactive ${scheme.base04};
+        @define-color bg-urgent   ${scheme.base00};
+        @define-color fg-urgent   ${scheme.base09};
+        @define-color bg-binding  ${scheme.base00};
+        @define-color fg-binding  ${scheme.base0E};
+
+        @define-color fg-good     ${scheme.base0B};
+        @define-color fg-degraded ${scheme.base0A};
+        @define-color fg-bad      ${scheme.base08};
+      ''
+      + (builtins.readFile ./waybar.css);
     settings = [
       {
 

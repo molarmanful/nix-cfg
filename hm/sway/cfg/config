@@ -1,13 +1,5 @@
 # vim: filetype=swayconfig
 
-client.focused          #131A24 #000000 #E4E4E5 #131A24 #131A24
-client.focused_inactive #131A24 #000000 #86ABDC #131A24 #131A24
-client.unfocused        #131A24 #131A24 #AEAFB0 #131A24 #131A24
-client.urgent           #131A24 #000000 #F4A261 #131A24 #131A24
-client.placeholder      #131A24 #000000 #AEAFB0 #131A24 #131A24
-
-client.background       #000000
-
 font pango:Cozette 9.75
 
 gaps inner 13
@@ -41,6 +33,6 @@ assign [app_id="discord"] workspace 10
 exec swaync
 
 exec swaymsg "exec floorp"
-exec swaymsg "exec discordcanary"
+exec swaymsg "exec vesktop"
 exec swaymsg "exec obsidian"
 exec swaymsg "workspace 2; exec wezterm"

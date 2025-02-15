@@ -1,5 +1,6 @@
 {
   kirsch,
+  scheme,
   ...
 }:
 {
@@ -30,9 +31,9 @@
         prompt-padding = 12;
         prompt-text = ">";
         background-color = "#000A";
-        text-color = "#CDCECF";
-        prompt-color = "#BAA1E2";
-        selection-color = "#86ABDC";
+        text-color = scheme.base05;
+        prompt-color = scheme.base0E;
+        selection-color = scheme.base0D;
         hint-font = false;
         ascii-input = true;
       };

@@ -12,25 +12,6 @@ cfg.front_end = "WebGpu"
 cfg.webgpu_power_preference = "HighPerformance"
 cfg.scrollback_lines = 5000
 
-cfg.color_scheme = "nightfox"
-cfg.colors = {
-	background = "black",
-	tab_bar = {
-		background = "#000000",
-		active_tab = {
-			bg_color = "black",
-			fg_color = "white",
-		},
-		inactive_tab = {
-			bg_color = "#151826",
-			fg_color = "#aeafb0",
-		},
-		new_tab = {
-			bg_color = "#07080d",
-			fg_color = "#aeafb0",
-		},
-	},
-}
 cfg.use_fancy_tab_bar = false
 cfg.hide_tab_bar_if_only_one_tab = true
 

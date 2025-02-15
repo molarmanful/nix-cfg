@@ -24,7 +24,7 @@ in
     floorp
     chromium
     libsForQt5.qt5ct
-    discord-canary
+    vesktop
     obsidian
     pinnedZoomPkgs.zoom-us
     distrobox

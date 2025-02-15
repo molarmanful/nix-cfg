@@ -1,22 +1,3 @@
-@define-color bg  #000000;
-@define-color fg  #AEAFB0;
-@define-color sep #151826;
-
-@define-color bg-focused  #000000;
-@define-color fg-focused  #E4E4E5;
-@define-color bg-active   #131A24;
-@define-color fg-active   #86ABDC;
-@define-color bg-inactive #131A24;
-@define-color fg-inactive #AEAFB0;
-@define-color bg-urgent   #000000;
-@define-color fg-urgent   #F4A261;
-@define-color bg-binding  #000000;
-@define-color fg-binding  #BAA1E2;
-
-@define-color fg-good     #8EBAA4;
-@define-color fg-degraded #E0C989;
-@define-color fg-bad      #D16983;
-
 * {
   border: none;
   border-radius: 0;
