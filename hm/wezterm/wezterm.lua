@@ -12,6 +12,7 @@ cfg.front_end = "WebGpu"
 cfg.webgpu_power_preference = "HighPerformance"
 cfg.scrollback_lines = 5000
 
+cfg.color_scheme = "abyssal"
 cfg.use_fancy_tab_bar = false
 cfg.hide_tab_bar_if_only_one_tab = true
 

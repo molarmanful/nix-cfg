@@ -1,6 +1,6 @@
 [colors]
 ansi = [
-  "#000000",
+  "#141f1f",
   "#f85c7f",
   "#3fb563",
   "#f89950",
@@ -21,7 +21,7 @@ brights = [
 ]
 background = "#000000"
 foreground = "#c2d6d6"
-compose_cursor = "#ebde76"
+compose_cursor = "#f89950"
 cursor_bg = "#c2d6d6"
 cursor_border = "#c2d6d6"
 cursor_fg = "#c2d6d6"
