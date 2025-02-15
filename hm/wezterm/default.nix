@@ -4,6 +4,9 @@
 
   programs.wezterm = {
     enable = true;
+    colorSchemes = {
+      abyssal = builtins.fromTOML (builtins.readFile ./abyssal.toml);
+    };
     extraConfig = builtins.readFile ./wezterm.lua;
   };
 }
