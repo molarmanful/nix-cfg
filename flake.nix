@@ -33,27 +33,16 @@
 
       inherit (self) outputs;
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          (final: prev: {
-            cozette = prev.cozette.overrideAttrs rec {
-              version = "1.26.0";
-              src = prev.fetchzip {
-                url = "https://github.com/slavfox/Cozette/releases/download/v.${version}/CozetteFonts-v-${
-                  builtins.replaceStrings [ "." ] [ "-" ] version
-                }.zip";
-                hash = prev.lib.fakeHash;
-              };
-            };
-          })
-        ];
+      pkgs = nixpkgs.legacyPackages.${system};
+      mypkgs = {
+        cozette = pkgs.callPackage ./mypkgs/cozette.nix { };
       };
       sargs = {
         inherit inputs outputs;
         inherit (kirsch.packages.${system}) kirsch;
         inherit (anakron.packages.${system}) anakron;
         inherit (apple-fonts.packages.${system}) sf-pro ny;
+        inherit mypkgs;
         scheme = inputs.abyssal.lib.stylix;
       };
 

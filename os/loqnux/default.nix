@@ -7,6 +7,7 @@
   kirsch,
   anakron,
   scheme,
+  mypkgs,
   ...
 }:
 {
@@ -253,7 +254,7 @@
       dejavu_fonts
       julia-mono
       proggyfonts
-      cozette
+      mypkgs.cozette
       kirsch
       anakron
     ];
