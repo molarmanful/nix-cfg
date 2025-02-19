@@ -29,6 +29,7 @@ focus_follows_mouse no
 assign [app_id="floorp"] workspace 1
 assign [app_id="obsidian"] workspace 9
 assign [app_id="discord"] workspace 10
+assign [app_id="vesktop"] workspace 10
 
 exec swaync
 
