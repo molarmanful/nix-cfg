@@ -4,8 +4,8 @@
 for_window [app_id="zoom" title="^zoom$"] floating enable
 for_window [app_id="zoom" title="^(Zoom|About)$"] floating enable
 for_window [app_id="zoom" title="Settings"] floating enable, floating_minimum_size 960 x 700
-for_window [app_id="zoom" title="Zoom Meeting(.*)?"] workspace next_on_output --create, move container to workspace current, floating disable, inhibit_idle open
+for_window [app_id="zoom" title="Zoom Meeting(.*)?"] floating disable, inhibit_idle open
 
 # GODOT
-for_window [class="Godot"] floating enable
-for_window [class="Godot" title="(.*)? - Godot Engine$"] workspace next_on_output --create, move container to workspace current, floating disable
+for_window [app_id="org.godotengine.Editor"] floating enable
+for_window [app_id="org.godotengine.Editor" title="(.*) - Godot Engine$"] floating disable
