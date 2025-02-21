@@ -18,6 +18,7 @@ in
     ../.
     ../sway
     ../wezterm
+    ../godot
   ];
 
   home.packages = with pkgs; [
@@ -36,7 +37,6 @@ in
     feh
     mypkgs.beekeeper
     sqlite
-    godot_4
     bluetuith
     pavucontrol
     pw-volume

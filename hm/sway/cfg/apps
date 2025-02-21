@@ -1,10 +1,19 @@
 # vim: filetype=swayconfig
 
+# XWAYLAND
+for_window [shell="xwayland"] title_format "[X] %title"
+
 # ZOOM
 for_window [app_id="zoom" title="^zoom$"] floating enable
 for_window [app_id="zoom" title="^(Zoom|About)$"] floating enable
 for_window [app_id="zoom" title="Settings"] floating enable, floating_minimum_size 960 x 700
 for_window [app_id="zoom" title="Zoom Meeting(.*)?"] floating disable, inhibit_idle open
+
+# ZOOM (XWAYLAND)
+for_window [class="zoom" title="^zoom$"] floating enable
+for_window [class="zoom" title="^(Zoom|About)$"] floating enable
+for_window [class="zoom" title="Settings"] floating enable, floating_minimum_size 960 x 700
+for_window [class="zoom" title="Zoom Meeting(.*)?"] floating disable, inhibit_idle open
 
 # GODOT
 for_window [app_id="org.godotengine.Editor"] floating enable
