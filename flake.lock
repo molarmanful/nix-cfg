@@ -415,11 +415,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1740003059,
-        "narHash": "sha256-nXH9YWNVta+UYstLnqGkoYI2F598f7is1z8oOYtPpV0=",
+        "lastModified": 1740074745,
+        "narHash": "sha256-FKJKHbDVHPpPFclxB9Y4541+GkOYt4OONNTo79Kn2H0=",
         "owner": "molarmanful",
         "repo": "kirsch",
-        "rev": "f986087209cd5f7d49554545ad821b8d8bb7b330",
+        "rev": "a33366c5a429ac5f97c771dfe3397b3842ccc24f",
         "type": "github"
       },
       "original": {

@@ -34,6 +34,7 @@
 
       ${builtins.readFile ./cfg/pre}
       ${builtins.readFile ./cfg/keys}
+      ${builtins.readFile ./cfg/apps}
       ${builtins.readFile ./cfg/config}
     '';
 

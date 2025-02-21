@@ -36,6 +36,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       mypkgs = {
         cozette = pkgs.callPackage ./mypkgs/cozette.nix { };
+        beekeeper = pkgs.callPackage ./mypkgs/beekeeper.nix { };
       };
       sargs = {
         inherit inputs outputs;

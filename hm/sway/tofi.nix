@@ -17,9 +17,10 @@
           x = (1920 - dims.w * 20) * 50 / 1920;
           y = n: (1080 - dims.h * n) * 50 / 1080;
         };
-      in
-      rec {
         num-results = 10;
+      in
+      {
+        inherit num-results;
         width = "100%";
         height = "100%";
         border-width = 0;

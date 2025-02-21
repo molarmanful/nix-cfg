@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, mypkgs, ... }:
 
 let
   pinnedZoomPkgs =
@@ -34,7 +34,7 @@ in
     obs-studio-plugins.wlrobs
     spotify-player
     feh
-    beekeeper-studio
+    mypkgs.beekeeper
     sqlite
     godot_4
     bluetuith
