@@ -10,7 +10,7 @@ return {
     svelte = { 'prettier' },
     javascript = { 'prettier' },
     typescript = { 'prettier' },
-    python = { 'black' },
+    python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
     go = { 'golines' },
     sh = { 'shfmt' },
     fish = { 'fish_indent' },

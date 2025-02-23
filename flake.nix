@@ -13,7 +13,7 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     kirsch.url = "github:molarmanful/kirsch";
-    anakron.url = "github:molarmanful/ANAKRON";
+    ANAKRON.url = "github:molarmanful/ANAKRON";
     abyssal.url = "github:molarmanful/abyssal";
   };
 
@@ -26,7 +26,7 @@
       stylix,
       apple-fonts,
       kirsch,
-      anakron,
+      ANAKRON,
       ...
     }@inputs:
     let
@@ -41,7 +41,7 @@
       sargs = {
         inherit inputs outputs;
         inherit (kirsch.packages.${system}) kirsch;
-        inherit (anakron.packages.${system}) anakron;
+        inherit (ANAKRON.packages.${system}) ANAKRON;
         inherit (apple-fonts.packages.${system}) sf-pro ny;
         inherit mypkgs;
         scheme = inputs.abyssal.lib.stylix;

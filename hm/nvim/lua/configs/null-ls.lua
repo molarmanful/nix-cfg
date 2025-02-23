@@ -10,7 +10,6 @@ null_ls.setup {
     lint.selene,
     lint.fish,
     lint.gdlint,
-    lint.pylint,
     lint.markdownlint,
     lint.shellharden,
     lint.yamllint,

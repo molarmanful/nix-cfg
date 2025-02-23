@@ -5,7 +5,7 @@
   sf-pro,
   ny,
   kirsch,
-  anakron,
+  ANAKRON,
   scheme,
   mypkgs,
   ...
@@ -256,13 +256,13 @@
       proggyfonts
       mypkgs.cozette
       kirsch
-      anakron
+      ANAKRON
     ];
 
   console = {
     earlySetup = true;
-    packages = [ anakron ];
-    font = "${anakron}/share/consolefonts/ANAKRON.psfu";
+    packages = [ ANAKRON ];
+    font = "${ANAKRON}/share/consolefonts/ANAKRON.psfu";
   };
 
   stylix = {
