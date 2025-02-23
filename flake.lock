@@ -519,11 +519,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1740330125,
-        "narHash": "sha256-zPiLwqP2JsvgKb2IrXO/aNqKO15dVCN9AQkOocgtP0I=",
+        "lastModified": 1740352751,
+        "narHash": "sha256-fBGqn9jmXKAcfkRJel2oncm+WTYD/xHPtCc3g1E0tIo=",
         "owner": "molarmanful",
         "repo": "kirsch",
-        "rev": "767c54ac31e2941f5351d3af56bb5c1ae31e369b",
+        "rev": "a530e027d0953a90750e59ad0ea8d1a33a73cfbd",
         "type": "github"
       },
       "original": {
