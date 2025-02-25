@@ -24,6 +24,7 @@ return {
     nu = { 'nufmt' },
     toml = { 'taplo' },
     markdown = { 'mdformat' },
+    rust = { 'rustfmt' },
   },
 
   formatters = {
