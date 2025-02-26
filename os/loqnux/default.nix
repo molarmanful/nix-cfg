@@ -47,6 +47,7 @@
         preLVM = true;
       };
     };
+    kernelParams = [ "usbcore.autosuspend=-1" ];
   };
 
   hardware = {
