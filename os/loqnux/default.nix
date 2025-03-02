@@ -219,6 +219,7 @@
         thunar-volman
       ];
     };
+    xfconf.enable = true;
     file-roller.enable = true;
   };
 

@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     stylix.url = "github:danth/stylix/release-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -23,6 +27,7 @@
       nixpkgs,
       nixos-wsl,
       home-manager,
+      nix-index-database,
       stylix,
       apple-fonts,
       kirsch,
@@ -38,28 +43,29 @@
         cozette = pkgs.callPackage ./mypkgs/cozette.nix { };
         beekeeper = pkgs.callPackage ./mypkgs/beekeeper.nix { };
       };
-      sargs = {
-        inherit inputs outputs;
+      specialArgs = {
+        inherit inputs outputs mypkgs;
         inherit (kirsch.packages.${system}) kirsch;
         inherit (ANAKRON.packages.${system}) ANAKRON;
         inherit (apple-fonts.packages.${system}) sf-pro ny;
-        inherit mypkgs;
         scheme = inputs.abyssal.lib.stylix;
       };
+      extraSpecialArgs = specialArgs;
 
       sys =
         { modules, hm }:
         nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = sargs;
+          inherit system specialArgs;
           modules = modules ++ [
+            nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             home-manager.nixosModules.home-manager
             {
               home-manager.users.ben.home.stateVersion = "24.11";
             }
             {
               home-manager = {
-                extraSpecialArgs = sargs;
+                inherit extraSpecialArgs;
                 # useGlobalPkgs = true;
                 useUserPackages = true;
                 users.ben = hm;
@@ -94,9 +100,11 @@
       homeConfigurations = {
         home = {
           inherit pkgs;
-          extraSpecialArgs = sargs;
+          inherit extraSpecialArgs;
           modules = [
             ./hm
+            nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             {
               system.stateVersion = "24.11";
             }

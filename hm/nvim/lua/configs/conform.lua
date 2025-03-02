@@ -16,7 +16,7 @@ return {
     fish = { 'fish_indent' },
     gdscript = { 'gdformat' },
     sql = { 'sqlfmt' },
-    yaml = { 'yamlfix' },
+    yaml = { 'yamlfmt' },
     clojure = { 'zprint' },
     c = { 'clang-format' },
     cpp = { 'clang-format' },
