@@ -1,5 +1,5 @@
 { config, ... }:
 {
   xdg.configFile."godot/editor_settings-4.3.tres".source =
-    config.lib.file.mkOutOfStoreSymlink ./editor_settings-4.3.tres;
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-cfg/hm/godot/editor_settings-4.3.tres";
 }

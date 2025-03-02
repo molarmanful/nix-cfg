@@ -17,6 +17,7 @@
       set -g hydro_color_pwd yellow
       set -g hydro_color_git green
       set -g hydro_color_duration blue
+      set -g hydro_color_error red
 
       set -g _color_shlvl (set_color magenta)
       set -g _shlvl ""
