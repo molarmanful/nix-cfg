@@ -12,12 +12,25 @@
     enable = true;
 
     shellInit = ''
+      function _my_postexec --on-event fish_postexec
+          set -l last_status $pipestatus
+          set -g _my_status_c "$_hydro_color_prompt"
+          set -g _my_status_e ""
+
+          for code in $pipestatus
+              if test $code -ne 0
+                  set -g _my_status_c "$_hydro_color_error"
+                  set -g _my_status_e "$_hydro_color_error"(echo $last_status)" | "
+                  break
+              end
+          end
+      end
+
       set -g hydro_symbol_prompt ∫
       set -g hydro_color_prompt cyan
       set -g hydro_color_pwd yellow
       set -g hydro_color_git green
       set -g hydro_color_duration blue
-      set -g hydro_color_error red
 
       set -g _color_shlvl (set_color magenta)
       set -g _shlvl ""

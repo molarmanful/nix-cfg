@@ -9,11 +9,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1740329932,
-        "narHash": "sha256-de/JOf7DAhYqjjZwRZMGi0pBVrGF8VcIZwPAWZD5mYM=",
+        "lastModified": 1740872213,
+        "narHash": "sha256-OGKbWEqTm0YfU5yIHx+WHQYRexAgHCTijkdaXIEi5go=",
         "owner": "molarmanful",
         "repo": "ANAKRON",
-        "rev": "f0d4a74ebe79da49d4c6d964caae3cc5de56f078",
+        "rev": "360138e3dee17dda8d29d5b57ad6756a7af2ce99",
         "type": "github"
       },
       "original": {
@@ -519,11 +519,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1740353533,
-        "narHash": "sha256-aWhaeOppKE6VMS+BmcVYCeS1GqGjx+CZvvdRgA3hAOw=",
+        "lastModified": 1740948600,
+        "narHash": "sha256-XZbBHWNL8vr2hlsJYI33T3yOXshIG7yDi2mkGocGPWE=",
         "owner": "molarmanful",
         "repo": "kirsch",
-        "rev": "d148c7c1ec976e614e693208f6deac3d1a04efce",
+        "rev": "78cf42010b87018205883712219477be9ad54aa2",
         "type": "github"
       },
       "original": {
