@@ -15,8 +15,11 @@ for_window [class="zoom" title="^zoom$"] floating enable
 for_window [class="zoom" title="^(Zoom|About)$"] floating enable
 for_window [class="zoom" title="Settings"] floating enable, floating_minimum_size 960 x 700
 for_window [class="zoom" title="Zoom Meeting(.*)?"] floating disable, inhibit_idle open
-for_window [app_id="zoom" title="Workplace"] floating disable
+for_window [class="zoom" title="Zoom Workplace"] floating disable
 
 # GODOT
 for_window [app_id="org.godotengine.Editor"] floating enable
 for_window [app_id="org.godotengine.Editor" title="(.*) - Godot Engine$"] floating disable
+
+# THUNAR
+for_window [app_id="Thunar" title="File Operation Progress"] floating enable
