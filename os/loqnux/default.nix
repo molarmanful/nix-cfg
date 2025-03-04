@@ -111,7 +111,6 @@
       };
     };
 
-    getty.autologinUser = "ben";
     greetd = {
       enable = true;
       vt = 1;
@@ -142,6 +141,8 @@
   powerManagement.powertop.enable = true;
 
   environment = {
+    systemPackages = [ mypkgs.keyb0xx ];
+
     sessionVariables.NIXOS_OZONE_WL = "1";
 
     etc."libinput/local-overrides.quirks".text = ''

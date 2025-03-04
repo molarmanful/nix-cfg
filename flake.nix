@@ -16,13 +16,14 @@
     stylix.url = "github:danth/stylix/release-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    slippi.url = "github:molarmanful/slippi-nix";
     kirsch.url = "github:molarmanful/kirsch";
     ANAKRON.url = "github:molarmanful/ANAKRON";
     abyssal.url = "github:molarmanful/abyssal";
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       nixos-wsl,
@@ -30,10 +31,11 @@
       nix-index-database,
       stylix,
       apple-fonts,
+      slippi,
       kirsch,
       ANAKRON,
       ...
-    }@inputs:
+    }:
     let
 
       inherit (self) outputs;
@@ -42,6 +44,7 @@
       mypkgs = {
         cozette = pkgs.callPackage ./mypkgs/cozette.nix { };
         beekeeper = pkgs.callPackage ./mypkgs/beekeeper.nix { };
+        keyb0xx = pkgs.callPackage ./mypkgs/keyb0xx { };
       };
       specialArgs = {
         inherit inputs outputs mypkgs;
@@ -84,6 +87,7 @@
         loqnux = sys {
           modules = [
             stylix.nixosModules.stylix
+            slippi.nixosModules.default
             ./os/loqnux
           ];
           hm = import ./hm/loqnux;
@@ -103,7 +107,7 @@
           inherit extraSpecialArgs;
           modules = [
             ./hm
-            nix-index-database.nixosModules.nix-index
+            nix-index-database.hmModules.nix-index
             { programs.nix-index-database.comma.enable = true; }
             {
               system.stateVersion = "24.11";

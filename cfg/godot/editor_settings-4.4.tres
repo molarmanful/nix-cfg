@@ -4,6 +4,7 @@
 keycode = 4194326
 
 [resource]
+interface/inspector/default_property_name_style = 0
 interface/theme/preset = "Black (OLED)"
 interface/theme/spacing_preset = "Compact"
 interface/theme/base_color = Color(0, 0, 0, 1)
@@ -31,7 +32,7 @@ _use_favorites_root_selection = false
 network/debug_adapter/request_timeout = 1000
 editors/grid_map/editor_side = 1
 network/language_server/use_thread = true
-_editor_settings_advanced_mode = false
+_editor_settings_advanced_mode = true
 _project_settings_advanced_mode = false
 _export_template_download_directory = ""
 _script_setup_templates_dictionary = {}

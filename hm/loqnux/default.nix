@@ -19,6 +19,7 @@ in
     ../sway
     ../wezterm
     ../godot
+    ../melee
   ];
 
   home.packages = with pkgs; [
