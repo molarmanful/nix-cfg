@@ -299,5 +299,6 @@
     };
 
     targets.fish.enable = false;
+    targets.floorp.profileNames = [ "default" ];
   };
 }
