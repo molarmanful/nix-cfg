@@ -2,10 +2,10 @@
 {
 
   imports = [
-    ./git.nix
-    ./direnv.nix
-    ./fish.nix
-    ./nixcats.nix
+    ./git
+    ./direnv
+    ./fish
+    ./nixcats
   ];
 
   nixpkgs.config.allowUnfree = true;

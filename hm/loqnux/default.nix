@@ -20,10 +20,10 @@ in
     ../wezterm
     ../godot
     ../melee
+    ../floorp
   ];
 
   home.packages = with pkgs; [
-    floorp
     chromium
     libsForQt5.qt5ct
     vesktop

@@ -1,0 +1,3 @@
+{
+  programs.floorp.enable = true;
+}
