@@ -25,7 +25,7 @@ stdenv.mkDerivation {
     install -Dm 644 * -t $out/libexec
     chmod 755 $out/libexec/keyb0xx
     install -dm 755 $out/bin
-    ln -s $out/keyb0xx $out/bin/keyb0xx
+    ln -s $out/libexec/keyb0xx $out/bin/keyb0xx
   '';
 
 }
