@@ -259,7 +259,6 @@
       proggyfonts
       mypkgs.cozette
       kirsch
-      ANAKRON
     ];
 
   console = {
