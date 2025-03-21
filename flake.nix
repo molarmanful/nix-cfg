@@ -19,6 +19,7 @@
     slippi.url = "github:molarmanful/slippi-nix";
     kirsch.url = "github:molarmanful/kirsch";
     ANAKRON.url = "github:molarmanful/ANAKRON";
+    QUINTESSON.url = "github:molarmanful/QUINTESSON";
     abyssal.url = "github:molarmanful/abyssal";
   };
 
@@ -34,6 +35,7 @@
       slippi,
       kirsch,
       ANAKRON,
+      QUINTESSON,
       ...
     }:
     let
@@ -50,6 +52,7 @@
         inherit inputs outputs mypkgs;
         inherit (kirsch.packages.${system}) kirsch;
         inherit (ANAKRON.packages.${system}) ANAKRON;
+        inherit (QUINTESSON.packages.${system}) QUINTESSON;
         inherit (apple-fonts.packages.${system}) sf-pro ny;
         scheme = inputs.abyssal.lib.stylix;
       };

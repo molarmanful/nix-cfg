@@ -6,6 +6,7 @@
   ny,
   kirsch,
   ANAKRON,
+  QUINTESSON,
   scheme,
   mypkgs,
   ...
@@ -259,6 +260,7 @@
       proggyfonts
       mypkgs.cozette
       kirsch
+      QUINTESSON
     ];
 
   console = {

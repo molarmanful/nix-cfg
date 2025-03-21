@@ -39,7 +39,8 @@ local font = function(fam, size, scale, nobold)
 	end
 end
 
-font("kirsch", 12, 0.6, true)
+-- font("kirsch", 12, 0.6, true)
+font("QUINTESSON", 12, 0.6, true)
 -- font("ANAKRON", 9, 1, true)
 -- font({ "Cozette" }, 9.75, 0.7)
 -- font("JuliaMono Nerd Font Mono", 10, 1)
