@@ -24,10 +24,8 @@ for_window [app_id="org.godotengine.Editor" title="(.*) - Godot Engine$"] move c
 # THUNAR
 for_window [app_id="Thunar" title="File Operation Progress"] floating enable
 
-# OBSIDIAN
-for_window [app_id="obsidian"] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
-
 assign [app_id="floorp"] workspace 1
+assign [app_id="obsidian"] workspace 8
 assign [app_id="discord"] workspace 10
 assign [app_id="vesktop"] workspace 10
 assign [app_id="zoom"] workspace 9
@@ -36,4 +34,4 @@ assign [class="zoom"] workspace 9
 exec swaymsg "exec floorp"
 exec swaymsg "exec vesktop"
 exec swaymsg "exec obsidian"
-exec swaymsg "workspace 2; exec wezterm"
+exec swaymsg "workspace 10; workspace 2; exec wezterm"

@@ -58,8 +58,10 @@
 
     nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = true;
-      powerManagement.finegrained = false;
+      powerManagement = {
+        enable = true;
+        finegrained = false;
+      };
       open = false;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
@@ -151,7 +153,7 @@
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      WLR_RENDERER = "vulkan";
+      # WLR_RENDERER = "vulkan";
       SDL_VIDEODRIVER = "wayland";
       QT_QPA_PLATFORM = "wayland";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
