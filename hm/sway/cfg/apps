@@ -19,7 +19,21 @@ for_window [class="zoom" title="Zoom Workplace"] floating disable
 
 # GODOT
 for_window [app_id="org.godotengine.Editor"] floating enable
-for_window [app_id="org.godotengine.Editor" title="(.*) - Godot Engine$"] floating disable
+for_window [app_id="org.godotengine.Editor" title="(.*) - Godot Engine$"] move container to workspace current, floating disable
 
 # THUNAR
 for_window [app_id="Thunar" title="File Operation Progress"] floating enable
+
+# OBSIDIAN
+for_window [app_id="obsidian"] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
+
+assign [app_id="floorp"] workspace 1
+assign [app_id="discord"] workspace 10
+assign [app_id="vesktop"] workspace 10
+assign [app_id="zoom"] workspace 9
+assign [class="zoom"] workspace 9
+
+exec swaymsg "exec floorp"
+exec swaymsg "exec vesktop"
+exec swaymsg "exec obsidian"
+exec swaymsg "workspace 2; exec wezterm"

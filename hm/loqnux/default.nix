@@ -28,7 +28,7 @@ in
     libsForQt5.qt5ct
     vesktop
     obsidian
-    pinnedZoomPkgs.zoom-us
+    # zoom-us
     distrobox
     azure-cli
     sops

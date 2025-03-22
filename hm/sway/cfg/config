@@ -24,16 +24,13 @@ input "type:touchpad" {
   dwtp enabled
 }
 
+output DP-9 mode 1920x1080@144Hz
+
 focus_follows_mouse no
 
-assign [app_id="floorp"] workspace 1
-assign [app_id="obsidian"] workspace 9
-assign [app_id="discord"] workspace 10
-assign [app_id="vesktop"] workspace 10
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 9 output DP-9
+workspace 10 output DP-9
 
 exec swaync
-
-exec swaymsg "exec floorp"
-exec swaymsg "exec vesktop"
-exec swaymsg "exec obsidian"
-exec swaymsg "workspace 2; exec wezterm"

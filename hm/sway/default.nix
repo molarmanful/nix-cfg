@@ -34,16 +34,8 @@
 
       ${builtins.readFile ./cfg/pre}
       ${builtins.readFile ./cfg/keys}
-      ${builtins.readFile ./cfg/apps}
       ${builtins.readFile ./cfg/config}
-    '';
-
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export MOZ_ENABLE_WAYLAND=1
+      ${builtins.readFile ./cfg/apps}
     '';
 
   };

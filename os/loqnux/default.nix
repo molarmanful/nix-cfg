@@ -137,14 +137,27 @@
     thermald.enable = true;
 
     fstrim.enable = true;
+
+    flatpak.enable = true;
   };
 
   powerManagement.powertop.enable = true;
 
   environment = {
-    systemPackages = [ mypkgs.keyb0xx ];
+    systemPackages = with pkgs; [
+      mypkgs.keyb0xx
+      vulkan-validation-layers
+    ];
 
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      WLR_RENDERER = "vulkan";
+      SDL_VIDEODRIVER = "wayland";
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+    };
 
     etc."libinput/local-overrides.quirks".text = ''
       [Serial Keyboards]
