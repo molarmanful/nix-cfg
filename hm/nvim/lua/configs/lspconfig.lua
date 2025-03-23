@@ -80,15 +80,7 @@ return function(lsps)
     },
 
     gdscript = {
-      {
-        cmd = os.getenv 'WSL_DISTRO_NAME' and { 'godot-wsl-lsp', '--useMirroredNetworking', '--host', '127.0.0.1' },
-        on_attach = function(client, bufnr)
-          on_attach(client, bufnr)
-          vim.opt_local.expandtab = false
-          vim.opt_local.tabstop = 4
-          vim.opt_local.shiftwidth = 4
-        end,
-      },
+      cmd = os.getenv 'WSL_DISTRO_NAME' and { 'godot-wsl-lsp', '--useMirroredNetworking', '--host', '127.0.0.1' },
     },
   }
 
