@@ -175,6 +175,11 @@ return {
   },
 
   {
+    'lukas-reineke/indent-blankline.nvim',
+    opts = { scope = { enabled = false } },
+  },
+
+  {
     'preservim/vim-markdown',
     ft = { 'markdown' },
     branch = 'master',

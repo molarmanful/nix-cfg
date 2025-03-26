@@ -74,6 +74,7 @@
                 inherit extraSpecialArgs;
                 # useGlobalPkgs = true;
                 useUserPackages = true;
+                backupFileExtension = "backup";
                 users.ben = hm;
               };
             }
