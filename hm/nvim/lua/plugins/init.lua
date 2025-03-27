@@ -23,6 +23,7 @@ local lsps = {
   'nixd',
   'nushell',
   'gdscript',
+  'biome',
 }
 
 local syns = {

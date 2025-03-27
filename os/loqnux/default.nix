@@ -155,7 +155,7 @@
       NIXOS_OZONE_WL = "1";
       # WLR_RENDERER = "vulkan";
       GBM_BACKEND = "nvidia-drm";
-      # WLR_DRM_DEVICES = "/dev/dri/card1";
+      # WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
