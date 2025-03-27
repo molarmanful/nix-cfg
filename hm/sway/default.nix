@@ -23,6 +23,7 @@
       bars = [ ];
       keybindings = { };
     };
+    extraOptions = [ "--unsupported-gpu" ];
     extraConfig = ''
       client.focused          ${scheme.base01} ${scheme.base00} ${scheme.base07} ${scheme.base01} ${scheme.base01}
       client.focused_inactive ${scheme.base01} ${scheme.base00} ${scheme.base0D} ${scheme.base01} ${scheme.base01}

@@ -119,7 +119,7 @@
       vt = 1;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --unsupported-gpu'";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway'";
           user = "ben";
         };
       };
@@ -154,6 +154,11 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       # WLR_RENDERER = "vulkan";
+      GBM_BACKEND = "nvidia-drm";
+      # WLR_DRM_DEVICES = "/dev/dri/card1";
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       SDL_VIDEODRIVER = "wayland";
       QT_QPA_PLATFORM = "wayland";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
