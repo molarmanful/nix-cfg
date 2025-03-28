@@ -41,4 +41,4 @@ workspace 9 output DP-9
 workspace 10 output DP-9
 
 exec swaync
-exec persway daemon -d spiral
+exec persway daemon -d spiral -f '[tiling] opacity 0.95; opacity 1' -e '[tiling] opacity 1'
