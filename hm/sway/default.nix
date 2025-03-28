@@ -1,18 +1,20 @@
 {
   pkgs,
   scheme,
+  persway,
   ...
 }:
 {
 
   imports = [
-    ./tofi.nix
-    ./waybar.nix
+    ../tofi
+    ../waybar
   ];
 
   home.packages = with pkgs; [
     swaynotificationcenter
     sway-contrib.grimshot
+    persway
   ];
 
   wayland.windowManager.sway = {

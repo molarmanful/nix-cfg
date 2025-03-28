@@ -51,7 +51,6 @@ bindsym $mod+Control+Shift+$right move workspace to output right
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -59,9 +58,16 @@ bindsym $mod+f fullscreen
 
 bindsym $mod+Shift+space floating toggle
 
-bindsym $mod+space focus mode_toggle
-
 bindsym $mod+a focus parent
+
+bindsym $mod+space exec persway stack-swap-main
+bindsym $mod+Control+space exec persway stack-main-rotate-next
+bindsym $mod+Shift+tab exec persway stack-focus-prev
+bindsym $mod+tab exec persway stack-focus-next
+bindsym $mod+c exec persway change-layout stack-main --stack-layout tiled
+bindsym $mod+s exec persway change-layout stack-main --stack-layout stacking
+bindsym $mod+z exec persway change-layout spiral
+bindsym $mod+x exec persway change-layout manual
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show

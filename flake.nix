@@ -17,6 +17,7 @@
     stylix.url = "github:danth/stylix/release-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    persway.url = "github:johnae/persway";
     slippi.url = "github:molarmanful/slippi-nix";
     kirsch.url = "github:molarmanful/kirsch";
     ANAKRON.url = "github:molarmanful/ANAKRON";
@@ -30,21 +31,7 @@
   };
 
   outputs =
-    inputs@{
-      flake-parts,
-      nixpkgs,
-      nixos-wsl,
-      home-manager,
-      nix-index-database,
-      nixpkgs-wayland,
-      stylix,
-      apple-fonts,
-      slippi,
-      kirsch,
-      ANAKRON,
-      QUINTESSON,
-      ...
-    }:
+    inputs@{ flake-parts, ... }:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ flake-parts.flakeModules.modules ];
@@ -57,7 +44,7 @@
           system = "x86_64-linux";
           stateVersion = "24.11";
 
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
           mypkgs = {
             cozette = pkgs.callPackage ./mypkgs/cozette.nix { };
             beekeeper = pkgs.callPackage ./mypkgs/beekeeper.nix { };
@@ -65,11 +52,12 @@
           };
           specialArgs = {
             inherit inputs mypkgs;
-            inherit (kirsch.packages.${system}) kirsch;
-            inherit (ANAKRON.packages.${system}) ANAKRON;
-            inherit (QUINTESSON.packages.${system}) QUINTESSON;
-            inherit (apple-fonts.packages.${system}) sf-pro ny;
+            inherit (inputs.kirsch.packages.${system}) kirsch;
+            inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
+            inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
+            inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
             scheme = inputs.abyssal.lib.stylix;
+            persway = inputs.persway.packages.${system}.default;
           };
           extraSpecialArgs = specialArgs;
 
@@ -81,7 +69,7 @@
 
               sys =
                 { modules, hm }:
-                nixpkgs.lib.nixosSystem {
+                inputs.nixpkgs.lib.nixosSystem {
                   inherit system specialArgs;
                   modules = modules ++ [
                     {
@@ -96,12 +84,12 @@
                             "https://nixpkgs-wayland.cachix.org"
                           ];
                         };
-                        nixpkgs.overlays = [ nixpkgs-wayland.overlay ];
+                        nixpkgs.overlays = [ inputs.nixpkgs-wayland.overlay ];
                       };
                     }
-                    nix-index-database.nixosModules.nix-index
+                    inputs.nix-index-database.nixosModules.nix-index
                     { programs.nix-index-database.comma.enable = true; }
-                    home-manager.nixosModules.home-manager
+                    inputs.home-manager.nixosModules.home-manager
                     {
                       home-manager = {
                         inherit extraSpecialArgs;
@@ -122,15 +110,15 @@
             {
               loqnux = sys {
                 modules = [
-                  stylix.nixosModules.stylix
-                  slippi.nixosModules.default
+                  inputs.stylix.nixosModules.stylix
+                  inputs.slippi.nixosModules.default
                   ./os/loqnux
                 ];
                 hm = import ./hm/loqnux;
               };
               wsl = sys {
                 modules = [
-                  nixos-wsl.nixosModules.default
+                  inputs.nixos-wsl.nixosModules.default
                   ./os/wsl
                 ];
                 hm = import ./hm/wsl;
@@ -143,7 +131,7 @@
               inherit extraSpecialArgs;
               modules = [
                 ./hm
-                nix-index-database.hmModules.nix-index
+                inputs.nix-index-database.hmModules.nix-index
                 { programs.nix-index-database.comma.enable = true; }
                 { system = { inherit stateVersion; }; }
               ];
