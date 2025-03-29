@@ -77,6 +77,7 @@ cfg.keys = {
 	{ key = "J", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
 	{ key = "K", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
 	{ key = "L", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
+	{ key = "N", mods = "CTRL|SHIFT", action = act.SpawnWindow },
 
 	{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
