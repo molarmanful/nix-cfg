@@ -1,5 +1,7 @@
 {
-  programs.floorp.enable = true;
+  programs.floorp = {
+    enable = true;
+  };
 
   stylix.targets.firefox.profileNames = [ "default" ];
 }

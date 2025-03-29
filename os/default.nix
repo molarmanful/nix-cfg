@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, lib, ... }:
 {
 
   networking.hostName = lib.mkDefault "jimbo";

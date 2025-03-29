@@ -18,11 +18,15 @@ cfg.hide_tab_bar_if_only_one_tab = true
 
 cfg.window_decorations = "NONE"
 cfg.window_padding = {
-	left = 8,
-	right = 8,
-	top = 8,
-	bottom = 8,
+	left = "1cell",
+	right = "1cell",
+	top = "1cell",
+	bottom = 0,
 }
+-- cfg.window_content_alignment = {
+-- 	horizontal = "Center",
+-- 	vertical = "Center",
+-- }
 
 local font = function(fam, size, scale, nobold)
 	local f = fam

@@ -3,8 +3,8 @@
   ...
 }:
 let
-  inherit (inputs) nixpkgs;
   inherit (inputs.nixCats) utils;
+  nixpkgs = inputs.nixpkgs-unstable;
   luaPath = "${./.}";
   forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
   # the following extra_pkg_config contains any values

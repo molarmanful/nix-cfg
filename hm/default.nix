@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ upkgs, ... }:
 {
 
   imports = [
@@ -14,7 +14,7 @@
     username = "ben";
     homeDirectory = "/home/ben";
 
-    packages = with pkgs; [
+    packages = with upkgs; [
       bashInteractive
       zip
       xz

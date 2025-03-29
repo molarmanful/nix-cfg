@@ -1,6 +1,8 @@
 {
   lib,
   pkgs,
+  upkgs,
+  mypkgs,
   config,
   sf-pro,
   ny,
@@ -8,12 +10,12 @@
   ANAKRON,
   QUINTESSON,
   scheme,
-  mypkgs,
   ...
 }:
 {
 
   imports = [
+    ../../common/wayland.nix
     ./hardware-configuration.nix
     ../.
   ];
@@ -154,8 +156,8 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       # WLR_RENDERER = "vulkan";
-      GBM_BACKEND = "nvidia-drm";
       # WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+      GBM_BACKEND = "nvidia-drm";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
@@ -261,19 +263,15 @@
   };
 
   fonts.packages =
-    with pkgs;
+    with upkgs;
     lib.mkForce [
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      (nerdfonts.override {
-        fonts = [
-          "NerdFontsSymbolsOnly"
-        ];
-      })
+      nerd-fonts.symbols-only
+      nerd-fonts.fira-code
       sf-pro
       ny
-      fira-code-nerdfont
       fira
       dejavu_fonts
       julia-mono
@@ -309,13 +307,13 @@
       };
       monospace = {
         name = "Julia Mono";
-        package = pkgs.julia-mono;
+        package = upkgs.julia-mono;
       };
     };
 
     cursor = {
       name = "Simp1e-Dark";
-      package = pkgs.simp1e-cursors;
+      package = upkgs.simp1e-cursors;
       size = 24;
     };
 

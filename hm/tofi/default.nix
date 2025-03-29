@@ -1,8 +1,4 @@
-{
-  kirsch,
-  scheme,
-  ...
-}:
+{ kirsch, scheme, ... }:
 {
   stylix.targets.tofi.enable = false;
   programs.tofi = {
