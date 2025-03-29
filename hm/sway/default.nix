@@ -15,6 +15,7 @@
     swaynotificationcenter
     sway-contrib.grimshot
     persway
+    swaybg
   ];
 
   wayland.windowManager.sway = {
