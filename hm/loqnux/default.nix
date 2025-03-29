@@ -18,6 +18,7 @@ in
     ../.
     ../sway
     ../wezterm
+    ../foot
     ../godot
     ../melee
     ../floorp
