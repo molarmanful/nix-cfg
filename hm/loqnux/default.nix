@@ -5,6 +5,7 @@
     ../.
     ../../common/wayland.nix
     ../sway
+    # ../river
     ../wezterm
     ../foot
     ../godot

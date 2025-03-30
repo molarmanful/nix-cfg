@@ -18,28 +18,28 @@ window#waybar {
   padding: 1px;
 }
 
-#workspaces button {
+#workspaces button, #tags button {
   background-color: @bg-inactive;
   color: @fg-inactive;
   padding: 0 4px;
   transition-duration: .2s;
 }
 
-#workspaces button label {
+#workspaces button label, #tags button label {
   color: inherit;
 }
 
-#workspaces button.focused {
+#workspaces button.focused, #tags button.focused {
   background-color: @bg-focused;
   color: @fg-focused;
 }
 
-#workspaces button:hover {
+#workspaces button:hover, #tags button:hover {
   background-color: @bg-active;
   color: @fg-active;
 }
 
-#workspaces button.urgent {
+#workspaces button.urgent, #tags button.urgent {
   background-color: @bg-urgent;
   color: @fg-urgent;
 }

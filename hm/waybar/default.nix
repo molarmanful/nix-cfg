@@ -1,5 +1,6 @@
 { scheme, ... }:
 {
+
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
@@ -37,10 +38,14 @@
         modules-left = [
           "sway/workspaces"
           "sway/mode"
+          "river/tags"
+          "river/layout"
+          "river/mode"
         ];
 
         modules-center = [
-          "sway/window"
+          "sway/windows"
+          "river/windows"
         ];
 
         modules-right = [
@@ -54,7 +59,15 @@
           "clock"
         ];
 
+        "sway/workspaces" = {
+          hide-vacant = true;
+        };
+
         "sway/window" = {
+          max-length = 65;
+        };
+
+        "river/window" = {
           max-length = 65;
         };
 
