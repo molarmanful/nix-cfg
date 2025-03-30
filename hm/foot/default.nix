@@ -1,8 +1,9 @@
-{ lib, ... }:
+{ upkgs, lib, ... }:
 
 {
   programs.foot = {
     enable = true;
+    package = upkgs.foot;
     server.enable = true;
 
     settings = {

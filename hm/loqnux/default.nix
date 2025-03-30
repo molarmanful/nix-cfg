@@ -6,6 +6,7 @@
     ../../common/wayland.nix
     ../sway
     ../wezterm
+    ../foot
     ../godot
     ../melee
     ../floorp
