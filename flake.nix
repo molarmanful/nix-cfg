@@ -32,6 +32,8 @@
     inputs@{ flake-parts, ... }:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
+      debug = true;
+
       imports = [ flake-parts.flakeModules.modules ];
 
       systems = [ ];

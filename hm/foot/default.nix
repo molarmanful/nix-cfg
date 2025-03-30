@@ -1,6 +1,13 @@
-{ upkgs, lib, ... }:
+{
+  upkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
+  stylix.targets.foot.enable = false;
+
   programs.foot = {
     enable = true;
     package = upkgs.foot;
@@ -24,6 +31,27 @@
       mouse = {
         hide-when-typing = "yes";
       };
+
+      colors =
+        let
+          colors = inputs.abyssal.lib.wezterm;
+        in
+        {
+          background = builtins.substring 1 (-1) colors.background;
+          foreground = builtins.substring 1 (-1) colors.foreground;
+        }
+        // (builtins.listToAttrs (
+          lib.lists.imap0 (i: v: {
+            name = "regular${builtins.toString i}";
+            value = builtins.substring 1 (-1) v;
+          }) colors.ansi
+        ))
+        // (builtins.listToAttrs (
+          lib.lists.imap0 (i: v: {
+            name = "bright${builtins.toString i}";
+            value = builtins.substring 1 (-1) v;
+          }) colors.brights
+        ));
 
       text-bindings = {
         "\\x17" = "Control+BackSpace";

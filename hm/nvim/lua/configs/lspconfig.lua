@@ -82,6 +82,24 @@ return function(lsps)
     gdscript = {
       cmd = os.getenv 'WSL_DISTRO_NAME' and { 'godot-wsl-lsp', '--useMirroredNetworking', '--host', '127.0.0.1' },
     },
+
+    nixd = {
+      settings = {
+        nixd = {
+          nixpkgs = {
+            expr = 'import (builtins.getFlake "git+file://${toString ./.}").inputs.nixpkgs { }',
+          },
+          options = {
+            nixos = {
+              expr = '(builtins.getFlake "git+file://${toString ./.}").nixosConfigurations.loqnux.options',
+            },
+            flake_parts = {
+              expr = 'let flake = builtins.getFlake "git+file://${toString ./.}"; in flake.debug.options // flake.currentSystem.options',
+            },
+          },
+        },
+      },
+    },
   }
 
   for _, lsp in ipairs(lsps) do

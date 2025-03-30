@@ -19,7 +19,6 @@ local lsps = {
   'perlnavigator',
   'vtsls',
   'emmet_language_server',
-  'nil_ls',
   'nixd',
   'nushell',
   'gdscript',

@@ -75,7 +75,6 @@ let
           ripgrep
           fzf
 
-          nil
           nixd
           lua-language-server
 
