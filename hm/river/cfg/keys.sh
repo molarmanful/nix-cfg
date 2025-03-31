@@ -57,8 +57,8 @@ riverctl map normal Super+Shift Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
 riverctl map normal Super W send-layout-cmd wideriver '--layout monocle'
-riverctl map normal Super E send-layout-cmd wideriver '--stack dwindle'
-riverctl map normal Super S send-layout-cmd wideriver '--stack diminish'
+riverctl map normal Super E send-layout-cmd wideriver '--layout left --stack even'
+riverctl map normal Super S send-layout-cmd wideriver '--layout left --stack dwindle'
 riverctl map normal Super Up    send-layout-cmd wideriver '--layout top'
 riverctl map normal Super Right send-layout-cmd wideriver '--layout right'
 riverctl map normal Super Down  send-layout-cmd wideriver '--layout bottom'
