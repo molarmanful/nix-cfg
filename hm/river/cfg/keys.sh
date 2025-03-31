@@ -78,9 +78,8 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 riverctl map normal Super+Shift Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
-riverctl map normal None Print spawn 'grimshot save active'
-riverctl map normal Shift Print spawn 'grimshot save area'
-riverctl map normal Control Print spawn 'grimshot save window'
+riverctl map normal None Print spawn 'flameshot screen'
+riverctl map normal Shift Print spawn 'flameshot gui'
 
 riverctl declare-mode passthrough
 riverctl map normal Super F11 enter-mode passthrough

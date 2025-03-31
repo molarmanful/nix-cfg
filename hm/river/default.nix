@@ -13,7 +13,7 @@ in
 
   home.packages = with pkgs; [
     swaynotificationcenter
-    sway-contrib.grimshot
+    flameshot
     swaybg
     wideriver
   ];
