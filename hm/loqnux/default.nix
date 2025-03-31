@@ -4,8 +4,8 @@
   imports = [
     ../.
     ../../common/wayland.nix
-    ../sway
-    # ../river
+    ../kanshi
+    ../river
     ../wezterm
     ../foot
     ../godot

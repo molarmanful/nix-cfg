@@ -1,10 +1,9 @@
-riverctl input type:touchpad natural-scroll enabled
-riverctl input type:touchpad scroll-factor 0.5
-riverctl input type:touchpad middle-emulation enabled
-riverctl input type:touchpad disable-while-typing disabled
-riverctl input type:touchpad disable-while-trackpointing enabled
+riverctl list-inputs | grep '^pointer-.*_Touchpad$' | while read -r input; do
+  riverctl input "$input" natural-scroll enabled
+  riverctl input "$input" scroll-factor 0.5
+  riverctl input "$input" middle-emulation enabled
+  riverctl input "$input" disable-while-typing disabled
+  riverctl input "$input" disable-while-trackpointing enabled
+done
 
-riverctl set-repeat 50 200
-
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+riverctl set-repeat 50 300

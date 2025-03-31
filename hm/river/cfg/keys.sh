@@ -2,10 +2,10 @@ riverctl map normal Super Return spawn wezterm
 riverctl map normal Super+Shift Q close
 riverctl map normal Super+Shift E exit
 
-riverctl map normal Super D spawn 'riverctl spawn $(tofi-run)'
-riverctl map normal Super+Shift D spawn 'riverctl spawn $(tofi-drun)'
+riverctl map normal Super D spawn 'tofi-run | xargs riverctl spawn'
+riverctl map normal Super+Shift D spawn 'tofi-drun | xargs riverctl spawn'
 
-bindsym Super+Shift N spawn 'swaync-client -t -sw'
+riverctl map normal Super+Shift N spawn 'swaync-client -t -sw'
 
 riverctl map normal Super J focus-view next
 riverctl map normal Super K focus-view previous
@@ -21,21 +21,15 @@ riverctl map normal Super+Shift Comma send-to-output previous
 
 riverctl map normal Super Space zoom
 
-riverctl map normal Super H send-layout-cmd rivertile 'main-ratio -0.05'
-riverctl map normal Super L send-layout-cmd rivertile 'main-ratio +0.05'
-
-riverctl map normal Super+Shift H send-layout-cmd rivertile 'main-count +1'
-riverctl map normal Super+Shift L send-layout-cmd rivertile 'main-count -1'
-
 riverctl map normal Super+Control H move left 100
 riverctl map normal Super+Control J move down 100
 riverctl map normal Super+Control K move up 100
 riverctl map normal Super+Control L move right 100
 
-riverctl map normal Super+Shift+Control H snap left
-riverctl map normal Super+Shift+Control J snap down
-riverctl map normal Super+Shift+Control K snap up
-riverctl map normal Super+Shift+Control L snap right
+riverctl map normal Super+Control+Shift H snap left
+riverctl map normal Super+Control+Shift J snap down
+riverctl map normal Super+Control+Shift K snap up
+riverctl map normal Super+Control+Shift L snap right
 
 riverctl map normal Super+Alt+Shift H resize horizontal -100
 riverctl map normal Super+Alt+Shift J resize vertical 100
@@ -62,17 +56,27 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 riverctl map normal Super+Shift Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
-riverctl map normal Super Up    send-layout-cmd rivertile 'main-location top'
-riverctl map normal Super Right send-layout-cmd rivertile 'main-location right'
-riverctl map normal Super Down  send-layout-cmd rivertile 'main-location bottom'
-riverctl map normal Super Left  send-layout-cmd rivertile 'main-location left'
+riverctl map normal Super W send-layout-cmd wideriver '--layout monocle'
+riverctl map normal Super E send-layout-cmd wideriver '--stack dwindle'
+riverctl map normal Super S send-layout-cmd wideriver '--stack diminish'
+riverctl map normal Super Up    send-layout-cmd wideriver '--layout top'
+riverctl map normal Super Right send-layout-cmd wideriver '--layout right'
+riverctl map normal Super Down  send-layout-cmd wideriver '--layout bottom'
+riverctl map normal Super Left  send-layout-cmd wideriver '--layout left'
+
+riverctl map normal Super H send-layout-cmd wideriver '--ratio -0.1'
+riverctl map normal Super L send-layout-cmd wideriver '--ratio +0.1'
+
+riverctl map normal Super+Shift H send-layout-cmd wideriver '--count +1'
+riverctl map normal Super+Shift L send-layout-cmd wideriver '--count -1'
+
+riverctl map normal None Print spawn 'grimshot save active'
+riverctl map normal Shift Print spawn 'grimshot save area'
+riverctl map normal Control Print spawn 'grimshot save window'
 
 riverctl declare-mode passthrough
 riverctl map normal Super F11 enter-mode passthrough
 riverctl map passthrough Super F11 enter-mode normal
-
-riverctl map None Print spawn wayshot
-riverctl map Shift Print spawn 'wayshot -g'
 
 for mode in normal locked
 do

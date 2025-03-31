@@ -39,7 +39,6 @@
           "sway/workspaces"
           "sway/mode"
           "river/tags"
-          "river/layout"
           "river/mode"
         ];
 
@@ -59,7 +58,7 @@
           "clock"
         ];
 
-        "sway/workspaces" = {
+        "river/tags" = {
           hide-vacant = true;
         };
 
