@@ -18,6 +18,7 @@ riverctl rule-add -app-id 'Thunar' -title 'File Operation Progress' float
 
 # FLOORP
 riverctl rule-add -app-id 'floorp' tags $((1 << 0))
+riverctl rule-add -app-id 'floorp' output eDP-1
 
 # DISCORD
 for id in discord vesktop; do
