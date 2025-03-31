@@ -35,7 +35,6 @@ in
       riverctl border-width 1
 
       riverctl default-layout wideriver
-      riverctl default-attach-mode bottom
       wideriver \
         --inner-gap 13 --outer-gap 13 --no-smart-gaps \
         --border-width 1 --border-width-monocle 1 \
