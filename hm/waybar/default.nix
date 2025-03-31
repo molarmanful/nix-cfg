@@ -43,8 +43,8 @@
         ];
 
         modules-center = [
-          "sway/windows"
-          "river/windows"
+          "sway/window"
+          "river/window"
         ];
 
         modules-right = [

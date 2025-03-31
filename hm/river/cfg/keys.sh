@@ -21,20 +21,42 @@ riverctl map normal Super+Shift Comma send-to-output previous
 
 riverctl map normal Super Space zoom
 
-riverctl map normal Super+Control H move left 100
-riverctl map normal Super+Control J move down 100
-riverctl map normal Super+Control K move up 100
-riverctl map normal Super+Control L move right 100
+riverctl map normal Super W send-layout-cmd wideriver '--layout monocle'
+riverctl map normal Super S send-layout-cmd wideriver '--layout left --stack dwindle --ratio 0.5'
+riverctl map normal Super E send-layout-cmd wideriver '--layout left --stack even --ratio 0.7'
+riverctl map normal Super Up    send-layout-cmd wideriver '--layout top'
+riverctl map normal Super Right send-layout-cmd wideriver '--layout right'
+riverctl map normal Super Down  send-layout-cmd wideriver '--layout bottom'
+riverctl map normal Super Left  send-layout-cmd wideriver '--layout left'
 
-riverctl map normal Super+Control+Shift H snap left
-riverctl map normal Super+Control+Shift J snap down
-riverctl map normal Super+Control+Shift K snap up
-riverctl map normal Super+Control+Shift L snap right
+riverctl map normal Super H send-layout-cmd wideriver '--ratio -0.1'
+riverctl map normal Super L send-layout-cmd wideriver '--ratio +0.1'
 
-riverctl map normal Super+Alt+Shift H resize horizontal -100
-riverctl map normal Super+Alt+Shift J resize vertical 100
-riverctl map normal Super+Alt+Shift K resize vertical -100
-riverctl map normal Super+Alt+Shift L resize horizontal 100
+riverctl map normal Super+Shift H send-layout-cmd wideriver '--count +1'
+riverctl map normal Super+Shift L send-layout-cmd wideriver '--count -1'
+
+riverctl declare-mode move
+riverctl declare-mode resize
+
+for mode in normal resize; do
+    riverctl map $mode Super M enter-mode move
+done
+riverctl map move Super M enter-mode normal
+riverctl map move None Escape enter-mode normal
+riverctl map move None H move left 100
+riverctl map move None J move down 100
+riverctl map move None K move up 100
+riverctl map move None L move right 100
+
+for mode in normal move; do
+    riverctl map $mode Super R enter-mode resize
+done
+riverctl map resize Super R enter-mode normal
+riverctl map resize None Escape enter-mode normal
+riverctl map resize None H resize horizontal -100
+riverctl map resize None J resize vertical 100
+riverctl map resize None K resize vertical -100
+riverctl map resize None L resize horizontal 100
 
 riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
@@ -55,20 +77,6 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
 riverctl map normal Super+Shift Space toggle-float
 riverctl map normal Super F toggle-fullscreen
-
-riverctl map normal Super W send-layout-cmd wideriver '--layout monocle'
-riverctl map normal Super E send-layout-cmd wideriver '--layout left --stack even'
-riverctl map normal Super S send-layout-cmd wideriver '--layout left --stack dwindle'
-riverctl map normal Super Up    send-layout-cmd wideriver '--layout top'
-riverctl map normal Super Right send-layout-cmd wideriver '--layout right'
-riverctl map normal Super Down  send-layout-cmd wideriver '--layout bottom'
-riverctl map normal Super Left  send-layout-cmd wideriver '--layout left'
-
-riverctl map normal Super H send-layout-cmd wideriver '--ratio -0.1'
-riverctl map normal Super L send-layout-cmd wideriver '--ratio +0.1'
-
-riverctl map normal Super+Shift H send-layout-cmd wideriver '--count +1'
-riverctl map normal Super+Shift L send-layout-cmd wideriver '--count -1'
 
 riverctl map normal None Print spawn 'grimshot save active'
 riverctl map normal Shift Print spawn 'grimshot save area'

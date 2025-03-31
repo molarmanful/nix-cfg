@@ -17,7 +17,14 @@ riverctl rule-add -app-id 'org.godotengine.Editor' -title '* - Godot Engine' no-
 riverctl rule-add -app-id 'Thunar' -title 'File Operation Progress' float
 
 # FLOORP
-riverctl rule-add -app-id 'floorp' tags 1
-riverctl rule-add -app-id 'discord' tags $((1 << 9))
-riverctl rule-add -app-id 'vesktop' tags $((1 << 9))
-riverctl rule-add -app-id 'obsidian' tags $((1 << 8))
+riverctl rule-add -app-id 'floorp' tags $((1 << 0))
+
+# DISCORD
+for id in discord vesktop; do
+    riverctl rule-add -app-id $id tags $((1 << 8))
+    riverctl rule-add -app-id $id output DP-9
+done
+
+# OBSIDIAN
+riverctl rule-add -app-id 'obsidian' tags $((1 << 7))
+riverctl rule-add -app-id 'obsidian' output DP-9
