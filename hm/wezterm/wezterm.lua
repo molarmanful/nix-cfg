@@ -19,8 +19,8 @@ cfg.hide_tab_bar_if_only_one_tab = true
 
 cfg.window_decorations = "NONE"
 cfg.window_padding = {
-	left = "1cell",
-	right = "1cell",
+	left = "2cell",
+	right = "2cell",
 	top = "1cell",
 	bottom = 0,
 }

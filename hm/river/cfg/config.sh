@@ -6,4 +6,4 @@ riverctl list-inputs | grep '^pointer-.*_Touchpad$' | while read -r input; do
     riverctl input $input disable-while-trackpointing enabled
 done
 
-riverctl set-repeat 50 300
+riverctl set-repeat 50 250

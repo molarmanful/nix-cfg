@@ -55,6 +55,11 @@ in
       riverctl spawn vesktop
       riverctl spawn obsidian
 
+      riverctl focus-output DP-9
+      riverctl set-focused-tags $((1 << 8))
+      riverctl focus-output eDP-1
+      riverctl set-focused-tags $((1 << 1))
+
       echo 'ALL done'
     '';
 
