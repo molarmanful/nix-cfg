@@ -9,6 +9,7 @@
     ../river
     ../wezterm
     ../foot
+    ../urxvt
     ../godot
     ../melee
     ../floorp
