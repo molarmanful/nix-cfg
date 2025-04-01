@@ -261,7 +261,7 @@
       dejavu_fonts
       julia-mono
       proggyfonts
-      mypkgs.cozette
+      cozette
       kirsch
       QUINTESSON
     ];

@@ -1,4 +1,9 @@
-{ pkgs, scheme, ... }:
+{
+  pkgs,
+  mypkgs,
+  scheme,
+  ...
+}:
 {
 
   imports = [
@@ -10,6 +15,7 @@
     swaynotificationcenter
     swaybg
     wideriver
+    mypkgs.river-bedload
   ];
 
   wayland.windowManager.river = {

@@ -18,14 +18,22 @@ stdenv.mkDerivation {
   NIX_CFLAGS_COMPILE = [ "-I${libevdev}/include/libevdev-1.0" ];
 
   patchPhase = ''
+    runHook prePatch
+
     cp ${./config.h} config.h
+
+    runHook postPatch
   '';
 
   installPhase = ''
+    runHook preInstall
+
     install -Dm 644 * -t $out/libexec
     chmod 755 $out/libexec/keyb0xx
     install -dm 755 $out/bin
     ln -s $out/libexec/keyb0xx $out/bin/keyb0xx
+
+    runHook postInstall
   '';
 
 }

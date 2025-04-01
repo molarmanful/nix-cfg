@@ -1,6 +1,7 @@
 for input in $(riverctl list-inputs | grep -i touchpad); do
     riverctl input $input natural-scroll enabled
     riverctl input $input scroll-factor 0.5
+    riverctl input $input click-method clickfinger
     riverctl input $input middle-emulation enabled
     riverctl input $input disable-while-typing disabled
     riverctl input $input disable-while-trackpointing enabled
