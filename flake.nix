@@ -50,7 +50,6 @@
             beekeeper = upkgs.callPackage ./mypkgs/beekeeper.nix { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             river-bedload = upkgs.callPackage ./mypkgs/river-bedload { };
-            river-tofi = upkgs.callPackage ./mypkgs/river-tofi.nix { };
           };
           specialArgs = {
             inherit inputs upkgs mypkgs;

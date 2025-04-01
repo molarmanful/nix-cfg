@@ -41,13 +41,13 @@
           foreground = builtins.substring 1 (-1) colors.foreground;
         }
         // (builtins.listToAttrs (
-          lib.lists.imap0 (i: v: {
+          lib.imap0 (i: v: {
             name = "regular${builtins.toString i}";
             value = builtins.substring 1 (-1) v;
           }) colors.ansi
         ))
         // (builtins.listToAttrs (
-          lib.lists.imap0 (i: v: {
+          lib.imap0 (i: v: {
             name = "bright${builtins.toString i}";
             value = builtins.substring 1 (-1) v;
           }) colors.brights

@@ -4,12 +4,10 @@
   imports = [
     ../.
     ../../common/wayland.nix
-    ../xresources
     ../kanshi
     ../river
     ../wezterm
     ../foot
-    ../urxvt
     ../godot
     ../melee
     ../floorp
