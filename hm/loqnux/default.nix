@@ -4,6 +4,7 @@
   imports = [
     ../.
     ../../common/wayland.nix
+    ../xresources
     ../kanshi
     ../river
     ../wezterm
