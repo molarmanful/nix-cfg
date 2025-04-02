@@ -51,8 +51,20 @@
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             river-bedload = upkgs.callPackage ./mypkgs/river-bedload { };
           };
+
+          commonModules = [
+            { system = { inherit stateVersion; }; }
+            inputs.nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
+          ];
+
           specialArgs = {
-            inherit inputs upkgs mypkgs;
+            inherit
+              stateVersion
+              inputs
+              upkgs
+              mypkgs
+              ;
             inherit (inputs.kirsch.packages.${system}) kirsch;
             inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
             inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
@@ -73,24 +85,22 @@
                 { modules, hm }:
                 inputs.nixpkgs.lib.nixosSystem {
                   inherit system specialArgs;
-                  modules = modules ++ [
-                    inputs.nix-index-database.nixosModules.nix-index
-                    { programs.nix-index-database.comma.enable = true; }
-                    inputs.home-manager.nixosModules.home-manager
-                    {
-                      home-manager = {
-                        inherit extraSpecialArgs;
-                        # useGlobalPkgs = true;
-                        useUserPackages = true;
-                        backupFileExtension = "backup";
-                        users.ben = hm;
-                      };
-                    }
-                    {
-                      home-manager.users.ben.home = { inherit stateVersion; };
-                      system = { inherit stateVersion; };
-                    }
-                  ];
+                  modules =
+                    commonModules
+                    ++ modules
+                    ++ [
+                      inputs.home-manager.nixosModules.home-manager
+                      {
+                        home-manager = {
+                          inherit extraSpecialArgs;
+                          # useGlobalPkgs = true;
+                          useUserPackages = true;
+                          backupFileExtension = "backup";
+                          users.ben = hm;
+                        };
+                      }
+                      { home-manager.users.ben.home = { inherit stateVersion; }; }
+                    ];
                 };
 
             in
@@ -116,16 +126,10 @@
             home = {
               inherit pkgs;
               inherit extraSpecialArgs;
-              modules = [
-                ./hm
-                inputs.nix-index-database.hmModules.nix-index
-                { programs.nix-index-database.comma.enable = true; }
-                { system = { inherit stateVersion; }; }
-              ];
+              modules = commonModules ++ [ ./hm ];
             };
           };
 
         };
     };
-
 }

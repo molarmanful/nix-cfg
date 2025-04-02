@@ -25,6 +25,8 @@ return {
     toml = { 'taplo' },
     markdown = { 'mdformat' },
     rust = { 'rustfmt' },
+    haskell = { 'fourmolu' },
+    cabal = { 'cabal_fmt' },
   },
 
   formatters = {

@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 {
 
+  imports = [ ../common ];
+
   networking.hostName = lib.mkDefault "jimbo";
 
   nix = {
@@ -13,10 +15,12 @@
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+        "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       ];
       substituters = [
         "https://cache.nixos.org"
         "https://nixpkgs-wayland.cachix.org"
+        "https://cache.iog.io"
       ];
     };
     gc = {
@@ -25,8 +29,6 @@
       options = "--delete-older-than 1w";
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.configurationLimit = 10;
 

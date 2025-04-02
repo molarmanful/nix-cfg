@@ -15,9 +15,8 @@
 {
 
   imports = [
-    ../../common/wayland.nix
-    ./hardware-configuration.nix
     ../.
+    ./hardware-configuration.nix
   ];
 
   networking = {

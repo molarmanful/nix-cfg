@@ -2,13 +2,12 @@
 {
 
   imports = [
+    ../common
     ./git
     ./direnv
     ./fish
     ./nixcats
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   home = {
     username = "ben";

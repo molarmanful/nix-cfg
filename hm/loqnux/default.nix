@@ -3,7 +3,6 @@
 {
   imports = [
     ../.
-    ../../common/wayland.nix
     ../kanshi
     ../river
     ../wezterm
