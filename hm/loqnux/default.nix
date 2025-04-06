@@ -34,6 +34,7 @@
     wl-clipboard-rs
     wl-clip-persist
     playerctl
+    krita
   ];
 
   programs.ssh = {

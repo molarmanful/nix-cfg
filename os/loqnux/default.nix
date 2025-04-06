@@ -157,6 +157,9 @@
       # WLR_RENDERER = "vulkan";
       # WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
       GBM_BACKEND = "nvidia-drm";
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       SDL_VIDEODRIVER = "wayland";
       QT_QPA_PLATFORM = "wayland";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";

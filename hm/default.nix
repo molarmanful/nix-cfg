@@ -49,6 +49,8 @@
       just
       bottom
       neofetch
+      rclone
+      dasel
     ];
   };
 
