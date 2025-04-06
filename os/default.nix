@@ -32,7 +32,6 @@
 
   boot.loader.systemd-boot.configurationLimit = 10;
 
-  programs.fish.enable = true;
   environment = {
     pathsToLink = [ "/share/fish" ];
     shells = [ pkgs.fish ];
@@ -53,6 +52,11 @@
     enable = true;
     enableOnBoot = true;
     autoPrune.enable = true;
+  };
+
+  programs = {
+    fish.enable = true;
+    nix-ld.enable = true;
   };
 
 }
