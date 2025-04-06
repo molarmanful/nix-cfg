@@ -45,7 +45,7 @@
           --border-color-focused ${hexes.base03} \
           --border-color-focused-monocle ${hexes.base03} \
           --border-color-unfocused ${hexes.base01} \
-          > tee ~/wideriver.log 2>&1 &
+          > ~/wideriver.log 2>&1 &
 
         echo 'LAYOUT done'
 
