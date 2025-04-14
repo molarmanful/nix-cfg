@@ -25,4 +25,9 @@
       };
     };
   };
+
+  home.file = {
+    ".ssh/id_ed25519.pub".text = inputs.secrets.public_keys.molarmanful;
+    ".ssh/updoc_ed25519.pub".text = inputs.secrets.public_keys.updoc;
+  };
 }

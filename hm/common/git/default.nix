@@ -10,7 +10,7 @@
       commit.gpgsign = true;
       tag.gpgsign = true;
       gpg.format = "ssh";
-      user.signingkey = inputs.secrets.public_keys.molarmanful;
+      user.signingkey = "~/.ssh/id_ed25519.pub";
     };
   };
   programs.gh = {
