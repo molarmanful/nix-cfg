@@ -1,11 +1,15 @@
 {
   inputs = {
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
@@ -24,6 +28,8 @@
     ANAKRON.url = "github:molarmanful/ANAKRON";
     QUINTESSON.url = "github:molarmanful/QUINTESSON";
     abyssal.url = "github:molarmanful/abyssal";
+
+    secrets.url = "git+https://github.com/molarmanful/nix-secrets?shallow=1";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
@@ -45,7 +51,10 @@
           stateVersion = "24.11";
 
           pkgs = inputs.nixpkgs.legacyPackages.${system};
-          upkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
+          upkgs = import inputs.nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
           mypkgs = {
             beekeeper = upkgs.callPackage ./mypkgs/beekeeper.nix { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
@@ -54,7 +63,6 @@
 
           commonModules = [
             { system = { inherit stateVersion; }; }
-            inputs.nix-index-database.nixosModules.nix-index
             { programs.nix-index-database.comma.enable = true; }
           ];
 
@@ -72,6 +80,7 @@
             scheme = inputs.abyssal.lib.stylix;
             persway = inputs.persway.packages.${system}.default;
             wezterm = inputs.wezterm.packages.${system}.default;
+            secretspath = builtins.toString inputs.secrets;
           };
           extraSpecialArgs = specialArgs;
 
@@ -90,6 +99,8 @@
                     ++ modules
                     ++ [
                       inputs.home-manager.nixosModules.home-manager
+                      inputs.nix-index-database.nixosModules.nix-index
+                      inputs.sops-nix.nixosModules.sops
                       {
                         home-manager = {
                           inherit extraSpecialArgs;
@@ -124,9 +135,11 @@
 
           homeConfigurations = {
             home = {
-              inherit pkgs;
-              inherit extraSpecialArgs;
-              modules = commonModules ++ [ ./hm ];
+              inherit pkgs extraSpecialArgs;
+              modules = commonModules ++ [
+                inputs.nix-index-database.hmModules.nix-index
+                ./hm
+              ];
             };
           };
 

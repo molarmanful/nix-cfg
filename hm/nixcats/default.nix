@@ -10,8 +10,8 @@
         nvim
       ];
       sessionVariables = {
-        EDITOR = "${nvim}";
-        VISUAL = "${nvim}";
+        EDITOR = "nvim";
+        VISUAL = "nvim";
       };
     };
 }

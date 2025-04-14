@@ -1,7 +1,20 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  lib,
+  secretspath,
+  ...
+}:
 {
 
-  imports = [ ../common ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+    overlays = [ inputs.nixpkgs-wayland.overlay ];
+  };
 
   networking.hostName = lib.mkDefault "jimbo";
 
@@ -32,20 +45,43 @@
 
   boot.loader.systemd-boot.configurationLimit = 10;
 
+  sops = {
+    defaultSopsFile = "${secretspath}/secrets.yaml";
+
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+
+    secrets = {
+      ben-password.neededForUsers = true;
+    };
+  };
+
   environment = {
     pathsToLink = [ "/share/fish" ];
     shells = [ pkgs.fish ];
   };
 
-  users.users.ben = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = [
-      "wheel"
-      "docker"
-      "networkmanager"
-      "video"
-    ];
+  users = {
+    mutableUsers = false;
+
+    users.ben = {
+      isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets.ben-password.path;
+      shell = pkgs.fish;
+      extraGroups = [
+        "wheel"
+        "docker"
+        "networkmanager"
+        "video"
+      ];
+      openssh.authorizedKeys.keys = [
+        inputs.secrets.public_keys.github_sign
+        inputs.secrets.public_keys.updoc
+      ];
+    };
   };
 
   virtualisation.docker = {
@@ -57,6 +93,16 @@
   programs = {
     fish.enable = true;
     nix-ld.enable = true;
+    ssh.startAgent = true;
+
+    gnupg.agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-curses;
+    };
+  };
+
+  services = {
+    openssh.enable = true;
   };
 
 }

@@ -1,13 +1,21 @@
-{ upkgs, ... }:
+{ inputs, upkgs, ... }:
 {
 
   imports = [
-    ../common
     ./git
+    ./sops
     ./direnv
     ./fish
     ./nixcats
   ];
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+    overlays = [ inputs.nixpkgs-wayland.overlay ];
+  };
 
   home = {
     username = "ben";
@@ -51,6 +59,9 @@
       neofetch
       rclone
       dasel
+      bitwarden-cli
+      bws
+      age
     ];
   };
 

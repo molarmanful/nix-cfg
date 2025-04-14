@@ -1,4 +1,9 @@
-{ pkgs, mypkgs, ... }:
+{
+  pkgs,
+  upkgs,
+  mypkgs,
+  ...
+}:
 
 {
   imports = [
@@ -12,11 +17,11 @@
     ../floorp
   ];
 
-  home.packages = with pkgs; [
+  home.packages = with upkgs; [
     chromium
     libsForQt5.qt5ct
-    vesktop
-    obsidian
+    pkgs.vesktop
+    pkgs.obsidian
     # zoom-us
     distrobox
     azure-cli
@@ -35,13 +40,6 @@
     wl-clip-persist
     playerctl
     krita
+    bitwarden-desktop
   ];
-
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host *
-          IdentityAgent ~/.1password/agent.sock
-    '';
-  };
 }
