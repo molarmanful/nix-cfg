@@ -78,8 +78,8 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 riverctl map normal Super+Shift Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
-riverctl map normal None Print spawn 'flameshot screen'
-riverctl map normal Shift Print spawn 'flameshot gui'
+riverctl map normal None Print spawn 'shotman --capture output'
+riverctl map normal Shift Print spawn 'shotman --capture region'
 
 riverctl declare-mode passthrough
 riverctl map normal Super F11 enter-mode passthrough

@@ -1,9 +1,10 @@
 {
+  inputs,
+  config,
   lib,
   pkgs,
   upkgs,
   mypkgs,
-  config,
   sf-pro,
   ny,
   kirsch,
@@ -19,9 +20,19 @@
     ./hardware-configuration.nix
   ];
 
+  sops.secrets = {
+    "nm.env" = { };
+  };
+
   networking = {
     hostName = "loqnux";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      ensureProfiles = {
+        environmentFiles = [ config.sops.secrets."nm.env".path ];
+        profiles = inputs.secrets.nm_profiles;
+      };
+    };
   };
 
   security = {

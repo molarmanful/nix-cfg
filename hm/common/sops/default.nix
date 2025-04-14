@@ -1,4 +1,9 @@
-{ inputs, secretspath, ... }:
+{
+  inputs,
+  config,
+  secretspath,
+  ...
+}:
 
 {
   imports = [
@@ -6,17 +11,17 @@
   ];
 
   sops = {
-    age.keyFile = "/home/ben/.config/sops/age/keys.txt";
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 
     defaultSopsFile = "${secretspath}/secrets.yaml";
     validateSopsFiles = false;
 
     secrets = {
       "private_keys/molarmanful" = {
-        path = "/home/ben/.ssh/id_ed25519";
+        path = "${config.home.homeDirectory}/.ssh/id_ed25519";
       };
       "private_keys/updoc" = {
-        path = "/home/ben/.ssh/updoc_ed25519";
+        path = "${config.home.homeDirectory}/.ssh/updoc_ed25519";
       };
     };
   };

@@ -7,14 +7,14 @@
 
 {
   imports = [
-    ../.
-    ../kanshi
-    ../river
-    ../wezterm
-    ../foot
-    ../godot
-    ../melee
-    ../floorp
+    ../common
+    ../common/kanshi
+    ../common/river
+    ../common/wezterm
+    ../common/foot
+    ../common/godot
+    ../common/melee
+    ../common/floorp
   ];
 
   home.packages = with upkgs; [

@@ -15,6 +15,7 @@
     swaynotificationcenter
     swaybg
     wideriver
+    shotman
     mypkgs.river-bedload
   ];
 
@@ -49,7 +50,7 @@
 
         echo 'LAYOUT done'
 
-        riverctl spawn 'swaybg -m fit -c 000000 -i ${../../wp/skull.png}'
+        riverctl spawn 'swaybg -m fit -c 000000 -i ${../../../wp/skull.png}'
         riverctl spawn kanshi
         riverctl spawn swaync
         riverctl spawn waybar
@@ -66,15 +67,5 @@
         echo 'ALL done'
       '';
 
-  };
-
-  services.flameshot = {
-    enable = true;
-    package = pkgs.flameshot.override { enableWlrSupport = true; };
-    settings = {
-      General = {
-        disabledGrimWarning = true;
-      };
-    };
   };
 }
