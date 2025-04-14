@@ -12,7 +12,7 @@
     validateSopsFiles = false;
 
     secrets = {
-      "private_keys/github_sign" = {
+      "private_keys/molarmanful" = {
         path = "/home/ben/.ssh/id_ed25519";
       };
       "private_keys/updoc" = {

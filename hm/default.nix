@@ -4,6 +4,7 @@
   imports = [
     ./git
     ./sops
+    ./ssh
     ./direnv
     ./fish
     ./nixcats

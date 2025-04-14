@@ -10,7 +10,7 @@
       commit.gpgsign = true;
       tag.gpgsign = true;
       gpg.format = "ssh";
-      user.signingkey = inputs.secrets.public_keys.github_sign;
+      user.signingkey = inputs.secrets.public_keys.molarmanful;
     };
   };
   programs.gh = {

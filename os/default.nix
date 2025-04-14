@@ -77,10 +77,6 @@
         "networkmanager"
         "video"
       ];
-      openssh.authorizedKeys.keys = [
-        inputs.secrets.public_keys.github_sign
-        inputs.secrets.public_keys.updoc
-      ];
     };
   };
 
