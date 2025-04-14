@@ -25,6 +25,3 @@ done
 # OBSIDIAN
 riverctl rule-add -app-id 'obsidian' tags $((1 << 7))
 riverctl rule-add -app-id 'obsidian' output DP-9
-
-# FLAMESHOT
-riverctl rule-add -app-id 'flameshot' -title 'Save screenshot' float
