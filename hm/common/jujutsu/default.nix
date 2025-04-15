@@ -18,4 +18,8 @@
       };
     };
   };
+
+  home.packages = with upkgs; [
+    lazyjj
+  ];
 }
