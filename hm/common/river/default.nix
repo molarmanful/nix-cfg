@@ -54,6 +54,7 @@
         riverctl spawn kanshi
         riverctl spawn swaync
         riverctl spawn waybar
+        riverctl spawn ssh-add
 
         riverctl focus-output DP-9
         riverctl set-focused-tags $((1 << 8))
@@ -63,6 +64,7 @@
         riverctl spawn floorp
         riverctl spawn vesktop
         riverctl spawn obsidian
+        riverctl spawn wezterm
 
         echo 'ALL done'
       '';

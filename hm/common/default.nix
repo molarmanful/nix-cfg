@@ -3,6 +3,7 @@
 
   imports = [
     ./git
+    ./jujutsu
     ./sops
     ./ssh
     ./direnv
