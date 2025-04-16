@@ -41,5 +41,6 @@
     playerctl
     krita
     bitwarden-desktop
+    quickemu
   ];
 }
