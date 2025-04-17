@@ -16,10 +16,38 @@
       git = {
         sign-on-push = true;
       };
+      ui = {
+        merge-editor = [
+          "meld"
+          "$left"
+          "$base"
+          "$right"
+          "-o"
+          "$output"
+        ];
+      };
+      aliases = {
+        sync = [
+          "git"
+          "fetch"
+          "--all-remotes"
+        ];
+        evolve = [
+          "rebase"
+          "--skip-empty"
+          "-d"
+        ];
+      };
     };
   };
 
-  home.packages = with upkgs; [
-    lazyjj
-  ];
+  home = {
+    packages = with upkgs; [
+      lazyjj
+      meld
+    ];
+    shellAliases = {
+      lj = "lazyjj";
+    };
+  };
 }
