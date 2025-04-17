@@ -1,4 +1,9 @@
-{ inputs, upkgs, ... }:
+{
+  inputs,
+  upkgs,
+  jjui,
+  ...
+}:
 {
   programs.jujutsu = {
     enable = true;

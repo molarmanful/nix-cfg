@@ -24,6 +24,7 @@
     persway.url = "github:johnae/persway";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
     slippi.url = "github:molarmanful/slippi-nix";
+    jjui.url = "github:idursun/jjui";
     kirsch.url = "github:molarmanful/kirsch";
     ANAKRON.url = "github:molarmanful/ANAKRON";
     QUINTESSON.url = "github:molarmanful/QUINTESSON";
@@ -80,6 +81,7 @@
             scheme = inputs.abyssal.lib.stylix;
             persway = inputs.persway.packages.${system}.default;
             wezterm = inputs.wezterm.packages.${system}.default;
+            jjui = inputs.jjui.packages.${system}.default;
             secretspath = builtins.toString inputs.secrets;
           };
           extraSpecialArgs = specialArgs;
