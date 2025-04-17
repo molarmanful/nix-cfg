@@ -45,9 +45,11 @@
     packages = with upkgs; [
       lazyjj
       meld
+      jjui
     ];
     shellAliases = {
       lj = "lazyjj";
+      ju = "jjui";
     };
   };
 }
