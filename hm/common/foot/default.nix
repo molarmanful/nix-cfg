@@ -16,7 +16,7 @@
     settings = {
       main =
         let
-          font = lib.mkForce "kirsch:pixelsize=16, Symbols Nerd Font:pixelsize=12";
+          font = lib.mkForce "kirsch Propo:pixelsize=16, Symbols Nerd Font:pixelsize=12";
         in
         {
           inherit font;

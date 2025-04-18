@@ -202,11 +202,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1744118807,
-        "narHash": "sha256-cVSKdpVKyU/w11e+7wblPlUOg6k4EFUh6l7I+wY8OIY=",
+        "lastModified": 1744949192,
+        "narHash": "sha256-YoUDHig03H6T+odpRmw20ofnAfgS32h4qPTSaVBO2Ys=",
         "owner": "molarmanful",
         "repo": "bited-utils",
-        "rev": "4f2e89e736b4ad376ee924abfb32f75123c8f85d",
+        "rev": "930a1aa1f0e70628182a55849f7efc8153b895f1",
         "type": "github"
       },
       "original": {
@@ -1208,11 +1208,11 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1744407652,
-        "narHash": "sha256-p1qgembtXALAhHICHB8YseXauaaajhbLMJ8rKHdcnQA=",
+        "lastModified": 1744950973,
+        "narHash": "sha256-9Tk4Px5wfI0gOrdEgfi0Qie5yx1OYOWZp6Yrpkb5/0M=",
         "owner": "molarmanful",
         "repo": "kirsch",
-        "rev": "47c7879fb3510ce32a954954ea6c8ab8f2479d0d",
+        "rev": "98c6312ef5b5115fc2f4ca1b1ac8f0430cdd571f",
         "type": "github"
       },
       "original": {
