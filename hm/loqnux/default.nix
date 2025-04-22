@@ -12,6 +12,7 @@
     ../common/river
     ../common/wezterm
     ../common/foot
+    ../common/alacritty
     ../common/godot
     ../common/melee
     ../common/floorp
