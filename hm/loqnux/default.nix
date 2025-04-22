@@ -12,7 +12,6 @@
     ../common/river
     ../common/wezterm
     ../common/foot
-    ../common/contour
     ../common/godot
     ../common/melee
     ../common/floorp

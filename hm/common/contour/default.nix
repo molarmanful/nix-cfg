@@ -13,8 +13,10 @@
   xdg.configFile."contour/contour.yml".text = builtins.toJSON {
     profiles.main = {
       show_title_bar = false;
+      colors = "abyssal";
       scrollbar.position = "Hidden";
       status_line.display = "none";
+      size_indicator_on_resize = false;
       margins = {
         horizontal = 8;
         vertical = 8;
@@ -24,13 +26,14 @@
         scroll_multiplier = 1;
       };
       font = {
-        size = 16;
-        builtin_box_drawing = false;
         regular.family = "kirsch";
+        size = 12;
+        builtin_box_drawing = false;
+        render_mode = "monochrome";
       };
     };
 
-    color_schemes.default =
+    color_schemes.abyssal =
       let
         theme = inputs.abyssal.lib.wezterm;
         ansi = [
