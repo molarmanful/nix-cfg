@@ -64,7 +64,7 @@
         riverctl spawn floorp
         riverctl spawn vesktop
         riverctl spawn obsidian
-        riverctl spawn wezterm
+        riverctl spawn alacritty
 
         echo 'ALL done'
       '';

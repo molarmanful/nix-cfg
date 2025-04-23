@@ -89,6 +89,10 @@
           );
         };
 
+      mouse = {
+        hide_when_typing = true;
+      };
+
       keyboard.bindings = [
         {
           mods = "Control";
@@ -128,8 +132,8 @@
           <times>
             <name>matrix</name>
             <matrix>
-              <double>0.6</double><double>0</double>
-              <double>0</double><double>0.6</double>
+              <double>0.69</double><double>0</double>
+              <double>0</double><double>0.69</double>
             </matrix>
           </times>
         </edit>

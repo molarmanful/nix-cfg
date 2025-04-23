@@ -1,4 +1,4 @@
-riverctl map normal Super Return spawn wezterm
+riverctl map normal Super Return spawn alacritty
 riverctl map normal Super+Shift Q close
 riverctl map normal Super+Shift E exit
 
