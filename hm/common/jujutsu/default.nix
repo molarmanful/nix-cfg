@@ -39,8 +39,16 @@
         ];
         evolve = [
           "rebase"
-          "--skip-empty"
+          "--skip-emptied"
           "-d"
+        ];
+        tug = [
+          "bookmark"
+          "move"
+          "--from"
+          "heads(::@- & bookmarks())"
+          "--to"
+          "@-"
         ];
       };
     };
