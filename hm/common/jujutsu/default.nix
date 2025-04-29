@@ -23,12 +23,9 @@
       };
       ui = {
         merge-editor = [
-          "meld"
-          "$left"
-          "$base"
-          "$right"
-          "-o"
-          "$output"
+          "nvim"
+          "-c"
+          "DiffEditor $left $right $output"
         ];
       };
       aliases = {
