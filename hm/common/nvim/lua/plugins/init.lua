@@ -30,6 +30,7 @@ local syns = {
 }
 
 return {
+  { import = 'nvchad.blink.lazyspec' },
 
   { 'williamboman/mason.nvim', enabled = false },
   { 'williamboman/mason-lspconfig.nvim', enabled = false },
@@ -83,10 +84,17 @@ return {
   },
 
   {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require 'configs.cmp'
-    end,
+    'Saghen/blink.cmp',
+    opts = {
+      keymap = {
+        preset = 'default',
+        ['<Tab>'] = { 'select_and_accept', 'fallback' },
+        ['<C-j>'] = { 'select_next', 'fallback' },
+        ['<C-k>'] = { 'select_prev', 'fallback' },
+        ['<S-Tab>'] = { 'hide', 'fallback' },
+        ['<CR>'] = { 'hide', 'fallback' },
+      },
+    },
   },
 
   {
