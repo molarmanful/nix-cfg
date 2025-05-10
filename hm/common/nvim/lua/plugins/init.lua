@@ -30,6 +30,13 @@ local syns = {
 }
 
 return {
+  {
+    'nvchad/base46',
+    branch = 'v3.0',
+    build = function()
+      require('base46').load_all_highlights()
+    end,
+  },
   { import = 'nvchad.blink.lazyspec' },
 
   { 'williamboman/mason.nvim', enabled = false },
@@ -145,15 +152,6 @@ return {
       'sindrets/diffview.nvim',
     },
     config = true,
-  },
-
-  {
-    'NvChad/nvterm',
-    opts = {
-      behavior = {
-        auto_insert = false,
-      },
-    },
   },
 
   {
