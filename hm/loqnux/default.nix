@@ -1,7 +1,6 @@
 {
   pkgs,
   upkgs,
-  mypkgs,
   ...
 }:
 
@@ -31,7 +30,7 @@
     obs-studio-plugins.wlrobs
     spotify-player
     feh
-    mypkgs.beekeeper
+    # mypkgs.beekeeper
     sqlite
     bluetuith
     pavucontrol
@@ -43,5 +42,6 @@
     krita
     bitwarden-desktop
     quickemu
+    slack
   ];
 }
