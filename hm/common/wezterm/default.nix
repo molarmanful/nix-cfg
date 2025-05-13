@@ -1,12 +1,12 @@
 {
-  wezterm,
   inputs,
+  upkgs,
   ...
 }:
 {
   programs.wezterm = {
     enable = true;
-    package = wezterm;
+    package = upkgs.wezterm;
     colorSchemes = {
       abyssal = inputs.abyssal.lib.wezterm;
     };

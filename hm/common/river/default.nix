@@ -63,6 +63,7 @@
 
         riverctl spawn floorp
         riverctl spawn vesktop
+        riverctl spawn slack
         riverctl spawn obsidian
         riverctl spawn alacritty
 

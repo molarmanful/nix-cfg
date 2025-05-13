@@ -64,6 +64,10 @@
       bitwarden-cli
       bws
       age
+      sqlite
+      distrobox
+      azure-cli
+      sops
     ];
   };
 

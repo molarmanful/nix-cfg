@@ -3,5 +3,5 @@
     enable = true;
   };
 
-  stylix.targets.firefox.profileNames = [ "default" ];
+  stylix.targets.floorp.profileNames = [ "default" ];
 }

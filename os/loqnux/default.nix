@@ -85,8 +85,6 @@
       };
     };
 
-    pulseaudio.enable = false;
-
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -101,6 +99,8 @@
   services = {
     xserver.videoDrivers = [ "nvidia" ];
     power-profiles-daemon.enable = true;
+
+    pulseaudio.enable = false;
 
     blueman.enable = true;
 
@@ -213,6 +213,10 @@
         TTYVTDisallocate = true;
       };
     };
+
+    user.extraConfig = ''
+      DefaultEnvironment="PATH=/run/wrappers/bin:/etc/profiles/per-user/%u/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
+    '';
   };
 
   xdg.portal = {

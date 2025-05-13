@@ -1,11 +1,11 @@
 {
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
@@ -18,11 +18,10 @@
     };
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     persway.url = "github:johnae/persway";
-    wezterm.url = "github:wezterm/wezterm?dir=nix";
     slippi.url = "github:molarmanful/slippi-nix";
     jjui.url = "github:idursun/jjui";
     kirsch.url = "github:molarmanful/kirsch";
@@ -49,7 +48,7 @@
         let
 
           system = "x86_64-linux";
-          stateVersion = "24.11";
+          stateVersion = "25.05";
 
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           upkgs = import inputs.nixpkgs-unstable {
@@ -80,7 +79,6 @@
             inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
             scheme = inputs.abyssal.lib.stylix;
             persway = inputs.persway.packages.${system}.default;
-            wezterm = inputs.wezterm.packages.${system}.default;
             jjui = inputs.jjui.packages.${system}.default;
             secretspath = builtins.toString inputs.secrets;
           };
@@ -124,7 +122,7 @@
                   inputs.slippi.nixosModules.default
                   ./os/loqnux
                 ];
-                hm = import ./hm/loqnux;
+                hm = import ./hm/nixos;
               };
               wsl = sys {
                 modules = [
