@@ -72,8 +72,10 @@ let
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           gcc
+          gnumake
           ripgrep
           fzf
+          fd
 
           nixd
           lua-language-server

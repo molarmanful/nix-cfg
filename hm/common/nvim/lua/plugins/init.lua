@@ -116,11 +116,22 @@ return {
 
   {
     'nvim-telescope/telescope.nvim',
-    opts = require 'configs.telescope',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
+    config = function()
+      require 'configs.telescope'
+    end,
   },
 
   {
     'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
   },
 
   {
