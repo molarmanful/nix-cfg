@@ -56,7 +56,6 @@
             config.allowUnfree = true;
           };
           mypkgs = {
-            beekeeper = upkgs.callPackage ./mypkgs/beekeeper.nix { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             river-bedload = upkgs.callPackage ./mypkgs/river-bedload { };
           };
