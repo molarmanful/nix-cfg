@@ -1,5 +1,4 @@
 {
-  pkgs,
   upkgs,
   ...
 }:
@@ -20,8 +19,6 @@
   home.packages = with upkgs; [
     chromium
     libsForQt5.qt5ct
-    pkgs.vesktop
-    pkgs.obsidian
     obs-studio
     obs-studio-plugins.wlrobs
     spotify-player
