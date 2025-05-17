@@ -56,6 +56,7 @@
             config.allowUnfree = true;
           };
           mypkgs = {
+            river = upkgs.callPackage ./mypkgs/river { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             river-bedload = upkgs.callPackage ./mypkgs/river-bedload { };
           };
