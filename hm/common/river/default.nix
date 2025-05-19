@@ -7,6 +7,7 @@
 {
 
   imports = [
+    ../wayland
     ../tofi
     ../waybar
   ];

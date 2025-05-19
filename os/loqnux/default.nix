@@ -159,22 +159,17 @@
 
   environment = {
     systemPackages = with pkgs; [
-      mypkgs.keyb0xx
+      lenovo-legion
       vulkan-validation-layers
+      mypkgs.keyb0xx
     ];
 
     sessionVariables = {
-      NIXOS_OZONE_WL = "1";
       # WLR_RENDERER = "vulkan";
       GBM_BACKEND = "nvidia-drm";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      SDL_VIDEODRIVER = "wayland";
-      QT_QPA_PLATFORM = "wayland";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      _JAVA_AWT_WM_NONREPARENTING = "1";
-      MOZ_ENABLE_WAYLAND = "1";
     };
 
     etc."libinput/local-overrides.quirks".text = ''
