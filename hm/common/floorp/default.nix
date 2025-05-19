@@ -1,9 +1,67 @@
+{ upkgs, ... }:
+
 {
   programs.floorp = {
     enable = true;
 
     profiles.default = {
       id = 0;
+
+      search = {
+        force = true;
+        default = "STARTPAGE";
+        privateDefault = "STARTPAGE";
+        order = [
+          "STARTPAGE"
+          "Nixpkgs"
+        ];
+        engines = {
+          STARTPAGE = {
+            urls = [
+              {
+                template = "https://startpage.com/sp/search";
+                params = [
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "prfe";
+                    value = "f44ca064b90da6a2c3e4f4de82e5feb606f993ed4c1e45493a5319a377b88ab383bae8a739e576dd55afdf46d71c4e1df34e62e7f1625eb10b35ec0a04117f4f3cd337f3a30aaf023b9b02";
+                  }
+                ];
+              }
+            ];
+          };
+          Nixpkgs = {
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@np" ];
+          };
+          google.metaData.hidden = true;
+          bing.metaData.hidden = true;
+          ddg.metaData.hidden = true;
+          st.metaData.hidden = true;
+          yc.metaData.hidden = true;
+        };
+      };
 
       settings = {
         # arkenfox
