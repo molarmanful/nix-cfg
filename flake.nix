@@ -3,6 +3,10 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -55,6 +59,7 @@
             inherit system;
             config.allowUnfree = true;
           };
+          nur = inputs.nur.legacyPackages.${system};
           mypkgs = {
             river = upkgs.callPackage ./mypkgs/river { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
@@ -72,6 +77,7 @@
               inputs
               upkgs
               mypkgs
+              nur
               ;
             inherit (inputs.kirsch.packages.${system}) kirsch;
             inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
