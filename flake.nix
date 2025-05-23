@@ -21,6 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     stylix.url = "github:danth/stylix";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -122,6 +123,16 @@
 
             in
             {
+              ifwit = sys {
+                modules = [
+                  inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+                  inputs.stylix.nixosModules.stylix
+                  inputs.slippi.nixosModules.default
+                  ./os/workframe
+                ];
+                hm = import ./hm/nixos;
+              };
+
               loqnux = sys {
                 modules = [
                   inputs.stylix.nixosModules.stylix
@@ -130,6 +141,7 @@
                 ];
                 hm = import ./hm/nixos;
               };
+
               wsl = sys {
                 modules = [
                   inputs.nixos-wsl.nixosModules.default
