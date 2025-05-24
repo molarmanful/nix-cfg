@@ -13,4 +13,8 @@
       preLVM = true;
     };
   };
+
+  environment.sessionVariables = {
+    WLR_RENDERER = "vulkan";
+  };
 }

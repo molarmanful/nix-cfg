@@ -1,4 +1,6 @@
 {
+  lib,
+  config,
   pkgs,
   mypkgs,
   scheme,
@@ -12,64 +14,79 @@
     ../waybar
   ];
 
-  home.packages = with pkgs; [
-    swaynotificationcenter
-    swaybg
-    wideriver
-    shotman
-    mypkgs.river-bedload
-  ];
+  options.wayland.windowManager.river = {
+    touchpadScrollFactor = lib.mkOption {
+      type = lib.types.numbers.nonnegative;
+      default = 0.2;
+    };
+  };
 
-  wayland.windowManager.river = {
+  config = {
+    home.packages = with pkgs; [
+      swaynotificationcenter
+      swaybg
+      wideriver
+      shotman
+      mypkgs.river-bedload
+    ];
 
-    enable = true;
-    extraConfig =
-      let
-        hexes = builtins.mapAttrs (_: v: "0x${builtins.substring 1 (-1) v}") scheme;
-      in
-      ''
-        ${builtins.readFile ./cfg/keys.sh}
-        echo 'KEYS done'
-        ${builtins.readFile ./cfg/config.sh}
-        echo 'CONFIG done'
-        ${builtins.readFile ./cfg/apps.sh}
-        echo 'APPS done'
+    wayland.windowManager.river = {
 
-        riverctl background-color ${hexes.base00}
-        riverctl border-color-focused ${hexes.base03}
-        riverctl border-color-unfocused ${hexes.base01}
-        riverctl border-width 1
+      enable = true;
+      extraConfig =
+        let
+          hexes = builtins.mapAttrs (_: v: "0x${builtins.substring 1 (-1) v}") scheme;
+          cfg = config.wayland.windowManager.river;
+        in
+        ''
+          TOUCHPAD_SCROLL_FACTOR=${toString cfg.touchpadScrollFactor}
+          OUTPUTS=$(river-bedload -print outputs)
+          DP_INTERNAL=$(echo $OUTPUTS | jq -r '.[].name | first(select(startswith("eDP-")))')
+          DP_EXTERNAL=$(echo $OUTPUTS | jq -r '.[].name | first(select(startswith("DP-")))')
 
-        riverctl default-layout wideriver
-        wideriver \
-          --inner-gap 13 --outer-gap 13 --no-smart-gaps \
-          --border-width 1 --border-width-monocle 1 \
-          --border-color-focused ${hexes.base03} \
-          --border-color-focused-monocle ${hexes.base03} \
-          --border-color-unfocused ${hexes.base01} \
-          > ~/wideriver.log 2>&1 &
+          ${builtins.readFile ./cfg/keys.sh}
+          echo 'KEYS done'
+          ${builtins.readFile ./cfg/config.sh}
+          echo 'CONFIG done'
+          ${builtins.readFile ./cfg/apps.sh}
+          echo 'APPS done'
 
-        echo 'LAYOUT done'
+          riverctl background-color ${hexes.base00}
+          riverctl border-color-focused ${hexes.base03}
+          riverctl border-color-unfocused ${hexes.base01}
+          riverctl border-width 1
 
-        riverctl spawn 'swaybg -m fit -c 000000 -i ${../../../wp/skull.png}'
-        riverctl spawn kanshi
-        riverctl spawn swaync
-        riverctl spawn waybar
-        riverctl spawn ssh-add
+          riverctl default-layout wideriver
+          wideriver \
+            --inner-gap 13 --outer-gap 13 --no-smart-gaps \
+            --border-width 1 --border-width-monocle 1 \
+            --border-color-focused ${hexes.base03} \
+            --border-color-focused-monocle ${hexes.base03} \
+            --border-color-unfocused ${hexes.base01} \
+            > ~/wideriver.log 2>&1 &
 
-        riverctl focus-output DP-9
-        riverctl set-focused-tags $((1 << 8))
-        riverctl focus-output eDP-1
-        riverctl set-focused-tags $((1 << 1))
+          echo 'LAYOUT done'
 
-        riverctl spawn floorp
-        riverctl spawn dev.vencord.Vesktop
-        riverctl spawn slack
-        riverctl spawn md.obsidian.Obsidian
-        riverctl spawn alacritty
+          riverctl spawn 'swaybg -m fit -c 000000 -i ${../../../wp/skull.png}'
+          riverctl spawn kanshi
+          riverctl spawn swaync
+          riverctl spawn waybar
+          riverctl spawn ssh-add
 
-        echo 'ALL done'
-      '';
+          riverctl focus-output $DP_EXTERNAL
+          riverctl set-focused-tags $((1 << 8))
+          riverctl focus-output $DP_INTERNAL
+          riverctl set-focused-tags $((1 << 1))
 
+          riverctl spawn floorp
+          riverctl spawn dev.vencord.Vesktop
+          riverctl spawn slack
+          riverctl spawn md.obsidian.Obsidian
+          riverctl spawn alacritty
+
+          echo 'ALL done'
+        '';
+
+    };
   };
 }

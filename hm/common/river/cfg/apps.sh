@@ -14,18 +14,18 @@ riverctl rule-add -app-id 'Thunar' -title 'File Operation Progress' float
 
 # FLOORP
 riverctl rule-add -app-id 'floorp' tags $((1 << 0))
-riverctl rule-add -app-id 'floorp' output eDP-1
+riverctl rule-add -app-id 'floorp' output $DP_INTERNAL
 
 # DISCORD
 for id in discord vesktop; do
     riverctl rule-add -app-id $id tags $((1 << 8))
-    riverctl rule-add -app-id $id output DP-9
+    riverctl rule-add -app-id $id output $DP_EXTERNAL
 done
 
 # OBSIDIAN
 riverctl rule-add -app-id 'obsidian' tags $((1 << 7))
-riverctl rule-add -app-id 'obsidian' output DP-9
+riverctl rule-add -app-id 'obsidian' output $DP_EXTERNAL
 
 # SLACK
 riverctl rule-add -app-id 'Slack' tags $((1 << 8))
-riverctl rule-add -app-id 'Slack' output DP-9
+riverctl rule-add -app-id 'Slack' output $DP_EXTERNAL
