@@ -22,6 +22,7 @@
     };
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
 
     stylix.url = "github:danth/stylix";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -108,6 +109,9 @@
                       inputs.home-manager.nixosModules.home-manager
                       inputs.nix-index-database.nixosModules.nix-index
                       inputs.sops-nix.nixosModules.sops
+                      inputs.nix-flatpak.nixosModules.nix-flatpak
+                      inputs.stylix.nixosModules.stylix
+                      inputs.slippi.nixosModules.default
                       {
                         home-manager = {
                           inherit extraSpecialArgs;
@@ -126,19 +130,13 @@
               ifwit = sys {
                 modules = [
                   inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-                  inputs.stylix.nixosModules.stylix
-                  inputs.slippi.nixosModules.default
                   ./os/ifwit
                 ];
                 hm = import ./hm/ifwit;
               };
 
               loqnux = sys {
-                modules = [
-                  inputs.stylix.nixosModules.stylix
-                  inputs.slippi.nixosModules.default
-                  ./os/loqnux
-                ];
+                modules = [ ./os/loqnux ];
                 hm = import ./hm/loqnux;
               };
 
