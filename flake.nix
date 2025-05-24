@@ -128,7 +128,7 @@
                   inputs.nixos-hardware.nixosModules.framework-16-7040-amd
                   inputs.stylix.nixosModules.stylix
                   inputs.slippi.nixosModules.default
-                  ./os/workframe
+                  ./os/ifwit
                 ];
                 hm = import ./hm/nixos;
               };
