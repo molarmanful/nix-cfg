@@ -15,6 +15,8 @@
 }:
 {
 
+  imports = [ ../. ];
+
   sops.secrets = {
     "nm.env" = { };
   };

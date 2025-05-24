@@ -2,7 +2,6 @@
   config,
   inputs,
   pkgs,
-  lib,
   secretspath,
   ...
 }:
@@ -15,8 +14,6 @@
     };
     overlays = [ inputs.nixpkgs-wayland.overlay ];
   };
-
-  networking.hostName = lib.mkDefault "jimbo";
 
   nix = {
     settings = {
