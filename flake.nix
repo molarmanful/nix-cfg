@@ -130,7 +130,7 @@
                   inputs.slippi.nixosModules.default
                   ./os/ifwit
                 ];
-                hm = import ./hm/nixos;
+                hm = import ./hm/ifwit;
               };
 
               loqnux = sys {
@@ -139,7 +139,7 @@
                   inputs.slippi.nixosModules.default
                   ./os/loqnux
                 ];
-                hm = import ./hm/nixos;
+                hm = import ./hm/loqnux;
               };
 
               wsl = sys {

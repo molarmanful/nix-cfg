@@ -5,15 +5,15 @@
 
 {
   imports = [
-    ../common
-    ../common/kanshi
-    ../common/river
-    ../common/wezterm
-    ../common/foot
-    ../common/alacritty
-    ../common/godot
-    ../common/melee
-    ../common/floorp
+    ../.
+    ../kanshi
+    ../river
+    ../wezterm
+    ../foot
+    ../alacritty
+    ../godot
+    ../melee
+    ../floorp
   ];
 
   home.packages = with upkgs; [

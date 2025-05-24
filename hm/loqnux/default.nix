@@ -1,32 +1,32 @@
 {
+  imports = [ ../common/nixos ];
+
   services.kanshi = {
     enable = true;
     systemdTarget = "";
     settings = [
-
       {
         profile = {
           name = "solo";
           outputs = [
             {
-              criteria = "eDP-*";
+              criteria = "eDP-1";
               position = "0,0";
             }
           ];
         };
       }
-
       {
         profile = {
-          name = "arzopa";
+          name = "ext-left";
           outputs = [
             {
-              criteria = "GWD ARZOPA ";
+              criteria = "DP-9";
               position = "0,0";
               mode = "1920x1080@144Hz";
             }
             {
-              criteria = "eDP-*";
+              criteria = "eDP-1";
               position = "1920,0";
             }
           ];
