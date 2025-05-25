@@ -40,7 +40,13 @@
     };
   };
 
-  boot.loader.systemd-boot.configurationLimit = 10;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      timeout = 0;
+      systemd-boot.configurationLimit = 10;
+    };
+  };
 
   sops = {
     defaultSopsFile = "${secretspath}/secrets.yaml";
