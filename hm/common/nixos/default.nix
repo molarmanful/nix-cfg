@@ -24,12 +24,6 @@
     spotify-player
     feh
     bluetuith
-    pavucontrol
-    pw-volume
-    helvum
-    wl-clipboard-rs
-    wl-clip-persist
-    playerctl
     krita
     bitwarden-desktop
     quickemu

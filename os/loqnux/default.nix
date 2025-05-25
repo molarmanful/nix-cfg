@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../common
     ../common/nvidia.nix
+    ../common/wayland.nix
   ];
 
   networking.hostName = "loqnux";

@@ -44,6 +44,9 @@
           OUTPUTS=$(river-bedload -print outputs)
           DP_INTERNAL=$(echo $OUTPUTS | jq -r '.[].name | first(select(startswith("eDP-")))')
           DP_EXTERNAL=$(echo $OUTPUTS | jq -r '.[].name | first(select(startswith("DP-")))')
+          COLOR_BG=${hexes.base00}
+          COLOR_FOC=${hexes.base03}
+          COLOR_UNFOC=${hexes.base01}
 
           ${builtins.readFile ./cfg/keys.sh}
           echo 'KEYS done'
@@ -51,21 +54,7 @@
           echo 'CONFIG done'
           ${builtins.readFile ./cfg/apps.sh}
           echo 'APPS done'
-
-          riverctl background-color ${hexes.base00}
-          riverctl border-color-focused ${hexes.base03}
-          riverctl border-color-unfocused ${hexes.base01}
-          riverctl border-width 1
-
-          riverctl default-layout wideriver
-          wideriver \
-            --inner-gap 13 --outer-gap 13 --no-smart-gaps \
-            --border-width 1 --border-width-monocle 1 \
-            --border-color-focused ${hexes.base03} \
-            --border-color-focused-monocle ${hexes.base03} \
-            --border-color-unfocused ${hexes.base01} \
-            > ~/wideriver.log 2>&1 &
-
+          ${builtins.readFile ./cfg/layout.sh}
           echo 'LAYOUT done'
 
           riverctl spawn 'swaybg -m fit -c 000000 -i ${../../../wp/skull.png}'

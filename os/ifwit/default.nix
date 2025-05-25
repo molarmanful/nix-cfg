@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../common
     ../common/amd.nix
+    ../common/wayland.nix
   ];
 
   networking.hostName = "ifwit";

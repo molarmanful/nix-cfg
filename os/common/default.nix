@@ -171,15 +171,6 @@
     '';
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    config.common.default = "wlr";
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
-
   programs = {
     light.enable = true;
 
