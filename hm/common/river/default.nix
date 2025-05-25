@@ -10,6 +10,7 @@
 
   imports = [
     ../wayland
+    ../way-displays
     ../tofi
     ../waybar
   ];
@@ -68,7 +69,7 @@
           echo 'LAYOUT done'
 
           riverctl spawn 'swaybg -m fit -c 000000 -i ${../../../wp/skull.png}'
-          riverctl spawn kanshi
+          riverctl spawn way-displays
           riverctl spawn swaync
           riverctl spawn waybar
           riverctl spawn ssh-add

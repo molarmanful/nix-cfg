@@ -7,7 +7,6 @@
   imports = [
     ../.
     ../flatpak
-    ../kanshi
     ../river
     ../wezterm
     ../foot

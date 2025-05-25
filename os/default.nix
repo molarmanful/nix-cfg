@@ -73,6 +73,7 @@
         "docker"
         "networkmanager"
         "video"
+        "input"
       ];
     };
   };
