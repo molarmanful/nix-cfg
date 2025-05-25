@@ -71,10 +71,10 @@
         };
 
         network = {
-          format-wifi = " ({signalStrength}%) {essid}";
-          format-ethernet = "{ipaddr}/{cidr} ";
+          format-wifi = "󰖩 ({signalStrength}%) {essid}";
+          format-ethernet = "{ipaddr}/{cidr} 󱐋";
           tooltip-format = "{ifname} via {gwaddr} 󰀂";
-          format-linked = "{ifname} (No IP) ";
+          format-linked = "{ifname} (No IP) 󰌷";
           format-disconnected = "disconnected ⚠";
         };
 
@@ -89,8 +89,8 @@
 
         temperature = {
           critical-threshold = 80;
-          format-critical = " {temperatureC}°C";
-          format = " {temperatureC}°C";
+          format-critical = "󱃂 {temperatureC}°C";
+          format = "󰔏 {temperatureC}°C";
         };
 
         memory = {
@@ -104,7 +104,7 @@
 
         wireplumber = {
           format = "{volume}% {icon}";
-          format-muted = "婢";
+          format-muted = "󰝟";
           on-click = "helvum";
           format-icons = [
             ""
@@ -117,11 +117,21 @@
           reverse-scrolling = true;
           format = "{icon} {percent}";
           format-icons = [
-            "🌑"
-            "🌒"
-            "🌓"
-            "🌔"
-            "🌕"
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
           ];
         };
 
@@ -132,19 +142,19 @@
           };
           interval = 1;
           format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
+          format-charging = "󰂄 {capacity}%";
           format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
+            "󰂃"
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
           ];
         };
 
