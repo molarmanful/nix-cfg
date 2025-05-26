@@ -1,4 +1,6 @@
+{ inputs, ... }:
 {
+
   imports = [
     ./hardware-configuration.nix
     ../common
@@ -6,7 +8,10 @@
     ../common/wayland.nix
   ];
 
-  networking.hostName = "ifwit";
+  networking = {
+    hostName = "ifwit";
+    networkmanager.ensureProfiles.profiles = inputs.secrets.nm_profiles.ifwit;
+  };
 
   boot.initrd.luks.devices = {
     root = {

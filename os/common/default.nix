@@ -25,7 +25,7 @@
     enable = true;
     ensureProfiles = {
       environmentFiles = [ config.sops.secrets."nm.env".path ];
-      profiles = inputs.secrets.nm_profiles;
+      profiles = inputs.secrets.nm_profiles.default;
     };
   };
 

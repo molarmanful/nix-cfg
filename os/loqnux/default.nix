@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
 
   imports = [
@@ -8,7 +8,10 @@
     ../common/wayland.nix
   ];
 
-  networking.hostName = "loqnux";
+  networking = {
+    hostName = "loqnux";
+    networkmanager.ensureProfiles.profiles = inputs.secrets.nm_profiles.loqnux;
+  };
 
   boot.initrd.luks.devices = {
     root = {
