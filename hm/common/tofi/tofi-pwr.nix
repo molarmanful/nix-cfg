@@ -1,4 +1,10 @@
-{ writeShellApplication, tofi, ... }:
+{
+  widthN,
+  heightN,
+  writeShellApplication,
+  tofi,
+  ...
+}:
 
 writeShellApplication {
   name = "tofi-pwr";
@@ -7,7 +13,7 @@ writeShellApplication {
   text = ''
     case $(
       printf '%s\n' suspend hibernate hybrid shutdown reboot |
-      tofi --prompt-text=' ⏻ ' --output="$(
+      tofi --prompt-text=' ⏻ ' --width=${toString (widthN 20)} --height=${toString (heightN 5)} --output="$(
         river-bedload -print outputs | jq -r '.[] | first(select(.focused)).name'
       )"
     ) in

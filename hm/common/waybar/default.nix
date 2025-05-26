@@ -72,10 +72,10 @@
 
         network = {
           format-wifi = "󰖩 ({signalStrength}%) {essid}";
-          format-ethernet = "{ipaddr}/{cidr} 󱐋";
-          tooltip-format = "{ifname} via {gwaddr} 󰀂";
-          format-linked = "{ifname} (No IP) 󰌷";
-          format-disconnected = "disconnected ⚠";
+          format-ethernet = "󱐋 {ipaddr}/{cidr}";
+          tooltip-format = "󰀂 {ifname} via {gwaddr}";
+          format-linked = "󰌷 {ifname} (No IP)";
+          format-disconnected = "⚠ disconnected";
         };
 
         cpu = {
@@ -103,7 +103,7 @@
         };
 
         wireplumber = {
-          format = "{volume}% {icon}";
+          format = "{icon} {volume}%";
           format-muted = "󰝟";
           on-click = "helvum";
           format-icons = [
