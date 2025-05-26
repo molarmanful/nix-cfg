@@ -21,6 +21,7 @@ window#waybar {
 #workspaces button, #tags button {
   background-color: @bg-inactive;
   color: @fg-inactive;
+  font-weight: inherit;
   padding: 0 4px;
   transition-duration: .2s;
 }
