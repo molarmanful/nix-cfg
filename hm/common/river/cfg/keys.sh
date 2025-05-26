@@ -2,8 +2,9 @@ riverctl map normal Super Return spawn alacritty
 riverctl map normal Super+Shift Q close
 riverctl map normal Super+Shift Delete exit
 
-riverctl map normal Super D spawn 'tofi-run --output=$(river-bedload -print outputs | jq -r '\''.[] | select(.focused) | .name'\'') | xargs riverctl spawn'
-riverctl map normal Super+Shift D spawn 'tofi-drun --output=$(river-bedload -print outputs | jq -r '\''.[] | select(.focused) | .name'\'') | xargs riverctl spawn'
+riverctl map normal Super D spawn 'tofi-run --output=$(river-bedload -print outputs | jq -r '\''.[] | first(select(.focused)).name'\'') | xargs riverctl spawn'
+riverctl map normal Super+Shift D spawn 'tofi-drun --output=$(river-bedload -print outputs | jq -r '\''.[] | first(select(.focused)).name'\'') | xargs riverctl spawn'
+riverctl map normal Super Delete spawn 'tofi-pwr'
 
 riverctl map normal Super+Shift N spawn 'swaync-client -t -sw'
 
