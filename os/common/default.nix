@@ -132,7 +132,16 @@
   powerManagement.powertop.enable = true;
 
   environment = {
-    systemPackages = [ mypkgs.keyb0xx ];
+    systemPackages = with upkgs; [
+      mypkgs.keyb0xx
+      (lutris.override {
+        extraPkgs =
+          pkgs: with pkgs; [
+            wineWowPackages.stagingFull
+            winetricks
+          ];
+      })
+    ];
 
     etc."libinput/local-overrides.quirks".text = ''
       [Serial Keyboards]
@@ -193,6 +202,8 @@
     };
     xfconf.enable = true;
     file-roller.enable = true;
+
+    steam.enable = true;
   };
 
   specialisation = {
