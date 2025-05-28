@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
 
   imports = [
@@ -20,7 +20,10 @@
     };
   };
 
-  environment.sessionVariables = {
-    WLR_RENDERER = "vulkan";
+  environment = {
+    systemPackages = with pkgs; [ fw-ectool ];
+    sessionVariables = {
+      WLR_RENDERER = "vulkan";
+    };
   };
 }

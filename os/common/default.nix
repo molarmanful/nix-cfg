@@ -54,7 +54,10 @@
   hardware = {
     enableAllFirmware = true;
 
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
 
     bluetooth = {
       enable = true;
@@ -203,7 +206,12 @@
     xfconf.enable = true;
     file-roller.enable = true;
 
-    steam.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+    };
   };
 
   specialisation = {
