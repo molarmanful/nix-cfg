@@ -108,7 +108,7 @@
           user = "greeter";
         };
         initial_session = {
-          command = "${pkgs.river}/bin/river";
+          command = "river |& tee log.txt";
           user = "ben";
         };
       };
