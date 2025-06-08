@@ -9,6 +9,7 @@
     ./direnv
     ./fish
     ./nixcats
+    ./rclone
   ];
 
   nixpkgs = {
@@ -59,7 +60,6 @@
       just
       bottom
       neofetch
-      rclone
       dasel
       bitwarden-cli
       bws
