@@ -68,6 +68,7 @@
       distrobox
       azure-cli
       sops
+      claude-code
     ];
   };
 
