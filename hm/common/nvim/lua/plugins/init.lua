@@ -222,4 +222,9 @@ return {
     },
     opts = {},
   },
+
+  {
+    'rafikdraoui/jj-diffconflicts',
+    cmd = { 'JJDiffConflicts' },
+  },
 }

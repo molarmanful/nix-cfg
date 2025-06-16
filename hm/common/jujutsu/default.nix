@@ -5,6 +5,7 @@
   ...
 }:
 {
+
   programs.jujutsu = {
     enable = true;
     package = upkgs.jujutsu;
@@ -22,11 +23,38 @@
         sign-on-push = true;
       };
       ui = {
-        merge-editor = [
+        diff-editor = [
           "nvim"
           "-c"
           "DiffEditor $left $right $output"
         ];
+        merge-editor = "dc";
+      };
+      merge-tools = {
+        dc = {
+          program = "nvim";
+          merge-args = [
+            "-c"
+            "let g:jj_diffconflicts_marker_length=$marker_length"
+            "-c"
+            "JJDiffConflicts!"
+            "$output"
+            "$base"
+            "$left"
+            "$right"
+          ];
+          merge-tool-edits-conflict-markers = true;
+        };
+        meld = {
+          merge-args = [
+            "$left"
+            "$base"
+            "$right"
+            "-o"
+            "$output"
+            "--auto-merge"
+          ];
+        };
       };
       aliases = {
         sync = [
@@ -53,12 +81,10 @@
 
   home = {
     packages = with upkgs; [
-      lazyjj
       meld
       jjui
     ];
     shellAliases = {
-      lj = "lazyjj";
       ju = "jjui";
     };
   };
