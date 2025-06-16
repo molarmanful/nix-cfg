@@ -13,9 +13,20 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    config.common.default = "wlr";
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
+    config = {
+      river = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+      };
+      sway = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+      };
+    };
   };
 }

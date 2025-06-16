@@ -48,6 +48,9 @@
           COLOR_FOC=${hexes.base03}
           COLOR_UNFOC=${hexes.base01}
 
+          systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+          dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+
           ${builtins.readFile ./cfg/keys.sh}
           echo 'KEYS done'
           ${builtins.readFile ./cfg/config.sh}
