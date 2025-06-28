@@ -130,12 +130,18 @@
     fstrim.enable = true;
 
     flatpak.enable = true;
+
+    ratbagd = {
+      enable = true;
+      package = mypkgs.libratbag;
+    };
   };
 
   powerManagement.powertop.enable = true;
 
   environment = {
     systemPackages = with upkgs; [
+      piper
       mypkgs.keyb0xx
       (lutris.override {
         extraPkgs =
