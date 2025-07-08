@@ -23,11 +23,6 @@
         sign-on-push = true;
       };
       ui = {
-        diff-editor = [
-          "nvim"
-          "-c"
-          "DiffEditor $left $right $output"
-        ];
         merge-editor = "dc";
       };
       merge-tools = {

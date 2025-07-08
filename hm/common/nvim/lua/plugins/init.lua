@@ -214,16 +214,6 @@ return {
   },
 
   {
-    'julienvincent/hunk.nvim',
-    cmd = { 'DiffEditor' },
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-tree/nvim-web-devicons',
-    },
-    opts = {},
-  },
-
-  {
     'rafikdraoui/jj-diffconflicts',
     cmd = { 'JJDiffConflicts' },
   },
