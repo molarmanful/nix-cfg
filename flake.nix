@@ -67,7 +67,6 @@
           spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
           mypkgs = {
             waybar = inputs.waybar.packages.${system}.default;
-            river = upkgs.callPackage ./mypkgs/river { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             river-bedload = upkgs.callPackage ./mypkgs/river-bedload { };
             libratbag = upkgs.callPackage ./mypkgs/libratbag { };

@@ -32,8 +32,8 @@
     ];
 
     wayland.windowManager.river = {
-
       enable = true;
+
       extraConfig =
         let
           hexes = builtins.mapAttrs (_: v: "0x${builtins.substring 1 (-1) v}") scheme;
