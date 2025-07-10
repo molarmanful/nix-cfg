@@ -30,6 +30,7 @@
     persway.url = "github:johnae/persway";
     slippi.url = "github:molarmanful/slippi-nix";
     jjui.url = "github:idursun/jjui";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     kirsch.url = "github:molarmanful/kirsch";
     ANAKRON.url = "github:molarmanful/ANAKRON";
     QUINTESSON.url = "github:molarmanful/QUINTESSON";
@@ -62,6 +63,7 @@
             config.allowUnfree = true;
           };
           nur = inputs.nur.legacyPackages.${system};
+          spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
           mypkgs = {
             river = upkgs.callPackage ./mypkgs/river { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
@@ -81,6 +83,7 @@
               upkgs
               mypkgs
               nur
+              spicePkgs
               ;
             inherit (inputs.kirsch.packages.${system}) kirsch;
             inherit (inputs.ANAKRON.packages.${system}) ANAKRON;

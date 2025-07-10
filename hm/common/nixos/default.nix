@@ -14,6 +14,7 @@
     ../godot
     ../melee
     ../floorp
+    ../spicetify
   ];
 
   home.packages = with upkgs; [
