@@ -31,6 +31,8 @@
       mypkgs.river-bedload
     ];
 
+    programs.spicetify.windowManagerPatch = true;
+
     wayland.windowManager.river = {
       enable = true;
 

@@ -18,6 +18,8 @@
     swaybg
   ];
 
+  programs.spicetify.windowManagerPatch = true;
+
   wayland.windowManager.sway = {
 
     enable = true;
