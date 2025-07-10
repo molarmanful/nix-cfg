@@ -32,22 +32,22 @@
     customColorScheme = with config.lib.stylix.colors; {
       text = base05;
       subtext = base04;
-      nav-active-text = base04;
+      nav-active-text = base0F;
       main = base00;
       sidebar = base00;
       player = base00;
       card = base00;
       shadow = base00;
       main-secondary = base01;
-      button = base04;
+      button = base0F;
       button-secondary = base09;
-      button-active = base0C;
+      button-active = base0B;
       button-disabled = base03;
       nav-active = base01;
       tab-active = base01;
       notification = base01;
       notification-error = base08;
-      playback-bar = base0C;
+      playback-bar = base0F;
       misc = base01;
     };
   };
