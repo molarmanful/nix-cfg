@@ -28,26 +28,24 @@
       reddit
     ];
 
+    theme = spicePkgs.themes.dribbblish;
     colorScheme = "custom";
     customColorScheme = with scheme; {
       text = base05;
       subtext = base04;
+      sidebar-text = base05;
       main = base00;
-      main-elevated = base01;
-      highlight = base02;
-      highlight-elevated = base03;
       sidebar = base00;
-      player = base02;
-      card = base02;
-      shadow = base00;
+      player = base00;
+      card = base00;
       selected-row = base02;
+      shadow = base00;
       button = base04;
       button-active = base0B;
       button-disabled = base03;
       tab-active = base02;
       notification = base02;
       notification-error = base08;
-      equalizer = base0B;
       misc = base02;
     };
   };
