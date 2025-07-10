@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   spicePkgs,
   scheme,
   ...
@@ -28,29 +29,28 @@
       reddit
     ];
 
-    theme = spicePkgs.themes.sleek;
-    colorScheme = "custom";
-    customColorScheme = with scheme; {
-      text = base05;
-      subtext = base04;
-      nav-active-text = base0B;
-      main = base00;
-      sidebar = base00;
-      player = base00;
-      card = base00;
-      shadow = base00;
-      main-secondary = base01;
-      button = base04;
-      button-secondary = base04;
-      button-active = base0B;
-      button-disabled = base03;
-      nav-active = base02;
-      play-button = base0B;
-      tab-active = base02;
-      notification = base02;
-      notification-error = base08;
-      playback-bar = base0B;
-      misc = base02;
-    };
+    customColorScheme =
+      with scheme;
+      lib.mapAttrs (_: builtins.substring 1 (-1)) {
+        text = base09;
+        subtext = base04;
+        main = base00;
+        main-elevated = base01;
+        highlight = base02;
+        highlight-elevated = base03;
+        sidebar = base00;
+        player = base00;
+        card = base00;
+        shadow = base00;
+        selected-row = base02;
+        button = base04;
+        button-active = base0C;
+        button-disabled = base03;
+        tab-active = base02;
+        notification = base02;
+        notification-error = base08;
+        equalizer = base0C;
+        misc = base02;
+      };
   };
 }
