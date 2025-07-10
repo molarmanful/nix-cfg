@@ -1,9 +1,11 @@
-{ scheme, ... }:
+{ mypkgs, scheme, ... }:
 {
 
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
+    package = mypkgs.waybar;
+
     style =
       ''
         @define-color bg  ${scheme.base00};

@@ -28,7 +28,8 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     persway.url = "github:johnae/persway";
-    slippi.url = "github:molarmanful/slippi-nix";
+    slippi.url = "github:lytedev/slippi-nix";
+    waybar.url = "github:Alexays/Waybar";
     jjui.url = "github:idursun/jjui";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     kirsch.url = "github:molarmanful/kirsch";
@@ -65,6 +66,7 @@
           nur = inputs.nur.legacyPackages.${system};
           spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
           mypkgs = {
+            waybar = inputs.waybar.packages.${system}.default;
             river = upkgs.callPackage ./mypkgs/river { };
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             river-bedload = upkgs.callPackage ./mypkgs/river-bedload { };
@@ -81,9 +83,9 @@
               stateVersion
               inputs
               upkgs
-              mypkgs
               nur
               spicePkgs
+              mypkgs
               ;
             inherit (inputs.kirsch.packages.${system}) kirsch;
             inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
