@@ -28,26 +28,27 @@
       reddit
     ];
 
+    theme = spicePkgs.themes.sleek;
     customColorScheme = with config.lib.stylix.colors; {
-      text = base09;
+      text = base05;
       subtext = base04;
+      nav-active-text = base04;
       main = base00;
-      main-elevated = base01;
-      highlight = base02;
-      highlight-elevated = base03;
       sidebar = base00;
       player = base00;
       card = base00;
       shadow = base00;
-      selected-row = base02;
+      main-secondary = base01;
       button = base04;
+      button-secondary = base09;
       button-active = base0C;
       button-disabled = base03;
-      tab-active = base02;
-      notification = base02;
+      nav-active = base01;
+      tab-active = base01;
+      notification = base01;
       notification-error = base08;
-      equalizer = base0C;
-      misc = base02;
+      playback-bar = base0C;
+      misc = base01;
     };
   };
 }
