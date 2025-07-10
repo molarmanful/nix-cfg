@@ -10,7 +10,6 @@
   kirsch,
   ANAKRON,
   QUINTESSON,
-  scheme,
   ...
 }:
 {
@@ -258,7 +257,7 @@
     imageScalingMode = "fit";
     polarity = "dark";
 
-    base16Scheme = scheme;
+    base16Scheme = inputs.abyssal.lib.stylix;
 
     fonts = {
       sansSerif = {

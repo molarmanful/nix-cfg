@@ -1,6 +1,6 @@
 {
+  config,
   pkgs,
-  scheme,
   persway,
   ...
 }:
@@ -29,14 +29,14 @@
       keybindings = { };
     };
     extraOptions = [ "--unsupported-gpu" ];
-    extraConfig = ''
-      client.focused          ${scheme.base01} ${scheme.base00} ${scheme.base07} ${scheme.base01} ${scheme.base01}
-      client.focused_inactive ${scheme.base01} ${scheme.base00} ${scheme.base0D} ${scheme.base01} ${scheme.base01}
-      client.unfocused        ${scheme.base01} ${scheme.base01} ${scheme.base04} ${scheme.base01} ${scheme.base01}
-      client.urgent           ${scheme.base01} ${scheme.base00} ${scheme.base09} ${scheme.base01} ${scheme.base01}
-      client.placeholder      ${scheme.base01} ${scheme.base00} ${scheme.base04} ${scheme.base01} ${scheme.base01}
+    extraConfig = with config.lib.stylix.colors; ''
+      client.focused          ${base01} ${base00} ${base07} ${base01} ${base01}
+      client.focused_inactive ${base01} ${base00} ${base0D} ${base01} ${base01}
+      client.unfocused        ${base01} ${base01} ${base04} ${base01} ${base01}
+      client.urgent           ${base01} ${base00} ${base09} ${base01} ${base01}
+      client.placeholder      ${base01} ${base00} ${base04} ${base01} ${base01}
 
-      client.background       ${scheme.base00}
+      client.background       ${base00}
 
       ${builtins.readFile ./cfg/pre}
       ${builtins.readFile ./cfg/keys}

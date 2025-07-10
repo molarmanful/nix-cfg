@@ -3,7 +3,6 @@
   config,
   pkgs,
   mypkgs,
-  scheme,
   ...
 }:
 {
@@ -38,7 +37,7 @@
 
       extraConfig =
         let
-          hexes = builtins.mapAttrs (_: v: "0x${builtins.substring 1 (-1) v}") scheme;
+          hexes = builtins.mapAttrs (_: v: "0x${v}") config.lib.stylix.colors;
           cfg = config.wayland.windowManager.river;
         in
         ''

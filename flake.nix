@@ -90,7 +90,6 @@
             inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
             inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
             inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
-            scheme = inputs.abyssal.lib.stylix;
             persway = inputs.persway.packages.${system}.default;
             jjui = inputs.jjui.packages.${system}.default;
             secretspath = builtins.toString inputs.secrets;

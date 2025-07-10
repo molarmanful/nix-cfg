@@ -1,7 +1,7 @@
 {
+  config,
   upkgs,
   kirsch,
-  scheme,
   ...
 }:
 let
@@ -21,6 +21,7 @@ let
   widthN = n: n * dims.w + padding-left + padding-right;
   heightN = n: (n + 1) * dims.h + padding-top + padding-bottom;
 
+  scheme = builtins.mapAttrs (_: v: "#${v}") config.lib.stylix.colors;
 in
 {
 
@@ -34,7 +35,6 @@ in
     enable = true;
     package = upkgs.tofi;
     settings = {
-
       inherit
         num-results
         padding-top
@@ -56,7 +56,6 @@ in
       selection-color = scheme.base0B;
       hint-font = false;
       ascii-input = true;
-
     };
   };
 }
