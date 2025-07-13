@@ -149,6 +149,8 @@
             winetricks
           ];
       })
+      steamtinkerlaunch
+      libstrangle
     ];
 
     etc."libinput/local-overrides.quirks".text = ''
