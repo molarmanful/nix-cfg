@@ -103,11 +103,11 @@
       vt = 1;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'river |& tee log.txt' --asterisks --remember --remember-user-session --time";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'river |& tee river.log' --asterisks --remember --remember-user-session --time";
           user = "greeter";
         };
         initial_session = {
-          command = "river |& tee log.txt";
+          command = "river |& tee river.log";
           user = "ben";
         };
       };
