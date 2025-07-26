@@ -70,7 +70,22 @@
   };
 
   services = {
-    power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = false;
+    tlp.enable = false;
+    thermald.enable = true;
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+        };
+        charger = {
+          governor = "balanced";
+          turbo = "auto";
+        };
+      };
+    };
 
     pulseaudio.enable = false;
 
@@ -123,8 +138,6 @@
 
     gvfs.enable = true;
     tumbler.enable = true;
-
-    thermald.enable = true;
 
     fstrim.enable = true;
 
