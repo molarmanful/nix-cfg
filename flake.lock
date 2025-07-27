@@ -2103,10 +2103,10 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1749411217,
-        "narHash": "sha256-kHycfl02lUTSC16O8L7YJQd4U5TN2IjlHejQgtKa3aI=",
+        "lastModified": 1753631805,
+        "narHash": "sha256-VzULcYbT9uBU1A2Nz5Zi2bFkdn1JhyLH20X05IxAJgU=",
         "ref": "refs/heads/master",
-        "rev": "54564d1d152cb5472ea8f4b16302462bc2b5cdc3",
+        "rev": "b89a36b6a418098bff896cfa3a4a94aab26cb69e",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/molarmanful/nix-secrets"
