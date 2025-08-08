@@ -1,5 +1,3 @@
-{ upkgs, ... }:
-
 {
   programs.floorp = {
     enable = true;

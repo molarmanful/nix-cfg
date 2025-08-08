@@ -44,6 +44,14 @@ return function(lsps)
       cmd = os.getenv 'WSL_DISTRO_NAME' and { 'godot-wsl-lsp', '--useMirroredNetworking', '--host', '127.0.0.1' },
     },
 
+    rust_analyzer = {
+      settings = {
+        ['rust-analyzer'] = {
+          check = { command = 'clippy' },
+        },
+      },
+    },
+
     nixd = {
       settings = {
         nixd = {

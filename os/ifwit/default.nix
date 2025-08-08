@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
 
   imports = [
@@ -26,4 +31,6 @@
       WLR_RENDERER = "vulkan";
     };
   };
+
+  services.keyd.enable = lib.mkForce false;
 }

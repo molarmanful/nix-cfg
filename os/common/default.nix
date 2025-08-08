@@ -115,7 +115,6 @@
 
     greetd = {
       enable = true;
-      vt = 1;
       settings = {
         default_session = {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'river |& tee river.log' --asterisks --remember --remember-user-session --time";
