@@ -117,7 +117,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'river |& tee river.log' --asterisks --remember --remember-user-session --time";
+          command = "${pkgs.tuigreet}/bin/tuigreet --cmd 'river |& tee river.log' --asterisks --remember --remember-user-session --time";
           user = "greeter";
         };
         initial_session = {
