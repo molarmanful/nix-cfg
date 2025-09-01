@@ -67,6 +67,18 @@
         };
       };
     };
+
+    yeetmouse = {
+      enable = true;
+      sensitivity = 0.5;
+      outputCap = 2.0;
+      mode.natural = {
+        acceleration = 0.25;
+        midpoint = 10.0;
+        exponent = 2.5;
+        useSmoothing = true;
+      };
+    };
   };
 
   services = {
@@ -77,7 +89,7 @@
       enable = true;
       settings = {
         charger = {
-          governor = "balanced";
+          governor = "performance";
           turbo = "auto";
         };
         battery = {

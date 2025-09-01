@@ -2081,7 +2081,8 @@
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
-        "waybar": "waybar"
+        "waybar": "waybar",
+        "yeetmouse": "yeetmouse"
       }
     },
     "rust-analyzer-src": {
@@ -2565,6 +2566,28 @@
       "original": {
         "owner": "Alexays",
         "repo": "Waybar",
+        "type": "github"
+      }
+    },
+    "yeetmouse": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "nix",
+        "lastModified": 1755425551,
+        "narHash": "sha256-jFI6SGy01LmwAX7R/RndDVfnoCHL7F4Ee0ikkWo80+c=",
+        "owner": "AndyFilter",
+        "repo": "YeetMouse",
+        "rev": "dafe80bc7282d8a4eaba108ee99d28740c37aed8",
+        "type": "github"
+      },
+      "original": {
+        "dir": "nix",
+        "owner": "AndyFilter",
+        "repo": "YeetMouse",
         "type": "github"
       }
     }

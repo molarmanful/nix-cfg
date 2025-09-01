@@ -32,6 +32,10 @@
     waybar.url = "github:Alexays/Waybar";
     jjui.url = "github:idursun/jjui";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    yeetmouse = {
+      url = "github:AndyFilter/YeetMouse?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     kirsch.url = "github:molarmanful/kirsch";
     ANAKRON.url = "github:molarmanful/ANAKRON";
     QUINTESSON.url = "github:molarmanful/QUINTESSON";
@@ -116,6 +120,7 @@
                       inputs.nix-flatpak.nixosModules.nix-flatpak
                       inputs.stylix.nixosModules.stylix
                       inputs.slippi.nixosModules.default
+                      inputs.yeetmouse.nixosModules.default
                       {
                         home-manager = {
                           inherit extraSpecialArgs;
