@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }:
@@ -31,6 +30,4 @@
       WLR_RENDERER = "vulkan";
     };
   };
-
-  services.keyd.enable = lib.mkForce false;
 }

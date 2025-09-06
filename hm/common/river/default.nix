@@ -67,9 +67,9 @@
           riverctl spawn waybar
           riverctl spawn ssh-add
 
-          riverctl focus-output $DP_EXTERNAL
-          riverctl set-focused-tags $((1 << 8))
           riverctl focus-output $DP_INTERNAL
+          riverctl set-focused-tags $((1 << 8))
+          riverctl focus-output $DP_EXTERNAL
           riverctl set-focused-tags $((1 << 1))
 
           riverctl spawn floorp

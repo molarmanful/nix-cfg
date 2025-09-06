@@ -9,8 +9,9 @@
     settings = {
 
       ORDER = [
-        "!^DP-"
+        "ARZOPA"
         "!^eDP-"
+        "!^DP-"
         "!.*$"
       ];
 

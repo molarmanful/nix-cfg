@@ -1,4 +1,5 @@
 {
+  pkgs,
   upkgs,
   ...
 }:
@@ -17,17 +18,21 @@
     ../spicetify
   ];
 
-  home.packages = with upkgs; [
-    chromium
-    libsForQt5.qt5ct
-    obs-studio
-    obs-studio-plugins.wlrobs
-    spotify-player
-    feh
-    bluetuith
-    krita
-    bitwarden-desktop
-    quickemu
-    slack
-  ];
+  home = {
+    packages = with upkgs; [
+      chromium
+      libsForQt5.qt5ct
+      obs-studio
+      obs-studio-plugins.wlrobs
+      spotify-player
+      feh
+      bluetuith
+      krita
+      bitwarden-desktop
+      quickemu
+      slack
+    ];
+
+    file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
+  };
 }
