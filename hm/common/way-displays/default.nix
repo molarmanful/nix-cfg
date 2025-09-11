@@ -19,7 +19,7 @@
 
       MODE = [
         {
-          NAME_DESC = "ARZOPA";
+          NAME_DESC = "!.*$";
           MAX = true;
         }
       ];
