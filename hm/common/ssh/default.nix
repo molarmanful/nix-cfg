@@ -2,9 +2,12 @@
 {
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
-    hashKnownHosts = true;
     matchBlocks = {
+
+      "*" = {
+        addKeysToAgent = "yes";
+        hashKnownHosts = true;
+      };
 
       "github.com" = {
         hostname = "github.com";
