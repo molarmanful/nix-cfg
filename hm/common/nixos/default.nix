@@ -24,7 +24,6 @@
       libsForQt5.qt5ct
       obs-studio
       obs-studio-plugins.wlrobs
-      spotify-player
       feh
       bluetuith
       krita
