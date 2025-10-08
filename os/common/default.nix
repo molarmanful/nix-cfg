@@ -256,6 +256,8 @@
       })
       steamtinkerlaunch
       libstrangle
+      mangohud
+      mypkgs.nexusmods-app
     ];
 
     etc."libinput/local-overrides.quirks".text = ''
@@ -323,6 +325,11 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
+    };
+
+    appimage = {
+      enable = true;
+      binfmt = true;
     };
   };
 

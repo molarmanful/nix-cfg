@@ -74,6 +74,7 @@
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             river-bedload = upkgs.callPackage ./mypkgs/river-bedload { };
             libratbag = upkgs.callPackage ./mypkgs/libratbag { };
+            nexusmods-app = upkgs.callPackage ./mypkgs/nexusmods-app { };
           };
 
           commonModules = [
