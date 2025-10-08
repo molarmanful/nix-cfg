@@ -43,8 +43,10 @@ set('n', '<leader>lf', function()
   vim.diagnostic.open_float { border = 'single' }
 end, { desc = 'lspconfig Floating diagnostic' })
 set('n', '[d', function()
-  vim.diagnostic.goto_prev { float = { border = 'single' } }
+  vim.diagnostic.jump { count = 1, float = { border = 'single' } }
 end, { desc = 'lspconfig Goto prev' })
 set('n', ']d', function()
-  vim.diagnostic.goto_next { float = { border = 'single' } }
+  vim.diagnostic.jump { count = 1, float = { border = 'single' } }
 end, { desc = 'lspconfig Goto next' })
+set('n', 'gd', '<cmd> Telescope lsp_definitions <CR>', { desc = 'telescope Find LSP definitions' })
+set('n', 'grr', '<cmd> Telescope lsp_references <CR>', { desc = 'telescope Find LSP references' })

@@ -10,7 +10,6 @@ local overrides = {
         return
       end
       default_on_attach(client, bufnr)
-      require 'util.lspkeys'(bufnr)
     end,
   },
 
