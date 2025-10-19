@@ -1,7 +1,7 @@
 require('nvchad.configs.lspconfig').defaults()
 
 local default_on_attach = vim.lsp.config['*'].on_attach
-local eslint_on_attach = vim.lsp.config['*'].on_attach
+local eslint_on_attach = vim.lsp.config.eslint.on_attach
 
 local overrides = {
   ['*'] = {
