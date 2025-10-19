@@ -29,7 +29,6 @@
       krita
       bitwarden-desktop
       quickemu
-      slack
     ];
 
     file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
