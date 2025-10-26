@@ -43,7 +43,7 @@ set('n', '<leader>lf', function()
   vim.diagnostic.open_float { border = 'single' }
 end, { desc = 'lspconfig Floating diagnostic' })
 set('n', '[d', function()
-  vim.diagnostic.jump { count = 1, float = { border = 'single' } }
+  vim.diagnostic.jump { count = -1, float = { border = 'single' } }
 end, { desc = 'lspconfig Goto prev' })
 set('n', ']d', function()
   vim.diagnostic.jump { count = 1, float = { border = 'single' } }
