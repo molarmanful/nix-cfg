@@ -257,6 +257,7 @@
       steamtinkerlaunch
       libstrangle
       mangohud
+      protontricks
       mypkgs.nexusmods-app
     ];
 
