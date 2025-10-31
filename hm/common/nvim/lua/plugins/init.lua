@@ -144,16 +144,9 @@ return {
   {
     'ggandor/leap.nvim',
     lazy = false,
-    config = function()
-      require('leap').add_default_mappings()
-    end,
   },
 
-  {
-    'ggandor/flit.nvim',
-    lazy = false,
-    opts = {},
-  },
+  { 'tpope/vim-repeat', event = 'VeryLazy' },
 
   {
     'NeogitOrg/neogit',
