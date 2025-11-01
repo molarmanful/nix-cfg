@@ -345,7 +345,7 @@
     lib.mkForce [
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       nerd-fonts.symbols-only
       nerd-fonts.fira-code
       sf-pro

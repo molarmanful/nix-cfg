@@ -13,16 +13,17 @@
     package = upkgs.alacritty.override {
       rustPlatform = upkgs.rustPlatform // {
         buildRustPackage =
-          args:
+          f:
           upkgs.rustPlatform.buildRustPackage (
-            args
+            finalAttrs:
+            (f finalAttrs)
             // {
               src = builtins.fetchGit {
                 url = "https://github.com/ayosec/alacritty";
                 ref = "graphics";
-                rev = "814e8fefc60b4457ea155d11df9f27795de830ec";
+                rev = "abfb05824a62fd586f87d051176ad0a666c5265a";
               };
-              cargoHash = "sha256-Pr2VTPa/1SNr1W4NkxDKquj10uArR/M3WxVjhI1Ioko=";
+              cargoHash = "sha256-5mthmudyaMkLECQsMptTNSWBNRn8qYYPASv8eWuHKUc=";
             }
           );
       };
