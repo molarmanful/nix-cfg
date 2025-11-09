@@ -76,7 +76,7 @@
         acceleration = 0.25;
         midpoint = 10.0;
         exponent = 2.5;
-        useSmoothing = true;
+        useSmoothing = false;
       };
     };
   };

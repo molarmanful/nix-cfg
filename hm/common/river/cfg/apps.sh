@@ -24,8 +24,9 @@ done
 
 # OBSIDIAN
 riverctl rule-add -app-id 'obsidian' tags $((1 << 7))
-riverctl rule-add -app-id 'obsidian' output $DP_INTERNAL
 
 # SLACK
+riverctl rule-add -app-id 'slack' tags $((1 << 8))
+riverctl rule-add -app-id 'slack' output $DP_INTERNAL
 riverctl rule-add -app-id 'com.slack.Slack' tags $((1 << 8))
 riverctl rule-add -app-id 'com.slack.Slack' output $DP_INTERNAL

@@ -1,3 +1,5 @@
+riverctl input '*' accel-profile none
+
 for input in $(riverctl list-inputs | grep -i touchpad); do
     riverctl input $input natural-scroll enabled
     riverctl input $input scroll-factor $TOUCHPAD_SCROLL_FACTOR
