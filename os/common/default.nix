@@ -259,6 +259,7 @@
       mangohud
       protontricks
       mypkgs.nexusmods-app
+      file-roller
     ];
 
     etc."libinput/local-overrides.quirks".text = ''
@@ -319,7 +320,6 @@
       ];
     };
     xfconf.enable = true;
-    file-roller.enable = true;
 
     steam = {
       enable = true;
