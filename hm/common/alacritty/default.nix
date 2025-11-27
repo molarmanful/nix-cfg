@@ -10,24 +10,22 @@
   programs.alacritty = {
     enable = true;
 
-    package = upkgs.alacritty.override {
-      rustPlatform = upkgs.rustPlatform // {
-        buildRustPackage =
-          f:
-          upkgs.rustPlatform.buildRustPackage (
-            finalAttrs:
-            (f finalAttrs)
-            // {
-              src = builtins.fetchGit {
-                url = "https://github.com/ayosec/alacritty";
-                ref = "graphics";
-                rev = "abfb05824a62fd586f87d051176ad0a666c5265a";
-              };
-              cargoHash = "sha256-5mthmudyaMkLECQsMptTNSWBNRn8qYYPASv8eWuHKUc=";
-            }
-          );
-      };
-    };
+    package = upkgs.alacritty.overrideAttrs (
+      finalAttrs: prevAttrs: {
+        version = "0.16.1";
+        src = upkgs.fetchFromGitHub {
+          owner = "ayosec";
+          repo = "alacritty";
+          rev = "v${finalAttrs.version}-graphics";
+          hash = "sha256-e+o0GLy05qXEY4T57dCuqhukTKBSm1WIHzPUV8uswRI=";
+        };
+        cargoHash = "sha256-VR+URXqsB9zCOSow/f/aWXUlrp6j2XeK0zKESQGzMek=";
+        cargoDeps = upkgs.rustPlatform.fetchCargoVendor {
+          inherit (finalAttrs) pname src version;
+          hash = finalAttrs.cargoHash;
+        };
+      }
+    );
 
     settings = {
 
