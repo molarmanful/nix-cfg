@@ -94,7 +94,7 @@
 
           riverctl spawn floorp
           riverctl spawn dev.vencord.Vesktop
-          riverctl spawn com.slack.Slack
+          riverctl spawn slack
           riverctl spawn md.obsidian.Obsidian
           riverctl spawn alacritty
 

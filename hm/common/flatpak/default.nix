@@ -9,6 +9,5 @@
     "io.beekeeperstudio.Studio"
     "md.obsidian.Obsidian"
     "us.zoom.Zoom"
-    "com.slack.Slack"
   ];
 }
