@@ -50,8 +50,6 @@ local overrides = {
               name = 'typescript-svelte-plugin',
               location = '',
               enableForWorkspaceTypeScriptVersions = true,
-              languages = { 'svelte' },
-              configNamespace = 'typescript',
             },
           },
         },
