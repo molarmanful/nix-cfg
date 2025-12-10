@@ -23,6 +23,56 @@ local overrides = {
     },
   },
 
+  vtsls = {
+    filetypes = {
+      'javascript',
+      'javascriptreact',
+      'javascript.jsx',
+      'typescript',
+      'typescriptreact',
+      'typescript.tsx',
+      'svelte',
+    },
+    settings = {
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          maxInlayHintLength = 30,
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
+        tsserver = {
+          globalPlugins = {
+            {
+              name = 'typescript-svelte-plugin',
+              location = '',
+              enableForWorkspaceTypeScriptVersions = true,
+              languages = { 'svelte' },
+              configNamespace = 'typescript',
+            },
+          },
+        },
+      },
+      typescript = {
+        updateImportsOnFileMove = { enabled = 'always' },
+        suggest = {
+          completeFunctionCalls = true,
+        },
+        inlayHints = {
+          enumMemberValues = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = 'literals' },
+          parameterTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = false },
+        },
+      },
+    },
+  },
+
   eslint = {
     on_attach = function(client, bufnr)
       if not eslint_on_attach then
@@ -34,10 +84,6 @@ local overrides = {
         command = 'LspEslintFixAll',
       })
     end,
-  },
-
-  emmet_language_server = {
-    filetypes = { 'svelte' },
   },
 
   html = {
@@ -54,24 +100,6 @@ local overrides = {
     settings = {
       ['rust-analyzer'] = {
         check = { command = 'clippy' },
-      },
-    },
-  },
-
-  nixd = {
-    settings = {
-      nixd = {
-        nixpkgs = {
-          expr = 'import (builtins.getFlake "git+file://${toString ./.}").inputs.nixpkgs { }',
-        },
-        options = {
-          nixos = {
-            expr = '(builtins.getFlake "git+file://${toString ./.}").nixosConfigurations.loqnux.options',
-          },
-          flake_parts = {
-            expr = 'let flake = builtins.getFlake "git+file://${toString ./.}"; in flake.debug.options // flake.currentSystem.options',
-          },
-        },
       },
     },
   },

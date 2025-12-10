@@ -18,7 +18,6 @@ local lsps = {
   'clojure_lsp',
   'perlnavigator',
   'vtsls',
-  'emmet_language_server',
   'nixd',
   'nushell',
   'gdscript',
