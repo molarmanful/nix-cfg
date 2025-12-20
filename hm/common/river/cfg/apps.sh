@@ -24,6 +24,7 @@ done
 
 # OBSIDIAN
 riverctl rule-add -app-id 'obsidian' tags $((1 << 7))
+riverctl rule-add -app-id 'obsidian' output $DP_EXTERNAL
 
 # SLACK
 riverctl rule-add -app-id 'slack' tags $((1 << 8))
