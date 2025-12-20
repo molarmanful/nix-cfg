@@ -29,7 +29,7 @@
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     persway.url = "github:johnae/persway";
     slippi.url = "github:lytedev/slippi-nix";
-    waybar.url = "github:Alexays/Waybar";
+    waybar.url = "github:Alexays/Waybar/0.14.0"; # TODO: update when cava fix hits main
     jjui.url = "github:idursun/jjui";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     yeetmouse = {
