@@ -7,13 +7,27 @@
 
       search = {
         force = true;
-        default = "STARTPAGE";
+        default = "KAGI";
         privateDefault = "STARTPAGE";
         order = [
+          "KAGI"
           "STARTPAGE"
           "Nixpkgs"
         ];
         engines = {
+          KAGI = {
+            urls = [
+              {
+                template = "https://kagi.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+          };
           STARTPAGE = {
             urls = [
               {
