@@ -16,6 +16,7 @@
     ../melee
     ../floorp
     ../spicetify
+    ../easyeffects
   ];
 
   home = {

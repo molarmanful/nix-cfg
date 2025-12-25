@@ -332,6 +332,8 @@
       enable = true;
       binfmt = true;
     };
+
+    dconf.enable = true;
   };
 
   specialisation = {
