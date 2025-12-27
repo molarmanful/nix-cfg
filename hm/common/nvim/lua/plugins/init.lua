@@ -18,10 +18,11 @@ local lsps = {
   'clojure_lsp',
   'perlnavigator',
   'vtsls',
-  'nixd',
+  'nil_ls',
   'nushell',
   'gdscript',
   'biome',
+  'elixirls',
 }
 
 local syns = {

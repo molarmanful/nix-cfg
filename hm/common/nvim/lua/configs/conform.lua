@@ -29,6 +29,9 @@ return {
     haskell = { 'fourmolu' },
     cabal = { 'cabal_fmt' },
     json = { 'dprint' },
+    elixir = { 'mix' },
+    eelixir = { 'mix' },
+    heex = { 'mix' },
   },
 
   formatters = {

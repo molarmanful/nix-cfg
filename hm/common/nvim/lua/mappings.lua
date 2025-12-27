@@ -71,7 +71,6 @@ do
 end
 
 -- LSPCONFIG
-
 set('n', '<leader>lf', function()
   vim.diagnostic.open_float()
 end, { desc = 'lspconfig Floating diagnostic' })
