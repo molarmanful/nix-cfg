@@ -7,9 +7,9 @@ null_ls.setup {
   sources = {
     form.stylua,
     form.prettierd,
-    form.dprint,
     form.golines,
     form.shfmt,
+    form.shellharden,
     form.fish_indent,
     form.gdformat,
     form.sqlfmt,
@@ -24,7 +24,6 @@ null_ls.setup {
     lint.fish,
     lint.gdlint,
     lint.markdownlint,
-    lint.shellharden,
     lint.yamllint,
     lint.hadolint,
     lint.actionlint,

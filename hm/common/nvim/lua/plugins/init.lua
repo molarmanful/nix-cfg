@@ -1,5 +1,6 @@
 local lsps = {
   'lua_ls',
+  'dprint',
   'html',
   'svelte',
   'unocss',
@@ -53,6 +54,7 @@ return {
 
   {
     'nvimtools/none-ls.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require 'configs.null-ls'
     end,
