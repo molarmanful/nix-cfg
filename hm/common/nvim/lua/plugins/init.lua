@@ -10,13 +10,14 @@ local lsps = {
   'stylelint_lsp',
   'dockerls',
   'yamlls',
+  'ruff',
+  'taplo',
   'tailwindcss',
   'unocss',
   'hls',
   'gopls',
   'clangd',
   'clojure_lsp',
-  'perlnavigator',
   'vtsls',
   'nil_ls',
   'nushell',
@@ -48,13 +49,6 @@ return {
       require('nvchad.configs.lspconfig').defaults()
       require 'configs.lspconfig'(lsps)
     end,
-  },
-
-  {
-    'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
-    opts = require 'configs.conform',
   },
 
   {

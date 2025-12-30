@@ -1,11 +1,24 @@
 local null_ls = require 'null-ls'
 
+local form = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
-local act = null_ls.builtins.code_actions
 
 null_ls.setup {
-  debug = true,
   sources = {
+    form.stylua,
+    form.prettierd,
+    form.dprint,
+    form.golines,
+    form.shfmt,
+    form.fish_indent,
+    form.gdformat,
+    form.sqlfmt,
+    form.yamlfmt,
+    form.zprint,
+    form.clang_format,
+    form.nixfmt,
+    form.mdformat,
+    form.mix,
 
     lint.selene,
     lint.fish,
@@ -15,13 +28,9 @@ null_ls.setup {
     lint.yamllint,
     lint.hadolint,
     lint.actionlint,
-    lint.perlimports,
+    lint.statix,
     lint.deadnix,
     lint.staticcheck,
     lint.credo,
-
-    act.gitsigns,
-    act.statix,
   },
-  -- on_attach = require 'util.saveform',
 }
