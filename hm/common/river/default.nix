@@ -47,7 +47,7 @@
         swaybg
         wideriver
         shotman
-        mypkgs.river-bedload
+        river-bedload
       ];
 
     programs.spicetify.windowManagerPatch = true;

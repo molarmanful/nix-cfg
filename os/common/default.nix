@@ -235,10 +235,7 @@
 
     flatpak.enable = true;
 
-    ratbagd = {
-      enable = true;
-      package = mypkgs.libratbag;
-    };
+    ratbagd.enable = true;
   };
 
   powerManagement.powertop.enable = true;
@@ -258,7 +255,7 @@
       libstrangle
       mangohud
       protontricks
-      mypkgs.nexusmods-app
+      nexusmods-app
       file-roller
     ];
 
