@@ -77,7 +77,7 @@ let
           fzf
           fd
 
-          nixd
+          nil
           lua-language-server
 
           nixfmt-rfc-style
