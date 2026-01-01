@@ -76,6 +76,7 @@ let
           ripgrep
           fzf
           fd
+          inotify-tools
 
           nil
           lua-language-server

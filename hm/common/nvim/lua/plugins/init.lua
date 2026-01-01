@@ -41,20 +41,20 @@ return {
   },
   { import = 'nvchad.blink.lazyspec' },
 
-  { 'williamboman/mason.nvim', enabled = false },
+  { 'williamboman/mason.nvim',           enabled = false },
   { 'williamboman/mason-lspconfig.nvim', enabled = false },
 
   {
     'neovim/nvim-lspconfig',
     config = function()
       require('nvchad.configs.lspconfig').defaults()
-      require 'configs.lspconfig'(lsps)
+      require 'configs.lspconfig' (lsps)
     end,
   },
 
   {
     'nvimtools/none-ls.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { 'User FilePost' },
     config = function()
       require 'configs.null-ls'
     end,
