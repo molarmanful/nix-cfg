@@ -1,8 +1,12 @@
 local lf = require 'lsp-format'
 
-lf.setup { ['*'] = {
-  sync = true,
-} }
+local supported = { 'null-ls', 'dprint', 'ruff', 'taplo', 'biome' }
+
+local config = {}
+for _, v in pairs(vim.fn.getcompletion('', 'filetype')) do
+  config[v] = { sync = true }
+end
+lf.setup(config)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -16,15 +20,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       return
     end
 
-    if
-      ({
-        ['null-ls'] = 1,
-        dprint = 1,
-        ruff = 1,
-        taplo = 1,
-        biome = 1,
-      })[client.name]
-    then
+    if vim.tbl_contains(supported, client.name) then
       lf.on_attach(client, args.buf)
     end
   end,
