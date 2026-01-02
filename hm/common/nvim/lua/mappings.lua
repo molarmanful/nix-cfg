@@ -82,5 +82,3 @@ set('n', ']d', function()
 end, { desc = 'lspconfig Goto next' })
 set('n', 'gd', '<cmd> Telescope lsp_definitions <CR>', { desc = 'telescope Find LSP definitions' })
 set('n', 'grr', '<cmd> Telescope lsp_references <CR>', { desc = 'telescope Find LSP references' })
-
-vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
