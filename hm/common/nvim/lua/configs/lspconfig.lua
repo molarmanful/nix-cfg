@@ -1,6 +1,45 @@
 require('nvchad.configs.lspconfig').defaults()
 
+local lsps = {
+  'lua_ls',
+  'dprint',
+  'html',
+  'svelte',
+  'unocss',
+  'eslint',
+  'bashls',
+  'marksman',
+  'rust_analyzer',
+  'stylelint_lsp',
+  'dockerls',
+  'yamlls',
+  'ruff',
+  'taplo',
+  'tailwindcss',
+  'unocss',
+  'hls',
+  'gopls',
+  'clangd',
+  'clojure_lsp',
+  'vtsls',
+  'nil_ls',
+  'nushell',
+  'gdscript',
+  'biome',
+  'elixirls',
+}
+
 local default_on_attach = vim.lsp.config['*'].on_attach
+
+local vtsls_fts = vim.lsp.config.vtsls.filetypes
+if vtsls_fts then
+  table.insert(vtsls_fts, 'svelte')
+end
+
+local dprint_fts = vim.lsp.config.dprint.filetypes
+if dprint_fts then
+  table.insert(dprint_fts, 'svelte')
+end
 
 local overrides = {
   ['*'] = {
@@ -23,15 +62,7 @@ local overrides = {
   },
 
   vtsls = {
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'javascript.jsx',
-      'typescript',
-      'typescriptreact',
-      'typescript.tsx',
-      'svelte',
-    },
+    filetypes = vtsls_fts,
     settings = {
       complete_function_calls = true,
       vtsls = {
@@ -87,11 +118,13 @@ local overrides = {
       },
     },
   },
+
+  dprint = {
+    filetypes = dprint_fts,
+  },
 }
 
-return function(lsps)
-  for _, lsp in ipairs(lsps) do
-    vim.lsp.config(lsp, overrides[lsp] or {})
-    vim.lsp.enable(lsp)
-  end
+for _, lsp in ipairs(lsps) do
+  vim.lsp.config(lsp, overrides[lsp] or {})
+  vim.lsp.enable(lsp)
 end

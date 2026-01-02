@@ -1,32 +1,3 @@
-local lsps = {
-  'lua_ls',
-  'dprint',
-  'html',
-  'svelte',
-  'unocss',
-  'eslint',
-  'bashls',
-  'marksman',
-  'rust_analyzer',
-  'stylelint_lsp',
-  'dockerls',
-  'yamlls',
-  'ruff',
-  'taplo',
-  'tailwindcss',
-  'unocss',
-  'hls',
-  'gopls',
-  'clangd',
-  'clojure_lsp',
-  'vtsls',
-  'nil_ls',
-  'nushell',
-  'gdscript',
-  'biome',
-  'elixirls',
-}
-
 local syns = {
   'comment',
 }
@@ -41,14 +12,13 @@ return {
   },
   { import = 'nvchad.blink.lazyspec' },
 
-  { 'williamboman/mason.nvim',           enabled = false },
+  { 'williamboman/mason.nvim', enabled = false },
   { 'williamboman/mason-lspconfig.nvim', enabled = false },
 
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('nvchad.configs.lspconfig').defaults()
-      require 'configs.lspconfig' (lsps)
+      require 'configs.lspconfig'
     end,
   },
 
@@ -57,6 +27,14 @@ return {
     event = { 'User FilePost' },
     config = function()
       require 'configs.null-ls'
+    end,
+  },
+
+  {
+    'lukas-reineke/lsp-format.nvim',
+    event = { 'User FilePost' },
+    config = function()
+      require 'configs.lsp-format'
     end,
   },
 
