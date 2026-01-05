@@ -15,7 +15,9 @@ null_ls.setup {
     form.sqlfmt,
     form.yamlfmt,
     form.zprint,
-    form.clang_format,
+    form.clang_format.with {
+      extra_filetypes = { 'gdshader' },
+    },
     form.nixfmt,
     form.mdformat,
     form.mix,
