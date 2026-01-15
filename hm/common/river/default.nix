@@ -24,7 +24,7 @@
     home.packages =
       let
         shotman = pkgs.shotman.overrideAttrs (
-          finalAttrs: prevAttrs: {
+          finalAttrs: _prevAttrs: {
             version = "0.4.9";
             src = pkgs.fetchFromSourcehut {
               owner = "~whynothugo";

@@ -150,7 +150,7 @@ return {
   },
 
   {
-    'lukas-reineke/headlines.nvim',
+    'MeanderingProgrammer/render-markdown.nvim',
     ft = { 'markdown', 'rmd', 'norg', 'org' },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
@@ -164,9 +164,12 @@ return {
   },
 
   {
-    'preservim/vim-markdown',
-    ft = { 'markdown' },
-    branch = 'master',
+    'obsidian-nvim/obsidian.nvim',
+    version = '*',
+    ft = 'markdown',
+    opts = {
+      legacy_commands = false,
+    },
   },
 
   {
