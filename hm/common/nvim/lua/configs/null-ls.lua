@@ -25,7 +25,6 @@ null_ls.setup {
     lint.selene,
     lint.fish,
     lint.gdlint,
-    lint.markdownlint,
     lint.yamllint,
     lint.hadolint,
     lint.actionlint,

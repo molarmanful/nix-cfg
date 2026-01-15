@@ -169,6 +169,23 @@ return {
     ft = 'markdown',
     opts = {
       legacy_commands = false,
+      ui = { enable = false },
+      frontmatter = { enabled = false },
+      workspaces = {
+        {
+          name = 'auto',
+          path = function()
+            return assert(vim.fs.root(0, '.obsidian'))
+          end,
+        },
+      },
+      callbacks = {
+        enter_note = function(note)
+          vim.api.nvim_buf_call(note.bufnr, function()
+            vim.cmd 'Obsidian open'
+          end)
+        end,
+      },
     },
   },
 

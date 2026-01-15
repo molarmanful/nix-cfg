@@ -81,7 +81,7 @@ let
           nil
           lua-language-server
 
-          nixfmt-rfc-style
+          nixfmt
           statix
           deadnix
           stylua
