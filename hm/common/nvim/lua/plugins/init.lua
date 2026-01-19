@@ -171,6 +171,7 @@ return {
       legacy_commands = false,
       ui = { enable = false },
       frontmatter = { enabled = false },
+      footer = { enabled = false },
       workspaces = {
         {
           name = 'auto',

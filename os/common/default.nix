@@ -256,6 +256,8 @@
       mangohud
       protontricks
       nexusmods-app
+      lsfg-vk
+      lsfg-vk-ui
       file-roller
     ];
 
