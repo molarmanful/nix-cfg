@@ -172,20 +172,27 @@ return {
       ui = { enable = false },
       frontmatter = { enabled = false },
       footer = { enabled = false },
-      workspaces = {
-        {
-          name = 'auto',
-          path = function()
-            return assert(vim.fs.root(0, '.obsidian'))
-          end,
-        },
-      },
       callbacks = {
         enter_note = function(note)
           vim.api.nvim_buf_call(note.bufnr, function()
             vim.cmd 'Obsidian open'
           end)
         end,
+      },
+      workspaces = {
+        {
+          name = 'auto',
+          path = function()
+            return vim.fs.root(0, '.obsidian')
+          end,
+        },
+        {
+          name = 'no-vault',
+          path = function()
+            return vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+          end,
+          overrides = { callbacks = { enter_note = vim.NIL } },
+        },
       },
     },
   },

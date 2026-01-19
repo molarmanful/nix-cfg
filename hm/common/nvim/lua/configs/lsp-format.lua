@@ -17,10 +17,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         buffer = args.buf,
         command = 'LspEslintFixAll',
       })
-      return
-    end
-
-    if vim.tbl_contains(supported, client.name) then
+    elseif vim.tbl_contains(supported, client.name) then
       lf.on_attach(client, args.buf)
     end
   end,
