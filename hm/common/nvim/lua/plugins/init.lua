@@ -212,4 +212,13 @@ return {
     'rafikdraoui/jj-diffconflicts',
     cmd = { 'JJDiffConflicts' },
   },
+
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^6',
+    lazy = false,
+    config = function()
+      require 'rustaceanvim'
+    end,
+  },
 }

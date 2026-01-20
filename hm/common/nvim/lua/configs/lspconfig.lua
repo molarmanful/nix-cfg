@@ -9,7 +9,6 @@ local lsps = {
   'eslint',
   'bashls',
   'marksman',
-  'rust_analyzer',
   'stylelint_lsp',
   'dockerls',
   'yamlls',
@@ -27,6 +26,7 @@ local lsps = {
   'gdscript',
   'biome',
   'elixirls',
+  'bacon-ls',
 }
 
 local default_on_attach = vim.lsp.config['*'].on_attach
@@ -109,14 +109,6 @@ local overrides = {
 
   gdscript = {
     cmd = os.getenv 'WSL_DISTRO_NAME' and { 'godot-wsl-lsp', '--useMirroredNetworking', '--host', '127.0.0.1' },
-  },
-
-  rust_analyzer = {
-    settings = {
-      ['rust-analyzer'] = {
-        check = { command = 'clippy' },
-      },
-    },
   },
 
   dprint = {
