@@ -83,4 +83,8 @@
       ju = "jjui";
     };
   };
+
+  xdg.configFile."jjui/config.toml".source = (upkgs.formats.toml { }).generate "config.toml" {
+    ui.tracer.enabled = true;
+  };
 }
