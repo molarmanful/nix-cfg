@@ -234,15 +234,12 @@
     fstrim.enable = true;
 
     flatpak.enable = true;
-
-    ratbagd.enable = true;
   };
 
   powerManagement.powertop.enable = true;
 
   environment = {
     systemPackages = with upkgs; [
-      piper
       mypkgs.keyb0xx
       (lutris.override {
         extraPkgs =
@@ -251,13 +248,6 @@
             winetricks
           ];
       })
-      steamtinkerlaunch
-      libstrangle
-      mangohud
-      protontricks
-      nexusmods-app
-      lsfg-vk
-      lsfg-vk-ui
       file-roller
     ];
 

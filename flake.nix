@@ -72,6 +72,7 @@
           mypkgs = {
             waybar = inputs.waybar.packages.${system}.default;
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
+            lsfg-vk = upkgs.callPackage ./mypkgs/lsfg-vk { };
           };
 
           commonModules = [

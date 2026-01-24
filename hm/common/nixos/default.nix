@@ -1,6 +1,7 @@
 {
   pkgs,
   upkgs,
+  mypkgs,
   ...
 }:
 
@@ -31,6 +32,12 @@
       bitwarden-desktop
       quickemu
       slack
+      steamtinkerlaunch
+      libstrangle
+      mangohud
+      protontricks
+      nexusmods-app-unfree
+      mypkgs.lsfg-vk
     ];
 
     file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
