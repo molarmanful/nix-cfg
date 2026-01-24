@@ -11,14 +11,10 @@ vim.g.rustaceanvim = vim.tbl_deep_extend('keep', vim.g.rustaceanvim or {}, {
         cargo = {
           allFeatures = true,
           loadOutDirsFromCheck = true,
-          buildScripts = {
-            enable = true,
-          },
+          buildScripts = { enable = true },
         },
         checkOnSave = false,
-        diagnostics = {
-          enable = false,
-        },
+        diagnostics = { enable = false },
         procMacro = { enable = true },
         files = {
           exclude = {

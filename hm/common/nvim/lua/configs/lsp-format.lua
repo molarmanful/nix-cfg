@@ -1,6 +1,6 @@
 local lf = require 'lsp-format'
 
-local supported = { 'null-ls', 'dprint', 'ruff', 'taplo', 'biome', 'rust_analyzer' }
+local supported = { 'null-ls', 'dprint', 'ruff', 'taplo', 'biome', 'rust-analyzer' }
 
 local config = {}
 for _, v in pairs(vim.fn.getcompletion('', 'filetype')) do

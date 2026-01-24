@@ -1012,11 +1012,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1768960440,
-        "narHash": "sha256-kefZIrPm/Dc3RSLUqC+2lp9irMf+Jj7SHmDt5MP1G1w=",
+        "lastModified": 1769118033,
+        "narHash": "sha256-mFWsIvDtLvIieFCps8qYGLoDN54PfePaTipTCUy5Aus=",
         "owner": "idursun",
         "repo": "jjui",
-        "rev": "87645d3c68f611be536ff0c3f65dc147644b4935",
+        "rev": "e95f3ec0c6c71401ef027135c600d010dc402887",
         "type": "github"
       },
       "original": {
