@@ -244,7 +244,7 @@
       (lutris.override {
         extraPkgs =
           pkgs: with pkgs; [
-            wineWowPackages.stagingFull
+            wineWow64Packages.stagingFull
             winetricks
           ];
       })

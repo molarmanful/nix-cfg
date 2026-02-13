@@ -139,7 +139,7 @@ return {
 
   {
     'Olical/conjure',
-    ft = { 'clojure', 'fennel', 'python' },
+    ft = { 'clojure', 'fennel' },
     dependencies = {
       'PaterJason/cmp-conjure',
     },
@@ -167,6 +167,9 @@ return {
     'obsidian-nvim/obsidian.nvim',
     version = '*',
     ft = 'markdown',
+    cond = function()
+      return vim.fs.root(0, '.obsidian')
+    end,
     opts = {
       legacy_commands = false,
       ui = { enable = false },
@@ -185,13 +188,6 @@ return {
           path = function()
             return vim.fs.root(0, '.obsidian')
           end,
-        },
-        {
-          name = 'no-vault',
-          path = function()
-            return vim.fs.dirname(vim.api.nvim_buf_get_name(0))
-          end,
-          overrides = { callbacks = { enter_note = vim.NIL } },
         },
       },
     },

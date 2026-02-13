@@ -12,6 +12,8 @@ local lsps = {
   'stylelint_lsp',
   'dockerls',
   'yamlls',
+  'basedpyright',
+  'ty',
   'ruff',
   'taplo',
   'tailwindcss',

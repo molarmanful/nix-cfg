@@ -18,7 +18,7 @@
     swaybg
   ];
 
-  programs.spicetify.windowManagerPatch = true;
+  programs = if config.programs ? spicetify then { spicetify.windowManagerPatch = true; } else { };
 
   wayland.windowManager.sway = {
 

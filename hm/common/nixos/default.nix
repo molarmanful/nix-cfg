@@ -14,9 +14,9 @@
     ../foot
     ../alacritty
     ../godot
-    ../melee
+    # ../melee
     ../floorp
-    ../spicetify
+    # ../spicetify
     ../easyeffects
   ];
 
@@ -36,8 +36,8 @@
       libstrangle
       mangohud
       protontricks
-      nexusmods-app-unfree
       mypkgs.lsfg-vk
+      claude-code
     ];
 
     file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
