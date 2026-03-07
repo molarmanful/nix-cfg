@@ -75,7 +75,7 @@
       mode.natural = {
         acceleration = 0.25;
         midpoint = 10.0;
-        exponent = 2.5;
+        limit = 2.5;
         useSmoothing = false;
       };
     };
@@ -249,6 +249,7 @@
           ];
       })
       file-roller
+      brightnessctl
     ];
 
     etc."libinput/local-overrides.quirks".text = ''
@@ -293,8 +294,6 @@
   };
 
   programs = {
-    light.enable = true;
-
     _1password.enable = true;
     _1password-gui = {
       enable = true;

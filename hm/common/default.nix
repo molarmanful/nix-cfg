@@ -59,7 +59,7 @@
       usbutils
       just
       bottom
-      neofetch
+      fastfetch
       dasel
       bitwarden-cli
       bws
