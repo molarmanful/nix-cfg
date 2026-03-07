@@ -70,7 +70,10 @@
 
     yeetmouse = {
       enable = true;
-      sensitivity = 0.5;
+      sensitivity = {
+        x = 0.5;
+        y = 0.5;
+      };
       outputCap = 2.0;
       mode.natural = {
         acceleration = 0.25;
