@@ -17,6 +17,11 @@
         tag.gpgsign = true;
         gpg.format = "ssh";
         user.signingkey = inputs.secrets.public_keys.molarmanful;
+        core.pager = "DELTA_FEATURES=$([[ $COLUMNS -gt 160 ]] && echo +side-by-side || echo +) delta";
+        delta = {
+          line-numbers = true;
+          diff-so-fancy = true;
+        };
       };
     };
 

@@ -1012,11 +1012,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1772851520,
-        "narHash": "sha256-Tqi8dr/qaoloY5HL4jqQxB3yXNE4mj9aXA5fbbRtnYg=",
+        "lastModified": 1772994338,
+        "narHash": "sha256-wGal1aulnbacP6Ovms82XKPMbUvH/rs9Rg/B40E3uls=",
         "owner": "idursun",
         "repo": "jjui",
-        "rev": "cc0b496a441a91bf07a07bc8da4b5c1b9db53868",
+        "rev": "1f3b3b8c847ea52cc9da0e70c9e0ad649a582e84",
         "type": "github"
       },
       "original": {
@@ -2527,11 +2527,11 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1772727674,
-        "narHash": "sha256-+BntUXgWh5neMutS4hBPC1Ue/TLeG0AL+gp6RaLenTY=",
+        "lastModified": 1772968804,
+        "narHash": "sha256-4nJVJL+fxI/Z4+e99Huy/dpvJs3/nghlO74+F184Jpk=",
         "owner": "AndyFilter",
         "repo": "YeetMouse",
-        "rev": "5e3a9d7f3bdef06beb8308a6ab2e4397d659b331",
+        "rev": "7f9c782b66624edd7cb95db87630f7dd60ccb6ba",
         "type": "github"
       },
       "original": {

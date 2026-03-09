@@ -24,6 +24,14 @@
       };
       ui = {
         merge-editor = "dc";
+        diff-formatter = [
+          "sh"
+          "-c"
+          "DELTA_FEATURES=$([[ $width -gt 160 ]] && echo +side-by-side || echo +) delta --width $0 $1 $2"
+          "$width"
+          "$left"
+          "$right"
+        ];
       };
       merge-tools = {
         dc = {
@@ -78,13 +86,10 @@
     packages = with upkgs; [
       meld
       jjui
+      delta
     ];
     shellAliases = {
       ju = "jjui";
     };
-  };
-
-  xdg.configFile."jjui/config.toml".source = (upkgs.formats.toml { }).generate "config.toml" {
-    ui.tracer.enabled = true;
   };
 }
