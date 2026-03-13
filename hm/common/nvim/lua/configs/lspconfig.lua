@@ -28,7 +28,7 @@ local lsps = {
   'gdscript',
   'biome',
   'elixirls',
-  'bacon-ls',
+  'bacon_ls',
 }
 
 local default_on_attach = vim.lsp.config['*'].on_attach
