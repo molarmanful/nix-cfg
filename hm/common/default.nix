@@ -10,6 +10,7 @@
     ./fish
     ./nixcats
     ./rclone
+    ./bacon
   ];
 
   nixpkgs = {
