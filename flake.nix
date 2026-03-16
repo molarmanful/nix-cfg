@@ -43,22 +43,21 @@
 
     secrets.url = "git+https://github.com/molarmanful/nix-secrets?shallow=1";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     inputs@{ flake-parts, ... }:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
-      debug = true;
-
       imports = [ flake-parts.flakeModules.modules ];
-
       systems = [ ];
 
       flake =
         let
-
           system = "x86_64-linux";
           stateVersion = "25.11";
 
@@ -98,13 +97,11 @@
             secretspath = builtins.toString inputs.secrets;
           };
           extraSpecialArgs = specialArgs;
-
         in
         {
 
           nixosConfigurations =
             let
-
               sys =
                 { modules, hm }:
                 inputs.nixpkgs.lib.nixosSystem {
@@ -132,7 +129,6 @@
                       { home-manager.users.ben.home = { inherit stateVersion; }; }
                     ];
                 };
-
             in
             {
               ifwit = sys {
@@ -141,19 +137,6 @@
                   ./os/ifwit
                 ];
                 hm = import ./hm/ifwit;
-              };
-
-              loqnux = sys {
-                modules = [ ./os/loqnux ];
-                hm = import ./hm/loqnux;
-              };
-
-              wsl = sys {
-                modules = [
-                  inputs.nixos-wsl.nixosModules.default
-                  ./os/wsl
-                ];
-                hm = import ./hm/wsl;
               };
             };
 

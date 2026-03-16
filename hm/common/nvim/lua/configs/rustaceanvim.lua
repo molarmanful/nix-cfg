@@ -13,8 +13,8 @@ vim.g.rustaceanvim = vim.tbl_deep_extend('keep', vim.g.rustaceanvim or {}, {
           loadOutDirsFromCheck = true,
           buildScripts = { enable = true },
         },
-        checkOnSave = false,
-        diagnostics = { enable = false },
+        checkOnSave = true,
+        diagnostics = { enable = true },
         procMacro = { enable = true },
         files = {
           exclude = {
