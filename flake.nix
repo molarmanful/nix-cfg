@@ -1,13 +1,11 @@
 {
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +21,15 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wrappers = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     stylix.url = "github:danth/stylix";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -43,33 +50,36 @@
 
     secrets.url = "git+https://github.com/molarmanful/nix-secrets?shallow=1";
 
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nvim-plugins-jj-diffconflicts = {
+      url = "github:rafikdraoui/jj-diffconflicts";
+      flake = false;
     };
   };
 
   outputs =
-    inputs@{ flake-parts, ... }:
+    inputs@{ flake-parts, wrappers, ... }:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ flake-parts.flakeModules.modules ];
-      systems = [ ];
+      imports = [
+        flake-parts.flakeModules.modules
+        wrappers.flakeModules.wrappers
+      ];
+      systems = inputs.nixpkgs.lib.platforms.all;
 
-      flake =
+      perSystem =
+        { system, inputs', ... }:
         let
-          system = "x86_64-linux";
           stateVersion = "25.11";
 
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
+          pkgs = inputs'.nixpkgs.legacyPackages;
           upkgs = import inputs.nixpkgs-unstable {
             inherit system;
             config.allowUnfree = true;
           };
-          nur = inputs.nur.legacyPackages.${system};
-          spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
+          nur = inputs'.nur.legacyPackages;
+          spicePkgs = inputs'.spicetify-nix.legacyPackages;
           mypkgs = {
-            waybar = inputs.waybar.packages.${system}.default;
+            waybar = inputs'.waybar.packages.default;
             keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
             lsfg-vk = upkgs.callPackage ./mypkgs/lsfg-vk { };
           };
@@ -88,17 +98,21 @@
               spicePkgs
               mypkgs
               ;
-            inherit (inputs.kirsch.packages.${system}) kirsch;
-            inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
-            inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
-            inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
-            persway = inputs.persway.packages.${system}.default;
-            jjui = inputs.jjui.packages.${system}.default;
+            inherit (inputs'.kirsch.packages) kirsch;
+            inherit (inputs'.ANAKRON.packages) ANAKRON;
+            inherit (inputs'.QUINTESSON.packages) QUINTESSON;
+            inherit (inputs'.apple-fonts.packages) sf-pro ny;
+            persway = inputs.persway.packages.default;
+            jjui = inputs.jjui.packages.default;
             secretspath = builtins.toString inputs.secrets;
           };
           extraSpecialArgs = specialArgs;
         in
+
         {
+          wrappers = {
+            neovim = import ./modules/neovim inputs;
+          };
 
           nixosConfigurations =
             let
@@ -130,6 +144,7 @@
                     ];
                 };
             in
+
             {
               ifwit = sys {
                 modules = [
@@ -149,7 +164,6 @@
               ];
             };
           };
-
         };
     };
 }
