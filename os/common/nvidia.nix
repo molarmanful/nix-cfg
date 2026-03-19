@@ -4,8 +4,8 @@
   pkgs,
   ...
 }:
-{
 
+{
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement = {

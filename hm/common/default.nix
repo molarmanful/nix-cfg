@@ -1,14 +1,15 @@
 { inputs, upkgs, ... }:
-{
 
+{
   imports = [
+    inputs.nix-index-database.homeModules.nix-index
+    ./fish
     ./git
     ./jujutsu
     ./sops
     ./ssh
     ./direnv
-    ./fish
-    ./nixcats
+    ./nvim
     ./rclone
     ./bacon
   ];
@@ -72,5 +73,8 @@
     ];
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    nix-index-database.comma.enable = true;
+  };
 }

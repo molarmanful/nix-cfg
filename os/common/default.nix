@@ -4,7 +4,6 @@
   lib,
   pkgs,
   upkgs,
-  mypkgs,
   sf-pro,
   ny,
   kirsch,
@@ -12,8 +11,8 @@
   QUINTESSON,
   ...
 }:
-{
 
+{
   imports = [ ../. ];
 
   sops.secrets = {
@@ -240,7 +239,6 @@
 
   environment = {
     systemPackages = with upkgs; [
-      mypkgs.keyb0xx
       (lutris.override {
         extraPkgs =
           pkgs: with pkgs; [

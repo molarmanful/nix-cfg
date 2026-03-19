@@ -1,6 +1,6 @@
 { pkgs, ... }:
-{
 
+{
   home.packages = with pkgs; [
     fishPlugins.puffer
     fishPlugins.fzf
@@ -8,6 +8,7 @@
   ];
 
   stylix.targets.fish.enable = false;
+
   programs.fish = {
     enable = true;
 

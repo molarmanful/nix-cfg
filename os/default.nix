@@ -1,11 +1,22 @@
 {
-  config,
   inputs,
+  config,
   pkgs,
   secretspath,
+  specialArgs,
+  stateVersion,
   ...
 }:
+
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.nix-index-database.nixosModules.nix-index
+    inputs.sops-nix.nixosModules.sops
+    inputs.nix-flatpak.nixosModules.nix-flatpak
+    inputs.stylix.nixosModules.stylix
+    inputs.yeetmouse.nixosModules.default
+  ];
 
   nixpkgs = {
     config = {
@@ -33,6 +44,7 @@
         "https://cache.iog.io"
       ];
     };
+
     gc = {
       automatic = true;
       dates = "weekly";
@@ -57,9 +69,7 @@
       generateKey = true;
     };
 
-    secrets = {
-      ben-password.neededForUsers = true;
-    };
+    secrets.ben-password.neededForUsers = true;
   };
 
   environment = {
@@ -103,10 +113,19 @@
       enable = true;
       pinentryPackage = pkgs.pinentry-curses;
     };
+
+    nix-index-database.comma.enable = true;
   };
 
-  services = {
-    openssh.enable = true;
+  services.openssh.enable = true;
+
+  home-manager = {
+    extraSpecialArgs = specialArgs;
+    # useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
+    users.ben.home = { inherit stateVersion; };
   };
 
+  system = { inherit stateVersion; };
 }

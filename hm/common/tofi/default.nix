@@ -22,13 +22,33 @@ let
   heightN = n: (n + 1) * dims.h + padding-top + padding-bottom;
 
   scheme = builtins.mapAttrs (_: v: "#${v}") config.lib.stylix.colors;
+
+  tofi-pwr = upkgs.writeShellApplication {
+    name = "tofi-pwr";
+    runtimeInputs = with upkgs; [ tofi ];
+
+    text = ''
+      case $(
+        printf '%s\n' suspend hibernate hybrid shutdown reboot |
+        tofi --prompt-text=' ⏻ ' --width=${toString (widthN 20)} --height=${toString (heightN 5)} --output="$(
+          river-bedload -print outputs | jq -r '.[] | first(select(.focused)).name'
+        )"
+      ) in
+        suspend) systemctl suspend ;;
+        hibernate) systemctl hibernate ;;
+        hybrid) systemctl hibernate-then-suspend ;;
+        shutdown) shutdown now ;;
+        reboot) reboot ;;
+      esac
+    '';
+  };
 in
 {
 
   stylix.targets.tofi.enable = false;
 
   home.packages = [
-    (upkgs.callPackage ./tofi-pwr.nix { inherit widthN heightN; })
+    tofi-pwr
   ];
 
   programs.tofi = {

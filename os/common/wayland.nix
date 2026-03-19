@@ -1,6 +1,6 @@
 { pkgs, ... }:
-{
 
+{
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     SDL_VIDEODRIVER = "wayland";
@@ -18,11 +18,6 @@
     ];
     config = {
       river = {
-        default = [ "gtk" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
-        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
-      };
-      sway = {
         default = [ "gtk" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];

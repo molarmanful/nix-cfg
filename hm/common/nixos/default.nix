@@ -10,13 +10,9 @@
     ../.
     ../flatpak
     ../river
-    ../wezterm
-    ../foot
     ../alacritty
     ../godot
-    # ../melee
     ../floorp
-    # ../spicetify
     ../easyeffects
   ];
 

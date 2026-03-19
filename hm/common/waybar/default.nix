@@ -43,14 +43,11 @@
         spacing = 0;
 
         modules-left = [
-          "sway/workspaces"
-          "sway/mode"
           "river/tags"
           "river/mode"
         ];
 
         modules-center = [
-          "sway/window"
           "river/window"
         ];
 
@@ -67,10 +64,6 @@
 
         "river/tags" = {
           hide-vacant = true;
-        };
-
-        "sway/window" = {
-          max-length = 65;
         };
 
         "river/window" = {

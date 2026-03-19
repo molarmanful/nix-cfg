@@ -3,9 +3,10 @@
   pkgs,
   ...
 }:
-{
 
+{
   imports = [
+    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ./hardware-configuration.nix
     ../common
     ../common/amd.nix
@@ -30,4 +31,6 @@
       WLR_RENDERER = "vulkan";
     };
   };
+
+  home-manager.users.ben = ../../hm/ifwit;
 }

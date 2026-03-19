@@ -22,10 +22,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
 
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
     wrappers = {
       url = "github:BirdeeHub/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,11 +31,7 @@
     stylix.url = "github:danth/stylix";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    persway.url = "github:johnae/persway";
-    slippi.url = "github:lytedev/slippi-nix";
     waybar.url = "github:Alexays/Waybar";
-    jjui.url = "github:idursun/jjui";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     yeetmouse = {
       url = "github:AndyFilter/YeetMouse?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,56 +50,45 @@
   };
 
   outputs =
-    inputs@{ flake-parts, wrappers, ... }:
+    inputs@{ self, flake-parts, ... }:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         flake-parts.flakeModules.modules
-        wrappers.flakeModules.wrappers
+        inputs.wrappers.flakeModules.wrappers
       ];
-      systems = inputs.nixpkgs.lib.platforms.all;
+      systems = [ "x86_64-linux" ];
 
-      perSystem =
-        { system, inputs', ... }:
+      flake =
         let
-          stateVersion = "25.11";
-
-          pkgs = inputs'.nixpkgs.legacyPackages;
-          upkgs = import inputs.nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          nur = inputs'.nur.legacyPackages;
-          spicePkgs = inputs'.spicetify-nix.legacyPackages;
-          mypkgs = {
-            waybar = inputs'.waybar.packages.default;
-            keyb0xx = upkgs.callPackage ./mypkgs/keyb0xx { };
-            lsfg-vk = upkgs.callPackage ./mypkgs/lsfg-vk { };
-          };
-
-          commonModules = [
-            { system = { inherit stateVersion; }; }
-            { programs.nix-index-database.comma.enable = true; }
-          ];
-
-          specialArgs = {
-            inherit
-              stateVersion
-              inputs
-              upkgs
-              nur
-              spicePkgs
-              mypkgs
-              ;
-            inherit (inputs'.kirsch.packages) kirsch;
-            inherit (inputs'.ANAKRON.packages) ANAKRON;
-            inherit (inputs'.QUINTESSON.packages) QUINTESSON;
-            inherit (inputs'.apple-fonts.packages) sf-pro ny;
-            persway = inputs.persway.packages.default;
-            jjui = inputs.jjui.packages.default;
-            secretspath = builtins.toString inputs.secrets;
-          };
-          extraSpecialArgs = specialArgs;
+          mkArgs =
+            system:
+            let
+              stateVersion = "25.11";
+              upkgs = import inputs.nixpkgs-unstable {
+                inherit system;
+                config.allowUnfree = true;
+              };
+              mypkgs = self.packages.${system} // {
+                waybar = inputs.waybar.packages.${system}.default;
+                lsfg-vk = upkgs.callPackage ./mypkgs/lsfg-vk { };
+              };
+              nur = inputs.nur.legacyPackages.${system};
+            in
+            {
+              inherit
+                stateVersion
+                inputs
+                upkgs
+                mypkgs
+                nur
+                ;
+              inherit (inputs.kirsch.packages.${system}) kirsch;
+              inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
+              inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
+              inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
+              secretspath = "${inputs.secrets}";
+            };
         in
 
         {
@@ -116,54 +98,29 @@
 
           nixosConfigurations =
             let
-              sys =
-                { modules, hm }:
+              mkSys =
+                system: module:
                 inputs.nixpkgs.lib.nixosSystem {
-                  inherit system specialArgs;
-                  modules =
-                    commonModules
-                    ++ modules
-                    ++ [
-                      inputs.home-manager.nixosModules.home-manager
-                      inputs.nix-index-database.nixosModules.nix-index
-                      inputs.sops-nix.nixosModules.sops
-                      inputs.nix-flatpak.nixosModules.nix-flatpak
-                      inputs.stylix.nixosModules.stylix
-                      inputs.slippi.nixosModules.default
-                      inputs.yeetmouse.nixosModules.default
-                      {
-                        home-manager = {
-                          inherit extraSpecialArgs;
-                          # useGlobalPkgs = true;
-                          useUserPackages = true;
-                          backupFileExtension = "backup";
-                          users.ben = hm;
-                        };
-                      }
-                      { home-manager.users.ben.home = { inherit stateVersion; }; }
-                    ];
+                  inherit system;
+                  specialArgs = mkArgs system;
+                  modules = [ module ];
                 };
             in
-
             {
-              ifwit = sys {
-                modules = [
-                  inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-                  ./os/ifwit
-                ];
-                hm = import ./hm/ifwit;
+              ifwit = mkSys "x86_64-linux" ./os/ifwit;
+            };
+
+          homeConfigurations =
+            let
+              extraSpecialArgs = mkArgs "x86_64-linux";
+            in
+            {
+              home = {
+                inherit extraSpecialArgs;
+                inherit (extraSpecialArgs) pkgs;
+                modules = [ ./hm ];
               };
             };
-
-          homeConfigurations = {
-            home = {
-              inherit pkgs extraSpecialArgs;
-              modules = commonModules ++ [
-                inputs.nix-index-database.hmModules.nix-index
-                ./hm
-              ];
-            };
-          };
         };
     };
 }

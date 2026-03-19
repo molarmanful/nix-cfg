@@ -4,8 +4,8 @@
   pkgs,
   ...
 }:
-{
 
+{
   imports = [
     ../wayland
     ../way-displays
@@ -48,8 +48,6 @@
         shotman
         river-bedload
       ];
-
-    programs = if config.programs ? spicetify then { spicetify.windowManagerPatch = true; } else { };
 
     wayland.windowManager.river = {
       enable = true;
@@ -99,7 +97,6 @@
 
           echo 'ALL done'
         '';
-
     };
   };
 }

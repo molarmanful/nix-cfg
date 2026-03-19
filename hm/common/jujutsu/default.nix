@@ -1,11 +1,10 @@
 {
   inputs,
   upkgs,
-  jjui,
   ...
 }:
-{
 
+{
   programs.jujutsu = {
     enable = true;
     package = upkgs.jujutsu;
