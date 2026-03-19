@@ -1,11 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +18,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nixos-unified.url = "github:srid/nixos-unified";
     wrappers = {
       url = "github:BirdeeHub/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,77 +46,9 @@
   };
 
   outputs =
-    inputs@{ self, flake-parts, ... }:
-
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        flake-parts.flakeModules.modules
-        inputs.wrappers.flakeModules.wrappers
-      ];
-      systems = [ "x86_64-linux" ];
-
-      flake =
-        let
-          mkArgs =
-            system:
-            let
-              stateVersion = "25.11";
-              upkgs = import inputs.nixpkgs-unstable {
-                inherit system;
-                config.allowUnfree = true;
-              };
-              mypkgs = self.packages.${system} // {
-                waybar = inputs.waybar.packages.${system}.default;
-                lsfg-vk = upkgs.callPackage ./mypkgs/lsfg-vk { };
-              };
-              nur = inputs.nur.legacyPackages.${system};
-            in
-            {
-              inherit
-                stateVersion
-                inputs
-                upkgs
-                mypkgs
-                nur
-                ;
-              inherit (inputs.kirsch.packages.${system}) kirsch;
-              inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
-              inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
-              inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
-              secretspath = "${inputs.secrets}";
-            };
-        in
-
-        {
-          wrappers = {
-            neovim = import ./modules/neovim inputs;
-          };
-
-          nixosConfigurations =
-            let
-              mkSys =
-                system: module:
-                inputs.nixpkgs.lib.nixosSystem {
-                  inherit system;
-                  specialArgs = mkArgs system;
-                  modules = [ module ];
-                };
-            in
-            {
-              ifwit = mkSys "x86_64-linux" ./os/ifwit;
-            };
-
-          homeConfigurations =
-            let
-              extraSpecialArgs = mkArgs "x86_64-linux";
-            in
-            {
-              home = {
-                inherit extraSpecialArgs;
-                inherit (extraSpecialArgs) pkgs;
-                modules = [ ./hm ];
-              };
-            };
-        };
+    inputs:
+    inputs.nixos-unified.lib.mkFlake {
+      inherit inputs;
+      root = ./.;
     };
 }
