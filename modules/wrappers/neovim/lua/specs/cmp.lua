@@ -41,6 +41,8 @@ return {
         cmdline = { enabled = true },
         appearance = { nerd_font_variant = 'normal' },
         fuzzy = { implementation = 'prefer_rust' },
+        signature = { enabled = true },
+
         sources = { default = { 'lsp', 'snippets', 'buffer', 'path' } },
 
         keymap = {
@@ -53,12 +55,14 @@ return {
         },
 
         completion = {
+          accept = {
+            auto_brackets = { enabled = true },
+          },
           documentation = {
             auto_show = true,
             auto_show_delay_ms = 200,
             window = { border = 'single' },
           },
-
           menu = require('nvchad.blink').menu,
         },
       }

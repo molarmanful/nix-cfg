@@ -67,7 +67,10 @@ return {
           end
 
           local set = vim.keymap.set
+          local del = vim.keymap.del
+          del('n', 'y', opts '')
           set('n', 'y', api.fs.copy.node, opts 'Copy')
+          del('n', 'c', opts '')
           set('n', 'c', api.fs.create, opts 'Create File Or Directory')
         end,
 
