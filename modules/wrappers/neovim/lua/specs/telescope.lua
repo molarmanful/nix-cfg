@@ -29,8 +29,11 @@ return {
             },
           },
         },
-        extensions_list = { 'themes', 'terms', 'persisted', 'fzf', 'ui-select', 'file_browser' },
       }
+
+      for _, x in ipairs { 'themes', 'terms', 'persisted', 'fzf', 'ui-select', 'file_browser' } do
+        telescope.load_extension(x)
+      end
 
       local set = vim.keymap.set
       set('n', '<leader>fw', '<cmd> Telescope live_grep <CR>', { desc = 'telescope live grep' })
