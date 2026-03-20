@@ -6,7 +6,28 @@ return {
       vim.lsp.config(plugin.name, plugin.lsp or {})
       vim.lsp.enable(plugin.name)
     end,
+
     before = function()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem = {
+        documentationFormat = { 'markdown', 'plaintext' },
+        snippetSupport = true,
+        preselectSupport = true,
+        insertReplaceSupport = true,
+        labelDetailsSupport = true,
+        deprecatedSupport = true,
+        commitCharactersSupport = true,
+        tagSupport = { valueSet = { 1 } },
+        resolveSupport = {
+          properties = {
+            'documentation',
+            'command',
+            'detail',
+            'additionalTextEdits',
+          },
+        },
+      }
+
       vim.lsp.config('*', {
         on_attach = function(_, bufnr)
           local set = vim.keymap.set
@@ -38,6 +59,8 @@ return {
             client.server_capabilities.semanticTokensProvider = nil
           end
         end,
+
+        capabilities = capabilities,
       })
     end,
   },
