@@ -23,11 +23,14 @@ inputs:
           stylua
           selene
           taplo
+          fnlfmt
+          fennel-ls
         ];
         data = config.nvim-lib.plugins (
           plugins: with plugins; [
             lze
             lzextras
+            nfnl
           ]
         );
       };
