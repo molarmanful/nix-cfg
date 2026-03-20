@@ -76,6 +76,7 @@ inputs:
             nvim-metals
             nvim-ts-autotag
             nvim-surround
+            conjure
           ]
         );
       };

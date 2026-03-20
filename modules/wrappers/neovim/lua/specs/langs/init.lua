@@ -106,6 +106,7 @@ return {
           form.nixfmt,
           form.mdformat,
           form.mix,
+          form.fnlfmt,
 
           lint.selene,
           lint.fish,

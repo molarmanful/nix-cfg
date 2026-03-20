@@ -109,7 +109,7 @@ return {
 
   {
     'which-key.nvim',
-    keys = { '<leader>', '<c-w>', '"', "'", '`', 'c', 'v', 'g' },
+    keys = { '<leader>', '<localleader>', '<c-w>', '"', "'", '`', 'c', 'v', 'g' },
     cmd = 'WhichKey',
     opts = function()
       require('which-key').setup {}

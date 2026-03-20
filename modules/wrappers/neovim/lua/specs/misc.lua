@@ -65,4 +65,13 @@ return {
   },
 
   { 'vim-suda', lazy = false },
+
+  {
+    'conjure',
+    ft = { 'clojure', 'fennel', 'lua' },
+    before = function()
+      vim.g['conjure#mapping#doc_word'] = 'K'
+      vim.g['conjure#mapping#def_word'] = 'gd'
+    end,
+  },
 }
