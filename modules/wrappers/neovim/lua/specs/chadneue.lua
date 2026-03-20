@@ -58,6 +58,19 @@ return {
     cmd = { 'NvimTreeToggle', 'NvimTreeFocus' },
     after = function()
       require('nvim-tree').setup {
+        on_attach = function(bufnr)
+          local api = require 'nvim-tree.api'
+          api.map.on_attach.default(bufnr)
+
+          local function opts(desc)
+            return { desc = 'nvim-tree: ' .. desc, buffer = bufnr }
+          end
+
+          local set = vim.keymap.set
+          set('n', 'y', api.fs.copy.node, opts 'Copy')
+          set('n', 'c', api.fs.create, opts 'Create File Or Directory')
+        end,
+
         filters = { dotfiles = false },
         disable_netrw = true,
         hijack_cursor = true,
