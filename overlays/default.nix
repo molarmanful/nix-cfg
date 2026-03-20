@@ -13,5 +13,5 @@ in
   inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
   inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
   inherit (inputs.waybar.packages.${system}) waybar;
-  inherit (self.packages.${system}) neovim lsfg-vk;
+  inherit (self.packages.${system}) neovim alacritty lsfg-vk;
 }
