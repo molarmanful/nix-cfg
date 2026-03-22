@@ -41,29 +41,6 @@ inputs:
           ];
       };
     };
-
-    nvchad.base46 = lib.mkOption {
-      readOnly = true;
-      type = lib.types.package;
-      default = config.nvim-lib.plugins (
-        {
-          plenary-nvim,
-          nvchad-ui,
-          base46,
-          ...
-        }:
-        base46.overrideAttrs {
-          buildPhase = ''
-            cp ${config.settings.config_directory}/lua/chadrc.lua lua || true
-            cp -r ${config.settings.config_directory}/lua/themes lua || true
-            ${pkgs.neovim}/bin/nvim --cmd 'set rtp+=${plenary-nvim},${nvchad-ui},.' -l - <<EOF
-              vim.g.base46_cache = vim.fn.getcwd() .. '/cache/'
-              require('base46').load_all_highlights()
-            EOF
-          '';
-        }
-      );
-    };
   };
 
   config = {
@@ -75,5 +52,36 @@ inputs:
     };
 
     extraPackages = config.specCollect (acc: v: acc ++ (v.extraPackages or [ ])) [ ];
+
+    settings.config_directory = pkgs.stdenvNoCC.mkDerivation {
+      pname = "nix-cfg-neovim";
+      version = "0.0.0";
+      src = ../.;
+      nativeBuildInputs = with pkgs; [ neovim ];
+      buildPhase = config.nvim-lib.plugins (
+        {
+          plenary-nvim,
+          nfnl,
+          nvchad-ui,
+          base46,
+          ...
+        }:
+        /* bash */ ''
+          export HOME=$(mktemp -d)
+          nvim --headless -c 'set rtp+=${nfnl},.' -l - <<EOF
+            vim.cmd.edit('.nfnl.fnl')
+            vim.cmd.trust()
+            require('nfnl.api')['compile-all-files']()
+          EOF
+          nvim --headless -c 'set rtp+=${plenary-nvim},${nvchad-ui},${base46},.' -l - <<EOF
+            vim.g.base46_cache = vim.fn.getcwd() .. '/base46-cache/'
+            require('base46').load_all_highlights()
+          EOF
+        ''
+      );
+      installPhase = ''
+        cp -r . $out
+      '';
+    };
   };
 }

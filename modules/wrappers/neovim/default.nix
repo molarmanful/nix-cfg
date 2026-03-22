@@ -10,8 +10,6 @@ inputs:
   ];
 
   config = {
-    settings.config_directory = ./.;
-
     specs = {
       base = {
         extraPackages = with pkgs; [
@@ -44,7 +42,7 @@ inputs:
         ];
         data = config.nvim-lib.plugins (
           plugins: with plugins; [
-            config.nvchad.base46
+            base46
             nvchad-ui
             nvim-web-devicons
             blink-indent

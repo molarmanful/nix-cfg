@@ -19,4 +19,4 @@
 
 (nixInfo.lze.h.lsp.set_ft_fallback lsp-ft)
 
-(set vim.g.base46_cache (.. (nixInfo.get_nix_plugin_path :base46) :/cache/))
+(set vim.g.base46_cache (.. nixInfo.settings.config_directory :/base46-cache/))

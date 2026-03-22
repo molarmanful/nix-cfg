@@ -1,5 +1,3 @@
-;; GENERAL
-
 (vim.keymap.set :n :<Esc> "<cmd> noh <CR>" {:desc "general hide highlights"})
 (vim.keymap.set :n :<BS> "<cmd> let @/ = '' <CR>" {:desc "general clear /"})
 (vim.keymap.set :i :jk :<ESC> {:desc "general escape insert mode" :nowait true})
@@ -8,14 +6,10 @@
 (vim.keymap.set :v "<" :<gv {:desc "general dedent"})
 (vim.keymap.set :n :<C-s> "<cmd> w <CR>" {:desc "general save file"})
 
-;; SWITCH
-
 (vim.keymap.set :n :<C-h> :<C-w>h {:desc "switch window left"})
 (vim.keymap.set :n :<C-j> :<C-w>j {:desc "switch window down"})
 (vim.keymap.set :n :<C-k> :<C-w>k {:desc "switch window up"})
 (vim.keymap.set :n :<C-l> :<C-w>l {:desc "switch window right"})
-
-;; TOGGLE
 
 (vim.keymap.set :n :<leader>n "<cmd> set nu! <CR>" {:desc "toggle line number"})
 (vim.keymap.set :n :<leader>rn "<cmd> set rnu! <CR>"
