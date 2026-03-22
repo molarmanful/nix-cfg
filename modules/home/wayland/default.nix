@@ -5,7 +5,7 @@
     wl-clip-persist
     pavucontrol
     pw-volume
-    helvum
+    crosspipe
     playerctl
   ];
 }

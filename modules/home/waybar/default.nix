@@ -104,7 +104,7 @@
         wireplumber = {
           format = "{icon} {volume}%";
           format-muted = "󰝟";
-          on-click = "helvum";
+          on-click = "pavucontrol";
           format-icons = [
             ""
             ""
