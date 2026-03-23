@@ -85,7 +85,7 @@ inputs:
         {
           mods = "Control";
           key = "Backspace";
-          chars = "\\u0017";
+          chars = builtins.fromJSON ''"\u0017"'';
         }
         {
           mods = "Control|Shift";
