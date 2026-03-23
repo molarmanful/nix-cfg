@@ -2,15 +2,25 @@ inputs:
 {
   pkgs,
   lib,
+  wlib,
   ...
 }:
 
 {
   imports = [
-    ./nix/internal.nix
+    wlib.wrapperModules.alacritty
   ];
 
   config = {
+    overrides = [
+      {
+        type = "override";
+        data = {
+          withGraphics = true;
+        };
+      }
+    ];
+
     settings = {
       window = {
         padding = {
@@ -128,5 +138,6 @@ inputs:
         </match>
       </fontconfig>
     '';
+
   };
 }
