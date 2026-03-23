@@ -12,7 +12,7 @@
   programs.fish = {
     enable = true;
 
-    shellInit = ''
+    shellInit = /* fish */ ''
       function _my_postexec --on-event fish_postexec
           set -l last_status $pipestatus
           set -g _my_status_c "$_hydro_color_prompt"
@@ -41,7 +41,7 @@
       end
     '';
 
-    interactiveShellInit = ''
+    interactiveShellInit = /* fish */ ''
       tabs 4
     '';
 
@@ -51,7 +51,7 @@
 
       _my_postexec = {
         onEvent = "fish_postexec";
-        body = ''
+        body = /* fish */ ''
           set -l last_status $pipestatus
           set -g _my_status_c "$_hydro_color_prompt"
           set -g _my_status_e ""
@@ -65,11 +65,11 @@
         '';
       };
 
-      fish_prompt = ''
+      fish_prompt = /* fish */ ''
         echo -e (tput cup 999 0)"$_hydro_newline$_hydro_color_prompt$_my_status_c$hydro_symbol_prompt "
       '';
 
-      fish_right_prompt = ''
+      fish_right_prompt = /* fish */ ''
         echo -e "$_my_status_e$_hydro_color_duration$_hydro_cmd_duration$hydro_color_normal$_hydro_color_pwd$_hydro_pwd$hydro_color_normal $_hydro_color_git$$_hydro_git$hydro_color_normal$_color_shlvl$_shlvl$_hydro_color_normal"
       '';
 

@@ -57,7 +57,7 @@
           hexes = builtins.mapAttrs (_: v: "0x${v}") config.lib.stylix.colors;
           cfg = config.wayland.windowManager.river;
         in
-        ''
+        /* bash */ ''
           TOUCHPAD_SCROLL_FACTOR=${toString cfg.touchpadScrollFactor}
           OUTPUTS=$(river-bedload -print outputs)
           DP_INTERNAL=$(echo $OUTPUTS | jq -r '.[].name | first(select(startswith("eDP-")))')
