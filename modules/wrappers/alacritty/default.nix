@@ -105,10 +105,11 @@ inputs:
       ];
     };
 
-    env.FONTCONFIG_PATH = pkgs.writeTextDir "fonts.conf" /* xml */ ''
+    env.FONTCONFIG_FILE = pkgs.writeText "fonts.conf" /* xml */ ''
       <?xml version="1.0"?>
       <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
       <fontconfig>
+        <include>${pkgs.fontconfig.out}/etc/fonts/fonts.conf</include>
         <dir>${pkgs.kirsch}/share/fonts</dir>
         <dir>${pkgs.nerd-fonts.symbols-only}/share/fonts</dir>
         <match target="pattern">
@@ -138,6 +139,5 @@ inputs:
         </match>
       </fontconfig>
     '';
-
   };
 }
