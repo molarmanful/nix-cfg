@@ -33,4 +33,8 @@ in
       gitCredentialHelper.enable = true;
     };
   };
+
+  packages = with pkgs; [
+    delta
+  ];
 }
