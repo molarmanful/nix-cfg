@@ -34,7 +34,7 @@ in
     };
   };
 
-  packages = with pkgs; [
+  home.packages = with pkgs; [
     delta
   ];
 }
