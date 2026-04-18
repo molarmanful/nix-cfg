@@ -14,4 +14,9 @@ in
   inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
   inherit (inputs.waybar.packages.${system}) waybar;
   inherit (self.packages.${system}) neovim alacritty lsfg-vk;
+
+  # TODO: remove when fixed
+  openldap = super.openldap.overrideAttrs {
+    doCheck = !super.stdenv.hostPlatform.isi686;
+  };
 }
