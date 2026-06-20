@@ -49,6 +49,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [ "usbcore.autosuspend=-1" ];
+    kernel.sysctl."kernel.split_lock_mitigate" = 0;
   };
 
   hardware = {
@@ -291,9 +292,7 @@ in
       };
     };
 
-    user.extraConfig = ''
-      DefaultEnvironment="PATH=/run/wrappers/bin:/etc/profiles/per-user/%u/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
-    '';
+    user.settings.Manager.DefaultEnvironment = "PATH=/run/wrappers/bin:/etc/profiles/per-user/%u/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin";
   };
 
   programs = {
@@ -318,6 +317,8 @@ in
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
     };
+
+    gamemode.enable = true;
 
     appimage = {
       enable = true;

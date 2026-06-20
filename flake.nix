@@ -27,7 +27,6 @@
     stylix.url = "github:danth/stylix";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    waybar.url = "github:Alexays/Waybar";
     yeetmouse = {
       url = "github:AndyFilter/YeetMouse?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
