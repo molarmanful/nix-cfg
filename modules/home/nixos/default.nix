@@ -29,6 +29,7 @@ in
       krita
       bitwarden-desktop
       quickemu
+      vesktop
       slack
       steamtinkerlaunch
       libstrangle

@@ -90,7 +90,7 @@
           riverctl set-focused-tags $((1 << 1))
 
           riverctl spawn floorp
-          riverctl spawn dev.vencord.Vesktop
+          riverctl spawn vesktop
           riverctl spawn slack
           riverctl spawn md.obsidian.Obsidian
           riverctl spawn alacritty
