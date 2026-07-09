@@ -16,8 +16,8 @@
     wlr = {
       enable = true;
       settings.screencast = {
-        chooser_type = "simple";
-        chooser_cmd = "${pkgs.slurp}/bin/slurp -f 'Monitor: %o' -or";
+        chooser_type = "dmenu";
+        chooser_cmd = "${pkgs.fuzzel}/bin/fuzzel --dmenu";
         max_fps = 30;
       };
     };
