@@ -41,6 +41,8 @@ in
 
     file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
 
+    pointerCursor.enable = true;
+
     stateVersion = "25.11";
   };
 }

@@ -51,7 +51,7 @@ inputs:
       };
     };
 
-    extraPackages = config.specCollect (acc: v: acc ++ (v.extraPackages or [ ])) [ ];
+    runtimePkgs = config.specCollect (acc: v: acc ++ (v.extraPackages or [ ])) [ ];
 
     settings.config_directory = pkgs.stdenvNoCC.mkDerivation {
       pname = "nix-cfg-neovim";
