@@ -9,7 +9,7 @@
   imports = [
     ../wayland
     ../way-displays
-    ../tofi
+    ../fuzzel
     ../waybar
   ];
 
@@ -21,33 +21,13 @@
   };
 
   config = {
-    home.packages =
-      let
-        shotman = pkgs.shotman.overrideAttrs (
-          finalAttrs: _prevAttrs: {
-            version = "0.4.9";
-            src = pkgs.fetchFromSourcehut {
-              owner = "~whynothugo";
-              repo = "shotman";
-              rev = "v${finalAttrs.version}";
-              hash = "sha256-L67cCyTBk+X3KPyFveGcRk9Vg6tSgM/Ne7b9Gpi/CmQ=";
-            };
-            cargoHash = "sha256-SYMIeZ8b0svG+iPvdXalsyp5hb+7Wht6hH46UEzUQ7s=";
-            cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
-              inherit (finalAttrs) pname src version;
-              hash = finalAttrs.cargoHash;
-            };
-          }
-        );
-      in
-      with pkgs;
-      [
-        swaynotificationcenter
-        swaybg
-        wideriver
-        shotman
-        river-bedload
-      ];
+    home.packages = with pkgs; [
+      swaynotificationcenter
+      swaybg
+      wideriver
+      shotman
+      wlr-randr
+    ];
 
     wayland.windowManager.river = {
       enable = true;
@@ -59,7 +39,7 @@
         in
         /* bash */ ''
           TOUCHPAD_SCROLL_FACTOR=${toString cfg.touchpadScrollFactor}
-          OUTPUTS=$(river-bedload -print outputs)
+          OUTPUTS=$(wlr-randr --json)
           DP_INTERNAL=$(echo $OUTPUTS | jq -r '.[].name | first(select(startswith("eDP-")))')
           DP_EXTERNAL=$(echo $OUTPUTS | jq -r '.[].name | first(select(startswith("DP-")))')
           COLOR_BG=${hexes.base00}

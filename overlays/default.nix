@@ -12,5 +12,10 @@ in
   inherit (inputs.ANAKRON.packages.${system}) ANAKRON;
   inherit (inputs.QUINTESSON.packages.${system}) QUINTESSON;
   inherit (inputs.apple-fonts.packages.${system}) sf-pro ny;
-  inherit (self.packages.${system}) neovim alacritty lsfg-vk;
+  inherit (self.packages.${system})
+    neovim
+    alacritty
+    fuzzel
+    lsfg-vk
+    ;
 }
