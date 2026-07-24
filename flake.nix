@@ -28,8 +28,7 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     yeetmouse = {
-      # TODO: unpin when fixed
-      url = "github:AndyFilter/YeetMouse/7f9c782b66624edd7cb95db87630f7dd60ccb6ba?dir=nix";
+      url = "github:AndyFilter/YeetMouse?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kirsch.url = "github:molarmanful/kirsch";
