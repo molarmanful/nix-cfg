@@ -10,7 +10,7 @@ let
     text = ''
       case $(
         printf '%s\n' suspend hibernate hybrid shutdown reboot |
-        fuzzel --dmenu --prompt-text=' ⏻ ' --width=20
+        fuzzel --dmenu --prompt='⏻ ' --width=20
       ) in
         suspend) systemctl suspend ;;
         hibernate) systemctl hibernate ;;
