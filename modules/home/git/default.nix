@@ -9,7 +9,10 @@ in
       enable = true;
       package = pkgs.git;
       lfs.enable = true;
-      ignores = [ ".jj" ];
+      ignores = [
+        ".jj"
+        ".null-ls_*"
+      ];
       settings = {
         user = {
           name = inputs.secrets.git.userName;
