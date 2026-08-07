@@ -50,6 +50,23 @@ in
     };
     kernelParams = [ "usbcore.autosuspend=-1" ];
     kernel.sysctl."kernel.split_lock_mitigate" = 0;
+    kernelModules = [ "yeetmouse" ];
+    extraModprobeConfig = ''
+      options yeetmouse ${
+        lib.concatMapStringsSep " " (p: "${p.param}=${p.value}") (
+          with config.hardware.yeetmouse;
+          [
+            inputCap
+            outputCap
+            offset
+            preScale
+          ]
+          ++ sensitivity
+          ++ rotation
+          ++ mode
+        )
+      }
+    '';
   };
 
   hardware = {
@@ -281,6 +298,7 @@ in
           echo -1 > /sys/module/usbcore/parameters/autosuspend
         '';
       };
+
       greetd.serviceConfig = {
         Type = "idle";
         StandardInput = "tty";

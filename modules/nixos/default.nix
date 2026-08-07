@@ -93,7 +93,6 @@ in
         "networkmanager"
         "video"
         "input"
-        "yeetmouse"
       ];
     };
   };

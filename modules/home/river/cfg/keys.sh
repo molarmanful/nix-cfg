@@ -23,7 +23,7 @@ riverctl map normal Super Space zoom
 
 riverctl map normal Super W send-layout-cmd wideriver '--layout monocle'
 riverctl map normal Super S send-layout-cmd wideriver '--layout left --stack dwindle --ratio 0.5'
-riverctl map normal Super E send-layout-cmd wideriver '--layout left --stack even --ratio 0.7'
+riverctl map normal Super E send-layout-cmd wideriver '--layout right --stack even --ratio 0.7'
 riverctl map normal Super Up    send-layout-cmd wideriver '--layout top'
 riverctl map normal Super Right send-layout-cmd wideriver '--layout right'
 riverctl map normal Super Down  send-layout-cmd wideriver '--layout bottom'

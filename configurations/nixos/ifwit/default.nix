@@ -10,7 +10,7 @@ in
 
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+    inputs.nixos-hardware.nixosModules.framework-16-amd-ai-300-series
     ./hardware-configuration.nix
     self.nixosModules.gui
     self.nixosModules.amd
