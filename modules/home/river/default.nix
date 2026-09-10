@@ -59,6 +59,7 @@
           echo 'LAYOUT done'
 
           riverctl spawn 'swaybg -m fit -c 000000 -i ${../../stylix/skull.png}'
+          rm -f /tmp/way-displays.pid /tmp/way-displays.$XDG_VTNR.pid
           riverctl spawn way-displays
           riverctl spawn swaync
           riverctl spawn waybar

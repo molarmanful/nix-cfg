@@ -37,6 +37,7 @@ in
       protontricks
       lsfg-vk
       claude-code
+      python3
     ];
 
     file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
