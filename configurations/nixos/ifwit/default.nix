@@ -36,6 +36,11 @@ in
     };
   };
 
+  systemd.services.nscd.environment = {
+    NSNCD_IGNORE_HOSTS = "true";
+    NSNCD_WORKER_COUNT = "64";
+  };
+
   home-manager.users.ben = {
     imports = [ self.homeModules.ifwit ];
   };
