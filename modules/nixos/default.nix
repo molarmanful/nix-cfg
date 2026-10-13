@@ -22,11 +22,7 @@ in
       inputs.nixpkgs-wayland.overlay
     ]
     ++ lib.attrValues self.overlays;
-    config = {
-      allowUnfree = true;
-      # TODO: remove when bitwarden updates electron dep
-      permittedInsecurePackages = [ "electron-39.8.10" ];
-    };
+    config.allowUnfree = true;
   };
 
   nix = {

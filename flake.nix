@@ -28,7 +28,8 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     yeetmouse = {
-      url = "github:AndyFilter/YeetMouse?dir=nix";
+      # TODO: return to upstream when CXXFLAGS is updated
+      url = "github:molarmanful/YeetMouse?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kirsch.url = "github:molarmanful/kirsch";
