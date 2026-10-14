@@ -17,6 +17,8 @@ in
     alacritty
     fuzzel
     lsfg-vk
-    claude
     ;
+  claude = self.packages.${system}.claude.override {
+    inherit (self.packages.${system}) claude-code;
+  };
 }

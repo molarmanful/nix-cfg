@@ -3,6 +3,7 @@
   bubblewrap,
   git,
   coreutils,
+  landrun,
   claude-code,
 }:
 
@@ -26,6 +27,10 @@ writeShellApplication {
     esac
 
     mkdir -p "$HOME/.claude" "$root/.claude"
+    defaults=${claude-code}/claude-default-settings.json
+    if [ ! -e "$HOME/.claude/settings.json" ] && [ -e "$defaults" ]; then
+      install -m600 "$defaults" "$HOME/.claude/settings.json"
+    fi
     [ -e "$HOME/.claude/settings.json" ] || echo '{}' >"$HOME/.claude/settings.json"
     [ -e "$HOME/.claude.json" ] || echo '{}' >"$HOME/.claude.json"
 
@@ -34,12 +39,6 @@ writeShellApplication {
       --unshare-all
       --share-net
       --die-with-parent
-      --clearenv
-      --setenv HOME "$HOME"
-      --setenv USER "$USER"
-      --setenv PATH "${claude-code}/bin:/etc/profiles/per-user/$USER/bin:/run/current-system/sw/bin"
-      --setenv TMPDIR /tmp
-      --setenv XDG_RUNTIME_DIR "/run/user/$uid"
       --dev /dev
       --proc /proc
       --ro-bind /nix /nix
@@ -61,10 +60,19 @@ writeShellApplication {
       --chdir "$PWD"
     )
 
+    env=(
+      --env "HOME=$HOME"
+      --env "USER=$USER"
+      --env "PATH=${claude-code}/bin:/etc/profiles/per-user/$USER/bin:/run/current-system/sw/bin"
+      --env TMPDIR=/tmp
+      --env "XDG_RUNTIME_DIR=/run/user/$uid"
+    )
     for v in TERM COLORTERM LANG LC_ALL LOCALE_ARCHIVE TZDIR TERMINFO_DIRS EDITOR VISUAL GIT_EDITOR PAGER NIX_PATH; do
-      if [ -n "''${!v-}" ]; then args+=(--setenv "$v" "''${!v}"); fi
+      if [ -n "''${!v-}" ]; then env+=(--env "$v=''${!v}"); fi
     done
 
-    exec bwrap "''${args[@]}" claude "$@"
+    exec bwrap "''${args[@]}" \
+      ${landrun}/bin/landrun --unrestricted-filesystem --unrestricted-network "''${env[@]}" -- \
+      ${claude-code}/bin/claude "$@"
   '';
 }
