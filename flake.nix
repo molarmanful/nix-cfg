@@ -32,6 +32,7 @@
       url = "github:molarmanful/YeetMouse?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents.url = "github:numtide/llm-agents.nix";
     kirsch.url = "github:molarmanful/kirsch";
     ANAKRON.url = "github:molarmanful/ANAKRON";
     QUINTESSON.url = "github:molarmanful/QUINTESSON";

@@ -33,14 +33,14 @@ in
       ];
       auto-optimise-store = true;
       trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+        "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
       ];
       substituters = [
-        "https://cache.nixos.org"
         "https://nixpkgs-wayland.cachix.org"
         "https://cache.iog.io"
+        "https://cache.numtide.com"
       ];
     };
 

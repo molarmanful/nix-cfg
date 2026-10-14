@@ -19,26 +19,30 @@ in
   ];
 
   home = {
-    packages = with pkgs; [
-      chromium
-      libsForQt5.qt5ct
-      obs-studio
-      obs-studio-plugins.wlrobs
-      feh
-      bluetuith
-      krita
-      bitwarden-desktop
-      quickemu
-      vesktop
-      slack
-      steamtinkerlaunch
-      libstrangle
-      mangohud
-      protontricks
-      lsfg-vk
-      claude-code
-      python3
-    ];
+    packages =
+      with pkgs;
+      with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+      [
+        chromium
+        libsForQt5.qt5ct
+        obs-studio
+        obs-studio-plugins.wlrobs
+        feh
+        bluetuith
+        krita
+        bitwarden-desktop
+        quickemu
+        vesktop
+        slack
+        steamtinkerlaunch
+        libstrangle
+        mangohud
+        protontricks
+        lsfg-vk
+        claude-code
+        claudebox
+        python3
+      ];
 
     file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
 
