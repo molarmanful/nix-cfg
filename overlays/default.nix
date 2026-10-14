@@ -17,5 +17,6 @@ in
     alacritty
     fuzzel
     lsfg-vk
+    claude
     ;
 }

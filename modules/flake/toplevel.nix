@@ -7,8 +7,13 @@
   systems = [ "x86_64-linux" ];
 
   perSystem =
-    { self', ... }:
+    { self', system, ... }:
     {
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
       packages = {
         default = self'.packages.activate;
       };
