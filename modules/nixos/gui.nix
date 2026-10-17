@@ -271,6 +271,8 @@ in
       })
       file-roller
       brightnessctl
+      quickemu
+      virtiofsd
     ];
 
     etc."libinput/local-overrides.quirks".text = ''
@@ -345,6 +347,8 @@ in
 
     dconf.enable = true;
   };
+
+  virtualisation.libvirtd.enable = true;
 
   specialisation = {
     unplugged.configuration = {

@@ -28,7 +28,6 @@ in
       bluetuith
       krita
       bitwarden-desktop
-      quickemu
       vesktop
       slack
       steamtinkerlaunch
@@ -38,7 +37,6 @@ in
       lsfg-vk
       claude
       python3
-      quickemu
     ];
 
     file.".XCompose".source = "${pkgs.keyd}/share/keyd/keyd.compose";
