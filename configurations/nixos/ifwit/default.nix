@@ -22,12 +22,7 @@ in
     networkmanager.ensureProfiles.profiles = inputs.secrets.nm_profiles.ifwit;
   };
 
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/nvme0n1p2";
-      preLVM = true;
-    };
-  };
+  boot.initrd.luks.devices.root.device = "/dev/nvme0n1p2";
 
   environment = {
     systemPackages = with pkgs; [ fw-ectool ];
@@ -41,9 +36,7 @@ in
     NSNCD_WORKER_COUNT = "64";
   };
 
-  home-manager.users.ben = {
-    imports = [ self.homeModules.ifwit ];
-  };
+  home-manager.users.ben.imports = [ self.homeModules.ifwit ];
 
   system.stateVersion = "25.11";
 }

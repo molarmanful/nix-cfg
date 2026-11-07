@@ -4,7 +4,7 @@
     wl-clipboard-rs
     wl-clip-persist
     pavucontrol
-    pw-volume
+    wireplumber
     crosspipe
     playerctl
   ];
