@@ -1,6 +1,7 @@
 _inputs:
 {
   wlib,
+  pkgs,
   ...
 }:
 
@@ -22,6 +23,24 @@ _inputs:
         disableBypassPermissionsMode = "disable";
       };
       env.ANTHROPIC_BASE_URL = "https://api.anthropic.com";
+      spinnerVerbs = {
+        mode = "replace";
+        verbs = [ "Loading" ];
+      };
+      hooks.PreToolUse = [
+        {
+          matcher = "*";
+          hooks = [
+            {
+              type = "command";
+              command = /* sh */ ''
+                e=$(${pkgs.jq}/bin/jq -r '.oauthAccount.emailAddress // empty' "$HOME/.claude.json" 2>/dev/null)
+                [ -n "$e" ] && ${pkgs.gnugrep}/bin/grep -qiF -- "$e" && echo "blocked: input contains the account email" >&2 && exit 2 || exit 0
+              '';
+            }
+          ];
+        }
+      ];
     };
 
     constructFiles.defaultSettings = {

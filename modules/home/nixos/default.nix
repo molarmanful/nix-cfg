@@ -45,4 +45,6 @@ in
 
     stateVersion = "25.11";
   };
+
+  services.opensnitch-ui.enable = true;
 }

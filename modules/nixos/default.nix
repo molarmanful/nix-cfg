@@ -114,7 +114,55 @@ in
     nix-index-database.comma.enable = true;
   };
 
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+
+    opensnitch = {
+      enable = true;
+      settings = {
+        DefaultAction = "deny";
+        ProcMonitorMethod = "proc";
+      };
+      rules."000-deny-claude-unset" = {
+        name = "000-deny-claude-unset";
+        enabled = true;
+        action = "deny";
+        duration = "always";
+        precedence = true;
+        operator = {
+          type = "list";
+          operand = "list";
+          list = [
+            {
+              type = "regexp";
+              operand = "process.parent.path";
+              sensitive = false;
+              data = "-claude-bwrap/bin/bwrap$";
+            }
+            {
+              type = "regexp";
+              operand = "process.env.CLAUDE_SANDBOX";
+              sensitive = false;
+              data = "^$";
+            }
+          ];
+        };
+      };
+      rules.allow-non-claude = {
+        name = "allow-non-claude";
+        enabled = true;
+        action = "allow";
+        duration = "always";
+        precedence = true;
+        operator = {
+          type = "regexp";
+          sensitive = false;
+          operand = "process.env.CLAUDE_SANDBOX";
+          data = "^$";
+        };
+      };
+    };
+  };
 
   home-manager = {
     # useGlobalPkgs = true;

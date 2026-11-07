@@ -1,5 +1,6 @@
 {
   writeShellApplication,
+  runCommand,
   bubblewrap,
   git,
   coreutils,
@@ -7,10 +8,15 @@
   claude-code,
 }:
 
+let
+  claude-bwrap = runCommand "claude-bwrap" { } ''
+    install -Dm755 ${bubblewrap}/bin/bwrap $out/bin/bwrap
+  '';
+in
+
 writeShellApplication {
   name = "claude";
   runtimeInputs = [
-    bubblewrap
     git
     coreutils
   ];
@@ -42,10 +48,11 @@ writeShellApplication {
       --dev /dev
       --proc /proc
       --ro-bind /nix /nix
-      --bind /nix/var/nix/daemon-socket /nix/var/nix/daemon-socket
+      --tmpfs /nix/var/nix/daemon-socket
       --ro-bind /etc /etc
       --ro-bind-try /usr /usr
       --ro-bind-try /bin /bin
+      --ro-bind-try /lib64 /lib64
       --ro-bind-try /run/current-system /run/current-system
       --ro-bind-try /run/systemd/resolve /run/systemd/resolve
       --tmpfs /tmp
@@ -54,6 +61,7 @@ writeShellApplication {
       --bind "$HOME/.claude" "$HOME/.claude"
       --bind "$HOME/.claude.json" "$HOME/.claude.json"
       --ro-bind "$HOME/.claude/settings.json" "$HOME/.claude/settings.json"
+      --ro-bind-try "$HOME/.local/share/uv" "$HOME/.local/share/uv"
       --bind "$root" "$root"
       --ro-bind-try "$root/.git" "$root/.git"
       --ro-bind "$root/.claude" "$root/.claude"
@@ -64,14 +72,14 @@ writeShellApplication {
       --env "HOME=$HOME"
       --env "USER=$USER"
       --env "PATH=${claude-code}/bin:/etc/profiles/per-user/$USER/bin:/run/current-system/sw/bin"
-      --env TMPDIR=/tmp
       --env "XDG_RUNTIME_DIR=/run/user/$uid"
+      --env CLAUDE_SANDBOX=1
     )
-    for v in TERM COLORTERM LANG LC_ALL LOCALE_ARCHIVE TZDIR TERMINFO_DIRS EDITOR VISUAL GIT_EDITOR PAGER NIX_PATH; do
+    for v in TERM COLORTERM LANG LC_ALL LOCALE_ARCHIVE TZDIR TERMINFO_DIRS EDITOR VISUAL GIT_EDITOR PAGER; do
       if [ -n "''${!v-}" ]; then env+=(--env "$v=''${!v}"); fi
     done
 
-    exec bwrap "''${args[@]}" \
+    exec ${claude-bwrap}/bin/bwrap --clearenv "''${args[@]}" \
       ${landrun}/bin/landrun --unrestricted-filesystem --unrestricted-network "''${env[@]}" -- \
       ${claude-code}/bin/claude "$@"
   '';
