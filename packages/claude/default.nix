@@ -32,7 +32,7 @@ writeShellApplication {
         ;;
     esac
 
-    mkdir -p "$HOME/.claude" "$root/.claude"
+    mkdir -p "$HOME/.claude" "$root/.claude" "$root/.direnv"
     defaults=${claude-code}/claude-default-settings.json
     if [ ! -e "$HOME/.claude/settings.json" ] && [ -e "$defaults" ]; then
       install -m600 "$defaults" "$HOME/.claude/settings.json"
@@ -65,6 +65,7 @@ writeShellApplication {
       --bind "$root" "$root"
       --ro-bind-try "$root/.git" "$root/.git"
       --ro-bind "$root/.claude" "$root/.claude"
+      --ro-bind "$root/.direnv" "$root/.direnv"
       --chdir "$PWD"
     )
 
