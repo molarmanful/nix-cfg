@@ -25,6 +25,9 @@ in
       "private_keys/updoc" = {
         path = "${config.home.homeDirectory}/.ssh/updoc_ed25519";
       };
+      claude-gh = {
+        path = "${config.home.homeDirectory}/.config/claude/gh-token";
+      };
     };
   };
 }

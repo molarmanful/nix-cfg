@@ -59,7 +59,6 @@ in
     age
     sqlite
     distrobox
-    azure-cli
     sops
   ];
 

@@ -79,6 +79,15 @@ writeShellApplication {
     for v in TERM COLORTERM LANG LC_ALL LOCALE_ARCHIVE TZDIR TERMINFO_DIRS EDITOR VISUAL GIT_EDITOR PAGER; do
       if [ -n "''${!v-}" ]; then env+=(--env "$v=''${!v}"); fi
     done
+    tok="$HOME/.config/claude/gh-token"
+    if [ -r "$tok" ]; then
+      env+=(
+        --env "GH_TOKEN=$(<"$tok")"
+        --env GIT_CONFIG_COUNT=1
+        --env GIT_CONFIG_KEY_0=credential.https://github.com.helper
+        --env "GIT_CONFIG_VALUE_0=!gh auth git-credential"
+      )
+    fi
 
     exec ${claude-bwrap}/bin/bwrap --clearenv "''${args[@]}" \
       ${landrun}/bin/landrun --unrestricted-filesystem --unrestricted-network "''${env[@]}" -- \
