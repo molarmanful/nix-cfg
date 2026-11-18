@@ -2,7 +2,8 @@
 
 (fn after []
   (let [{: setup : load_extension} (autoload :telescope)
-        actions (autoload :telescope.actions)]
+        actions (autoload :telescope.actions)
+        fb-actions (autoload :telescope._extensions.file_browser.actions)]
     (fn cfg []
       (setup {:defaults {:prompt_prefix "   "
                          :selection_caret " "
@@ -14,7 +15,9 @@
                                                       :preview_width 0.55}}
                          :mappings {:n {:q actions.close}
                                     :i {:<C-j> :move_selection_next
-                                        :<C-k> :move_selection_previous}}}}))
+                                        :<C-k> :move_selection_previous}}}
+              :extensions {:file_browser {:mappings {:n {:<A-i> fb-actions.toggle_respect_gitignore}
+                                                     :i {:<A-i> fb-actions.toggle_respect_gitignore}}}}}))
 
     (fn exts []
       (let [xs [:themes :terms :persisted :fzf :ui-select :file_browser]]
@@ -44,6 +47,9 @@
                       "<cmd> Telescope file_browser hidden=true path=%:p:h <CR>"
                       {:desc "telescope file browser (relative)"})
       (vim.keymap.set :n :<leader>fa
+                      "<cmd>Telescope find_files follow=true hidden=true<CR>"
+                      {:desc "telescope find all unignored files"})
+      (vim.keymap.set :n :<leader>fA
                       "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>"
                       {:desc "telescope find all files"})
       (vim.keymap.set :n :<leader>fs "<cmd> Telescope persisted <CR>"

@@ -15,9 +15,9 @@
         {:desc (.. "nvim-tree: " desc) :buffer bufnr})
 
       (vim.keymap.del :n :y (opts ""))
-      (vim.keymap.set :n :y api.fs.copy.node (opts :Copy))
+      (vim.keymap.set :n :y api.fs.copy.node (opts :copy))
       (vim.keymap.del :n :c (opts ""))
-      (vim.keymap.set :n :c api.fs.create (opts "Create File Or Directory"))))
+      (vim.keymap.set :n :c api.fs.create (opts "create file or directory"))))
 
   (let [{: setup} (autoload :nvim-tree)]
     (setup {: on_attach

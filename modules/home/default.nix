@@ -15,6 +15,7 @@ in
     ./nvim
     ./rclone
     ./bacon
+    ./ripgrep
   ];
 
   home.packages = with pkgs; [
@@ -24,7 +25,6 @@ in
     unzip
     p7zip
     bat
-    ripgrep
     repgrep
     fzf
     file
