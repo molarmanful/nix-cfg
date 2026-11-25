@@ -121,44 +121,88 @@ in
       enable = true;
       settings = {
         DefaultAction = "deny";
-        ProcMonitorMethod = "proc";
+        ProcMonitorMethod = "ebpf";
       };
-      rules."000-deny-claude-unset" = {
-        name = "000-deny-claude-unset";
-        enabled = true;
-        action = "deny";
-        duration = "always";
-        precedence = true;
-        operator = {
-          type = "list";
-          operand = "list";
-          list = [
-            {
-              type = "regexp";
-              operand = "process.parent.path";
-              sensitive = false;
-              data = "-claude-bwrap/bin/bwrap$";
-            }
-            {
-              type = "regexp";
-              operand = "process.env.CLAUDE_SANDBOX";
-              sensitive = false;
-              data = "^$";
-            }
-          ];
+
+      rules = {
+        "000-deny-nested-claude" = {
+          name = "000-deny-nested-claude";
+          enabled = true;
+          action = "deny";
+          duration = "always";
+          precedence = true;
+          operator = {
+            type = "list";
+            operand = "list";
+            list = [
+              {
+                type = "regexp";
+                operand = "process.path";
+                sensitive = false;
+                data = "^/nix/store/[a-z0-9]{32}-claude-code-[^/]+/bin/\\.claude-wrapped$";
+              }
+              {
+                type = "regexp";
+                operand = "process.parent.path";
+                sensitive = false;
+                data = "/bin/\\.claude-wrapped$";
+              }
+            ];
+          };
         };
-      };
-      rules.allow-non-claude = {
-        name = "allow-non-claude";
-        enabled = true;
-        action = "allow";
-        duration = "always";
-        precedence = true;
-        operator = {
-          type = "regexp";
-          sensitive = false;
-          operand = "process.env.CLAUDE_SANDBOX";
-          data = "^$";
+
+        "001-allow-claude" = {
+          name = "001-allow-claude";
+          enabled = true;
+          action = "allow";
+          duration = "always";
+          precedence = true;
+          operator = {
+            type = "regexp";
+            operand = "process.path";
+            sensitive = false;
+            data = "^/nix/store/[a-z0-9]{32}-claude-code-[^/]+/bin/\\.claude-wrapped$";
+          };
+        };
+
+        "002-deny-claude-unset" = {
+          name = "002-deny-claude-unset";
+          enabled = true;
+          action = "deny";
+          duration = "always";
+          precedence = true;
+          operator = {
+            type = "list";
+            operand = "list";
+            list = [
+              {
+                type = "regexp";
+                operand = "process.parent.path";
+                sensitive = false;
+                data = "-claude-bwrap/bin/bwrap$";
+              }
+              {
+                type = "regexp";
+                operand = "process.env.CLAUDE_SANDBOX";
+                sensitive = false;
+                data = "^$";
+              }
+            ];
+          };
+        };
+
+        "999-allow-non-claude" = {
+          name = "999-allow-non-claude";
+          enabled = true;
+          action = "allow";
+          duration = "always";
+          precedence = true;
+          operator = {
+            type = "regexp";
+            sensitive = false;
+            operand = "process.env.CLAUDE_SANDBOX";
+            data = "^$";
+          };
         };
       };
     };
