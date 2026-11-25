@@ -90,7 +90,7 @@ writeShellApplication {
 
     export CLAUDE_SANDBOX=1
     exec ${claude-pasta}/bin/pasta --quiet --config-net \
-      --tcp-ports none --udp-ports none --tcp-ns none --udp-ns none --no-map-gw -- \
+      --tcp-ports none --udp-ports none --tcp-ns "$(cat "$root/.claude/ports" 2>/dev/null || echo none)" --udp-ns none --no-map-gw -- \
       ${claude-bwrap}/bin/bwrap --clearenv "''${args[@]}" \
       ${landrun}/bin/landrun --unrestricted-filesystem --unrestricted-network "''${env[@]}" -- \
       ${claude-code}/bin/claude "$@"
