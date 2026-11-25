@@ -2,6 +2,7 @@
   writeShellApplication,
   runCommand,
   bubblewrap,
+  passt,
   git,
   coreutils,
   landrun,
@@ -11,6 +12,10 @@
 let
   claude-bwrap = runCommand "claude-bwrap" { } ''
     install -Dm755 ${bubblewrap}/bin/bwrap $out/bin/bwrap
+  '';
+  claude-pasta = runCommand "claude-pasta" { } ''
+    install -Dm755 ${passt}/bin/pasta $out/bin/pasta
+    install -Dm755 ${passt}/bin/pasta.avx2 $out/bin/pasta.avx2
   '';
 in
 
@@ -41,8 +46,11 @@ writeShellApplication {
     [ -e "$HOME/.claude.json" ] || echo '{}' >"$HOME/.claude.json"
 
     uid=$(id -u)
+    gid=$(id -g)
     args=(
       --unshare-all
+      --uid "$uid"
+      --gid "$gid"
       --share-net
       --die-with-parent
       --dev /dev
@@ -80,7 +88,10 @@ writeShellApplication {
       if [ -n "''${!v-}" ]; then env+=(--env "$v=''${!v}"); fi
     done
 
-    exec ${claude-bwrap}/bin/bwrap --clearenv "''${args[@]}" \
+    export CLAUDE_SANDBOX=1
+    exec ${claude-pasta}/bin/pasta --quiet --config-net \
+      --tcp-ports none --udp-ports none --tcp-ns none --udp-ns none --no-map-gw -- \
+      ${claude-bwrap}/bin/bwrap --clearenv "''${args[@]}" \
       ${landrun}/bin/landrun --unrestricted-filesystem --unrestricted-network "''${env[@]}" -- \
       ${claude-code}/bin/claude "$@"
   '';

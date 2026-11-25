@@ -125,10 +125,10 @@ in
       };
 
       rules = {
-        "000-deny-nested-claude" = {
-          name = "000-deny-nested-claude";
+        "000-allow-claude-api" = {
+          name = "000-allow-claude-api";
           enabled = true;
-          action = "deny";
+          action = "allow";
           duration = "always";
           precedence = true;
           operator = {
@@ -139,29 +139,41 @@ in
                 type = "regexp";
                 operand = "process.path";
                 sensitive = false;
-                data = "^/nix/store/[a-z0-9]{32}-claude-code-[^/]+/bin/\\.claude-wrapped$";
+                data = "-claude-pasta/bin/pasta(\\.avx2)?$";
               }
               {
                 type = "regexp";
-                operand = "process.parent.path";
+                operand = "dest.host";
                 sensitive = false;
-                data = "/bin/\\.claude-wrapped$";
+                data = "(^|\\.)(anthropic\\.com|claude\\.ai|claude\\.com)$";
               }
             ];
           };
         };
 
-        "001-allow-claude" = {
-          name = "001-allow-claude";
+        "001-allow-claude-dns" = {
+          name = "001-allow-claude-dns";
           enabled = true;
           action = "allow";
           duration = "always";
           precedence = true;
           operator = {
-            type = "regexp";
-            operand = "process.path";
-            sensitive = false;
-            data = "^/nix/store/[a-z0-9]{32}-claude-code-[^/]+/bin/\\.claude-wrapped$";
+            type = "list";
+            operand = "list";
+            list = [
+              {
+                type = "regexp";
+                operand = "process.path";
+                sensitive = false;
+                data = "-claude-pasta/bin/pasta(\\.avx2)?$";
+              }
+              {
+                type = "simple";
+                operand = "dest.port";
+                sensitive = false;
+                data = "53";
+              }
+            ];
           };
         };
 
@@ -177,9 +189,9 @@ in
             list = [
               {
                 type = "regexp";
-                operand = "process.parent.path";
+                operand = "process.path";
                 sensitive = false;
-                data = "-claude-bwrap/bin/bwrap$";
+                data = "-claude-pasta/bin/pasta(\\.avx2)?$";
               }
               {
                 type = "regexp";
